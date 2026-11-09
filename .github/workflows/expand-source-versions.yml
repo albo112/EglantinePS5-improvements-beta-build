@@ -1,0 +1,53 @@
+name: Expand and verify source versions
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'source-versions/archive/chunks/*.b64'
+
+permissions:
+  contents: write
+
+jobs:
+  expand:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Verify archive and expand source files
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/eglantine-source
+          cat source-versions/archive/chunks/part-*.b64 | tr -d '\n' | base64 --decode > /tmp/eglantine-source/all-sources.zip
+          echo '2e466920a9169b04bcb9d4488ef375e0c678ca1c55e3b0ffd3145b8884fae3bd  /tmp/eglantine-source/all-sources.zip' | sha256sum --check
+          unzip -q /tmp/eglantine-source/all-sources.zip -d /tmp/eglantine-source
+          ROOT=/tmp/eglantine-source/EglantinePS5-All-Sources-Newest-to-Oldest
+          test -f "$ROOT/README.md"
+          for item in \
+            01_Test4A_12GiB_2Workers_LATEST \
+            02_Test4A_Graphics_Crash_Fixes \
+            03_Test3_Graphics_Crash_Fixes \
+            04_Test2_Memory_Fix \
+            05_T34_RADV_Compiled_Release_Only \
+            provenance scripts; do
+            cp -a "$ROOT/$item" source-versions/
+          done
+          cp "$ROOT/README.md" source-versions/README.md
+          test -f source-versions/01_Test4A_12GiB_2Workers_LATEST/SOURCE.json
+          grep -q '^EDEN_NX2_MEMORY_GB=12' source-versions/01_Test4A_12GiB_2Workers_LATEST/profiles/env-0400486024dec000.txt
+          grep -q '^EDEN_NX2_PIPELINE_WORKERS=2' source-versions/01_Test4A_12GiB_2Workers_LATEST/profiles/env-0400486024dec000.txt
+      - name: Commit extracted source
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add source-versions
+          if git diff --cached --quiet; then
+            echo 'Source folders already present'
+          else
+            git commit -m 'Expand complete EglantinePS5 source history newest to oldest'
+            git push
+          fi
