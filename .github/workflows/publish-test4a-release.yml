@@ -1,0 +1,83 @@
+name: Publish verified Test4-A experimental release
+
+on:
+  workflow_run:
+    workflows: ["Build pinned EglantinePS5 Test4-A"]
+    types: [completed]
+
+permissions:
+  actions: read
+  contents: write
+
+jobs:
+  publish:
+    if: >-
+      ${{ github.event.workflow_run.conclusion == 'success' &&
+          github.event.workflow_run.head_branch == 'main' &&
+          github.event.workflow_run.event == 'push' &&
+          github.event.workflow_run.head_repository.full_name == github.repository }}
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Download the exact build artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN_ID: ${{ github.event.workflow_run.id }}
+          RUN_NUMBER: ${{ github.event.workflow_run.run_number }}
+        run: |
+          set -euo pipefail
+          gh run download "$RUN_ID" --repo "$GITHUB_REPOSITORY" \
+            --name "eglantine-test4a-12gib-2workers-build-$RUN_NUMBER" \
+            --dir "$RUNNER_TEMP/verified"
+
+      - name: Verify the ZIP and SHA256
+        run: |
+          set -euo pipefail
+          count=$(find "$RUNNER_TEMP/verified" -type f -name 'EglantinePS5-v*.zip' | wc -l)
+          test "$count" -eq 1
+          zipfile=$(find "$RUNNER_TEMP/verified" -type f -name 'EglantinePS5-v*.zip' -print -quit)
+          sums="$(dirname "$zipfile")/SHA256SUMS"
+          test -f "$sums"
+          (cd "$(dirname "$zipfile")" && sha256sum -c SHA256SUMS)
+          python3 - "$zipfile" <<'PY'
+          import json,sys,zipfile
+          with zipfile.ZipFile(sys.argv[1]) as z:
+              assert z.testzip() is None, "corrupt ZIP entry"
+              assert "PPSA98515/eboot.bin" in z.namelist(), "missing executable"
+              assert z.getinfo("PPSA98515/eboot.bin").file_size > 0
+              version=json.loads(z.read("PPSA98515/sce_sys/param.json"))["contentVersion"]
+              print("Verified PS5 package version",version)
+          PY
+          echo "RELEASE_ZIP=$zipfile" >> "$GITHUB_ENV"
+          echo "RELEASE_SUMS=$sums" >> "$GITHUB_ENV"
+
+      - name: Publish prerelease, never overwrite an existing release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN_ID: ${{ github.event.workflow_run.id }}
+          BUILT_COMMIT: ${{ github.event.workflow_run.head_sha }}
+        run: |
+          set -euo pipefail
+          tag="test4a-12gib-2workers-run-$RUN_ID"
+          if gh release view "$tag" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            echo "Already published: $tag"
+            exit 0
+          fi
+          {
+            echo "## EglantinePS5 Test4-A — 12 GiB / 2 workers"
+            echo
+            echo "**Experimental prerelease.** Archive checksum and eboot.bin were checked by GitHub Actions; gameplay and PS5 stability have not been verified."
+            echo
+            echo "- Frontend pin: Vampinity/Eglantine-PS5- at 25cfc07be0a3675749adece5d012fdb916c4cd48."
+            echo "- Emulator core pin: Djihads80/Eglantine at 0ca2032bffc5f1a3fca75427f7d4a4718adda660."
+            echo "- Includes Test4-A ordered source changes and 12 GiB / 2 pipeline workers configuration."
+            echo "- Build source: $BUILT_COMMIT."
+            echo "- Workflow run: https://github.com/$GITHUB_REPOSITORY/actions/runs/$RUN_ID."
+            echo "- Source history: https://github.com/$GITHUB_REPOSITORY/tree/main/source-versions."
+            echo
+            echo "Contains no games, keys or console firmware. Keep backups. Not a stable release."
+          } > "$RUNNER_TEMP/notes.md"
+          gh release create "$tag" --repo "$GITHUB_REPOSITORY" \
+            --target "$BUILT_COMMIT" --prerelease \
+            --title "EglantinePS5 Test4-A — 12 GiB / 2 workers (experimental)" \
+            --notes-file "$RUNNER_TEMP/notes.md" \
+            "$RELEASE_ZIP" "$RELEASE_SUMS"
