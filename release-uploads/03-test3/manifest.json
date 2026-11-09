@@ -1,0 +1,9 @@
+{
+  "tag": "zelda-test3-graphics-crash-fixes",
+  "title": "EglantinePS5 Zelda Test3 — Graphics and Crash Fixes",
+  "filename": "EglantinePS5-03-Test3-Graphics-Crash-Fixes-With-Source.zip",
+  "bytes": 38021858,
+  "sha256": "9e0c8a4043ff7dd5c0bd52a6f1811e8728e5711682ff7e27010c2f9edd0e87a3",
+  "part_count": 13,
+  "description": "Test3 graphics/crash fixes with matching source modifications and original PS5 compiled package."
+}
