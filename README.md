@@ -36,6 +36,10 @@ The 12 GiB setting selects a **guest memory layout**, not a total host-process m
 
 These folders are the **full set of user-supplied source modifications**, not a vendored checkout of every upstream source and binary dependency. The reconstruction script fetches the exact upstream commits and applies each ordered patch once. Build instructions are in [the source-versions README](source-versions/README.md).
 
+## Experimental release archive
+
+See **[RELEASES.md](RELEASES.md)** for the five supplied PS5 binaries, checksum verification, testing caveats and the release-upload instructions. GitHub-built test releases are published separately after CI validation.
+
 ## Build and validation
 
 GitHub Actions includes a [native PS5 build workflow](.github/workflows/build-pinned-test4a.yml) for reconstructing the pinned source and attempting a release build. **An Actions run is not proof of build success**: verify the job result, produced `eboot.bin`, release ZIP integrity, and real console testing before describing a build as validated.
