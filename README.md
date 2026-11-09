@@ -1,5 +1,5 @@
-# EglantinePS5 — Fork Improvements
-
+# EglantinePS5 — Improvements 
+  original build was from @Vampinity. With the help of gpt codex improvements to stability, graphics, memory and crashing issues have been added. Issues still are there but a lot more stable than it was. 
 Experimental Nintendo Switch / Switch 2 emulation project for a jailbroken PS5.
 
 ## Project maintainer and credits
