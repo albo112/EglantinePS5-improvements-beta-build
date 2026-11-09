@@ -1,0 +1,9 @@
+{
+  "tag": "zelda-test4a-12gib-2workers",
+  "title": "EglantinePS5 Zelda Test4-A — 12 GiB / 2 Workers",
+  "filename": "EglantinePS5-01-Test4A-12GiB-2Workers-With-Source.zip",
+  "bytes": 40132732,
+  "sha256": "3b6a466d18b30fc47a2ada25c5b2bf8fb3e6cd86c7ac5a414fdb9d2b59c42105",
+  "part_count": 14,
+  "description": "Latest Test4-A with 12 GiB guest-memory layout and two Vulkan pipeline workers, plus its corresponding source changes."
+}
