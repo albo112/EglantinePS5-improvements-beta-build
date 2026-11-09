@@ -1,0 +1,14 @@
+{
+  "frontend": {
+    "repository": "Vampinity/Eglantine-PS5-",
+    "commit": "25cfc07be0a3675749adece5d012fdb916c4cd48"
+  },
+  "core": {
+    "repository": "Djihads80/Eglantine",
+    "commit": "0ca2032bffc5f1a3fca75427f7d4a4718adda660"
+  },
+  "guest_memory_layout_gib": 12,
+  "pipeline_workers": 2,
+  "build_status": "not_built_network_unavailable",
+  "source_uploaded": false
+}
