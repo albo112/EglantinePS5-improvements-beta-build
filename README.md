@@ -2,6 +2,12 @@
 
 Experimental Nintendo Switch / Switch 2 emulation project for a jailbroken PS5.
 
+## Project maintainer and credits
+
+Maintained by **[Albo (@albo112)](https://github.com/albo112)**. This is an experimental derivative of the work by **[@viejunerd](https://github.com/viejunerd/Eglantine-PS5-)**, **[@Djihads80](https://github.com/Djihads80/Eglantine)**, **[@Vampinity](https://github.com/Vampinity/Eglantine-PS5-)**, **[@heydemoura](https://github.com/heydemoura/EglantinePS5)** and other upstream contributors.
+
+Development support: **OpenAI ChatGPT and Codex (AI-assisted work)**. See **[CREDITS.md](CREDITS.md)** for proper attribution and source lineage. Upstream authors are credited, not represented as maintainers of this fork.
+
 ## Source code versions — newest first
 
 **[Browse the complete versioned source collection](source-versions/)**
