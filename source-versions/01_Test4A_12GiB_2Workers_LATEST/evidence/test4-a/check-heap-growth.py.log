@@ -1,0 +1,22 @@
+[checked] given back: 4768 MiB of 6144, then 149 blocks of 24 MiB again in the same range
+room left behind: 2112 MiB of pieces, 2112 MiB after a thread used it, 99 arenas taken
+empty arenas: 102 spared as a thread ended, 424 at a trim (1120 MiB of pieces with them), 119 while eight threads worked, 119 taken again, 526 spare now
+heap by pieces: 1440000 operations on 8 threads, 569 arenas (17 for the keepers), most in use at once 906 MiB, 1376 MiB of pieces after the threads, 3552 MiB when full (149 blocks of 24 MiB)
+[checked] whole heap at once: 479108 operations on 8 threads, 288 arenas (15 for the keepers), most in use at once 875 MiB, 3072 MiB of pieces after the threads, 3072 MiB when full (51 blocks of 24 MiB)
+Traceback (most recent call last):
+  File "/var/lib/eglantine-build/zelda-test4-a/Eglantine-PS5/tools/check-heap-growth.py", line 732, in <module>
+    result = subprocess.run([str(binary), *mode], capture_output=True, text=True, timeout=900)
+  File "/usr/lib/python3.14/subprocess.py", line 557, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/subprocess.py", line 1221, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/subprocess.py", line 2154, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/subprocess.py", line 1268, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/tmp/eden-heap-t94kqfml/heap-thread']' timed out after 900 seconds

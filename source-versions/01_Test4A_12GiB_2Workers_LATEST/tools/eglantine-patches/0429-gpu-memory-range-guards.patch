@@ -1,0 +1,101 @@
+From: Eglantine PS5 crash investigation
+Subject: [PATCH] Bound GPU memory traversal and skip invalid write side effects
+
+Treat nonempty invalid or wrapping GPU ranges as unmapped before touching page
+tables. Preserve empty walker requests as no-ops. Reject invalid writes before
+sparse backing and invalidation accumulation, including bulk cached word writes.
+
+diff --git a/src/video_core/memory_manager.cpp b/src/video_core/memory_manager.cpp
+--- a/src/video_core/memory_manager.cpp
++++ b/src/video_core/memory_manager.cpp
+@@ -81,6 +81,9 @@
+ MemoryManager::~MemoryManager() = default;
+ 
+ MemoryManager::EntryType MemoryManager::GetEntry(size_t position, bool is_big_page) const {
++    if (!IsWithinGPUAddressRange(position)) {
++        return EntryType::Free;
++    }
+     if (is_big_page) {
+         position = position >> big_page_bits;
+         const u64 entry_mask = big_entries[position / 32];
+@@ -385,6 +388,13 @@
+     std::size_t remaining_size{size};
+     std::size_t page_index{gpu_src_addr >> used_page_bits};
+     std::size_t page_offset{gpu_src_addr & used_page_mask};
++    if (size == 0) {
++        return;
++    }
++    if (!IsWithinGPUAddressRange(gpu_src_addr, size)) {
++        func_unmapped(page_index, page_offset, size);
++        return;
++    }
+     GPUVAddr current_address = gpu_src_addr;
+ 
+     while (remaining_size > 0) {
+@@ -497,6 +507,9 @@
+ }
+ 
+ void MemoryManager::WriteBlockImpl(GPUVAddr gpu_dest_addr, const void* src_buffer, std::size_t size, [[maybe_unused]] VideoCommon::CacheType which, bool unsafe) {
++    if (size == 0 || !IsWithinGPUAddressRange(gpu_dest_addr, size)) {
++        return;
++    }
+     // Give Switch 2 sparse pages the write lands on their memory first (otherwise it is dropped).
+     Tegra::Nx2BackSparseWrite(gpu_dest_addr, size, src_buffer);
+     auto just_advance = [&]([[maybe_unused]] std::size_t page_index, [[maybe_unused]] std::size_t offset, std::size_t copy_amount) {
+@@ -549,12 +562,21 @@
+ }
+ 
+ void MemoryManager::WriteBlockCached(GPUVAddr gpu_dest_addr, const void* src_buffer, std::size_t size) {
++    if (size == 0 || !IsWithinGPUAddressRange(gpu_dest_addr, size)) {
++        return;
++    }
+     WriteBlockImpl(gpu_dest_addr, src_buffer, size, VideoCommon::CacheType::None, true);
+     accumulator.Add(gpu_dest_addr, size);
+ }
+ 
+ void MemoryManager::WriteWordsCached(GPUVAddr gpu_dest_addr, const u32* words, std::size_t count) {
++    if (count == 0 || count > address_space_size / sizeof(u32)) {
++        return;
++    }
+     const std::size_t size = count * sizeof(u32);
++    if (!IsWithinGPUAddressRange(gpu_dest_addr, size)) {
++        return;
++    }
+     // Words on Switch 2 sparse memory go one at a time, as Nx2BackSparseWrite saw them.
+     if (gpu_dest_addr + size > Tegra::g_nx2_sparse_low.load(std::memory_order_relaxed) &&
+         gpu_dest_addr < Tegra::g_nx2_sparse_high.load(std::memory_order_relaxed)) {
+@@ -621,6 +643,9 @@
+ }
+ 
+ size_t MemoryManager::MaxContinuousRange(GPUVAddr gpu_addr, size_t size) const {
++    if (size == 0 || !IsWithinGPUAddressRange(gpu_addr, size)) {
++        return 0;
++    }
+     // Native storage buffers ask this for up to 8 MiB on each bind, ~70,000 times a second in
+     // title 1's forest (17% of the GPU thread walking pages): keep answers per thread until the
+     // page table changes. Ocarina of Time asks ~220,000 times a second for more buffers than 64
+@@ -719,6 +744,9 @@
+ }
+ 
+ bool MemoryManager::IsGranularRange(GPUVAddr gpu_addr, std::size_t size) const {
++    if (!IsWithinGPUAddressRange(gpu_addr, size)) {
++        return false;
++    }
+     if (GetEntry(gpu_addr, true) == EntryType::Mapped) [[likely]] {
+         size_t page_index = gpu_addr >> big_page_bits;
+         if (IsBigPageContinuous(page_index)) [[likely]] {
+diff --git a/src/video_core/memory_manager.h b/src/video_core/memory_manager.h
+--- a/src/video_core/memory_manager.h
++++ b/src/video_core/memory_manager.h
+@@ -169,6 +169,11 @@
+         return gpu_addr < address_space_size;
+     }
+ 
++    /// Whether the complete byte range fits without wrapping past the GPU address space.
++    bool IsWithinGPUAddressRange(GPUVAddr gpu_addr, std::size_t size) const {
++        return gpu_addr < address_space_size && size <= address_space_size - gpu_addr;
++    }
++
+     PTEKind GetPageKind(GPUVAddr gpu_addr) const;
+ 
+     size_t GetMemoryLayoutSize(GPUVAddr gpu_addr,

@@ -1,0 +1,7 @@
+EDEN_GPU_WORKER_STACK bytes=1048576
+EDEN_GPU_WORKER_STACK bytes=1048576
+EDEN_GPU_WORKER_STACK bytes=1048576
+EDEN_GPU_WORKER_STACK bytes=1048576
+EDEN_GPU_WORKER_STACK bytes=1048576
+EDEN_GPU_WORKER_STACK bytes=1048576
+Native GPU stack, stop/wake/join, creation failures and blocked-command teardown ordering/rejection PASS

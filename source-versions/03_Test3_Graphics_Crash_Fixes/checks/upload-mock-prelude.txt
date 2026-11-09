@@ -1,0 +1,54 @@
+
+#include <algorithm>
+#include <atomic>
+#include <bit>
+#include <cassert>
+#include <cstdint>
+#include <cstring>
+#include <iostream>
+#include <limits>
+#include <new>
+#include <span>
+#include <stdexcept>
+#include <string>
+#include <vector>
+using u8=uint8_t; using u32=uint32_t; using u64=uint64_t; using GPUVAddr=u64;
+bool fail_input=false,fail_tiled=false;
+size_t input_requests=0,max_input=0,swizzles=0;
+std::vector<u64> rejection_logs;
+void Log(const char*,const char*,u64,u32,u32,u64 count){rejection_logs.push_back(count);}
+#define LOG_ERROR(category,...) Log(__VA_ARGS__)
+template<int Offset,int Width,class T> struct BitField { T bits; T Value() const {return (bits>>Offset)&((T{1}<<Width)-1);} };
+namespace Common {
+template<class T> class ScratchBuffer {
+  std::vector<T> buffer;
+public:
+  using value_type=T; using element_type=T;
+  void resize_destructive(size_t n){++input_requests;max_input=std::max(n,max_input);if(fail_input||n>1024*1024)throw std::bad_alloc();buffer.resize(n);}
+  T* data(){return buffer.data();} const T* data()const{return buffer.data();}
+  size_t size()const{return buffer.size();} size_t capacity()const{return buffer.capacity();}
+  T* begin(){return data();} T* end(){return data()+size();}
+  T& operator[](size_t n){return buffer.at(n);}
+};
+template<class F,class... A> u32 FoldRight(u32 n,F f,A... a){((n=f(n,a)),...);return n;}
+}
+namespace Tegra {
+class MemoryManager {public: u64 limit=u64{1}<<40;bool IsWithinGPUAddressRange(u64 address)const{return address<limit;}};
+namespace Memory {
+enum class GuestMemoryFlags {SafeReadCachedWrite};
+template<class T,GuestMemoryFlags> class GpuGuestMemoryScoped {
+public: GpuGuestMemoryScoped(MemoryManager&,u64,size_t,Common::ScratchBuffer<u8>*){if(fail_tiled)throw std::bad_alloc();}
+};
+}
+namespace Texture {
+size_t CalculateSize(bool,u32 bpp,u32 w,u32 h,u32 d,u32,u32){return size_t{bpp}*w*h*d;}
+template<class T,class... A> void SwizzleSubrect(T&,std::span<const u8>,A...){++swizzles;}
+}
+}
+namespace VideoCore {
+class RasterizerInterface {public:
+ struct Write {u64 address;size_t count;const u8* input;std::vector<u8> bytes;};
+ std::vector<Write> calls;
+ void AccelerateInlineToMemory(u64 a,size_t n,std::span<const u8> s){assert(n==s.size());calls.push_back({a,n,s.data(),{s.begin(),s.end()}});}
+};
+}

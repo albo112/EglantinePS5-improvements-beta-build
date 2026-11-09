@@ -1,0 +1,22 @@
+/tmp/tmp5rhhc1df/test.cpp: In member function ‘void GPU::WaitForSyncOperation(u64)’:
+/tmp/tmp5rhhc1df/test.cpp:38:14: error: ‘u32’ was not declared in this scope
+   38 |         for (u32 waited = 5; !sync_request_cv.wait_for(lck, std::chrono::seconds{5}, [this, fence] {
+      |              ^~~
+/tmp/tmp5rhhc1df/test.cpp:40:18: error: ‘waited’ was not declared in this scope; did you mean ‘write’?
+   40 |              }); waited += 5) {
+      |                  ^~~~~~
+      |                  write
+/tmp/tmp5rhhc1df/test.cpp:41:25: error: ‘HW_GPU’ was not declared in this scope
+   41 |             LOG_WARNING(HW_GPU, "A guest thread has waited {} s for the GPU thread: operation {} of {}",
+      |                         ^~~~~~
+/tmp/tmp5rhhc1df/test.cpp:41:13: error: ‘LOG_WARNING’ was not declared in this scope
+   41 |             LOG_WARNING(HW_GPU, "A guest thread has waited {} s for the GPU thread: operation {} of {}",
+      |             ^~~~~~~~~~~
+Traceback (most recent call last):
+  File "/var/lib/eglantine-build/zelda-test4-a/Eglantine-PS5/tools/check-gpu-sync-stop.py", line 56, in <module>
+    subprocess.run(['g++','-std=c++20','-pthread','-fsanitize=address,undefined','-g',str(p/'test.cpp'),'-o',str(p/'test')],check=True)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/subprocess.py", line 578, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['g++', '-std=c++20', '-pthread', '-fsanitize=address,undefined', '-g', '/tmp/tmp5rhhc1df/test.cpp', '-o', '/tmp/tmp5rhhc1df/test']' returned non-zero exit status 1.

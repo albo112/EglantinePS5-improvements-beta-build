@@ -1,0 +1,56 @@
+{
+  "status": "pass",
+  "exit_code": 0,
+  "stage": "native",
+  "checks": [
+    {
+      "check": "check-staging-pressure.py",
+      "exit_code": 0,
+      "log": "check-staging-pressure.py.log",
+      "script_sha256": "71c438ee282940820c34cfe06b207ba5e6de48f38ad3a380a21a803e0222d394"
+    },
+    {
+      "check": "check-integer-buffer-clear.py",
+      "exit_code": 0,
+      "log": "check-integer-buffer-clear.py.log",
+      "script_sha256": "a68b46d21d18ff3776e45f074d5352e03ccf915a1ce275b5da51c11ccda9f8ae"
+    },
+    {
+      "check": "check-radv-native.py",
+      "exit_code": 0,
+      "log": "check-radv-native.py.log",
+      "script_sha256": "e355802f34de97103b289abe71d853ff439667c6e06d27d002010d8a7a2a058a"
+    },
+    {
+      "check": "check-native-gpu-thread.py",
+      "exit_code": 0,
+      "log": "check-native-gpu-thread.py.log",
+      "script_sha256": "59fece1f42c2e809bbf1468f8040db1be75556408c48c7a2058d4555ca7b376e"
+    },
+    {
+      "check": "check-gpu-sync-stop.py",
+      "exit_code": 0,
+      "log": "check-gpu-sync-stop.py.log",
+      "script_sha256": "b573b66ffd964530b87a7aeafa19cd48c39268ebbde22ffb2f0ae2a14cda0e0a"
+    },
+    {
+      "check": "check-gpu-producer-stop.py",
+      "exit_code": 0,
+      "log": "check-gpu-producer-stop.py.log",
+      "script_sha256": "13eccbb6bbda9799e1b25e296d0edfb8d7ed9968658043c4b3f7181dad804e87"
+    },
+    {
+      "check": "check-transient-images.py",
+      "exit_code": 0,
+      "log": "check-transient-images.py.log",
+      "script_sha256": "f616f66455c9c3f2d49611fa0ec9fd8c1d077367ac3d5ad644fb45d452dfdef7"
+    },
+    {
+      "check": "check-sparse-header.py",
+      "exit_code": 0,
+      "log": "check-sparse-header.py.log",
+      "script_sha256": "08b61f9ed95dd105cf1c639a291909143e588fce6d03272d5d285a8c568c1245"
+    }
+  ],
+  "host_tsan_options": "memory_limit_mb=1536"
+}

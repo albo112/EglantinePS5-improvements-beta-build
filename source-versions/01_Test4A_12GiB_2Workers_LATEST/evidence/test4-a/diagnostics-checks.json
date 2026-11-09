@@ -1,0 +1,22 @@
+{
+  "status": "pass",
+  "exit_code": 0,
+  "bounded_draw_log": {
+    "threads": 8,
+    "failures": 32768,
+    "lines": 40,
+    "exit_code": 0
+  },
+  "bounded_draw_paths": {
+    "threads": 8,
+    "paths": 2,
+    "total_failures": 65536,
+    "lines": 80,
+    "exit_code": 0
+  },
+  "draw_counter_scope": "Per PrepareDraw callable instantiation; separate direct/indirect paths",
+  "crash_report": {
+    "exit_code": 0,
+    "log": "crash-diagnostics-check.log"
+  }
+}

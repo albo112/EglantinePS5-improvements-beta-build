@@ -1,0 +1,22 @@
+TEST4-A REPRODUCTION
+Clone the pinned frontend and initialize its exact recursive dependencies from SOURCE.json.
+Apply frontend-pinned-to-test4a.patch to that clean frontend before any source overlay helper.
+Copy the bundled tools/ directory over the frontend tools/ directory; it includes all 264 ordered core overlays.
+Do not apply core overlays twice. Use the frontend overlay helper exactly once on pinned core.
+The native build uses the eleven original driver series plus the new NIR patch through patch-radv-series.py.
+Build: JOBS=3 RADV_BUILD_JOBS=2 bash tools/ci/build-release.sh
+Run seven original supplied checks plus inherited fence check separately; final commands are in evidence/test4-a/supplied-checks-final.json.
+Replace workstation absolute script paths with the bundled checks paths; run from the frontend root.
+GPU range check: --source Eglantine --applied --patch tools/eglantine-patches/0429-gpu-memory-range-guards.patch
+Mesh/image checks: python3 checks/test4-a/check-no-mesh-boolean.py --source .; python3 checks/test4-a/check-image-refusal.py --source .
+The original mesh failure is reproducible with --source checks/test4-a/no-mesh-baseline (expected exit 1).
+The image baseline uses --source . --baseline (expected exit 1); both baseline fixture directories are included.
+The historical eight-case NIR runner and workstation orchestration runners retain original absolute paths.
+For portable 24-case NIR reproduction, use checks/test4-a/NIR-HOST-TESTS.md and its setup/caller scripts.
+Keep host-only Mesa tests separate from the production native driver export.
+After native check_package.py --check passes, add the archived 49-key Prettier profile to PPSA98515.
+The unchanged Faster profile is historical comparison only: LONE=0 disables lone-mesh fallback and may omit foliage.
+Do not recommend Faster as equivalent-correctness performance tuning; keep Prettier as the Test4-A default.
+Packaging scripts preserve this workstation workflow; adjust source/work/output locations when rebuilding elsewhere.
+No games, keys, firmware, SDK binaries, remote dashboard or Test4 prototype source are bundled.
+No upstream push or PR was made. PS5 runtime behavior remains unverified.

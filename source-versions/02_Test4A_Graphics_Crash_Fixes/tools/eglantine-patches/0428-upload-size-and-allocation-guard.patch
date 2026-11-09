@@ -1,0 +1,54 @@
+diff --git a/src/video_core/engines/engine_upload.cpp b/src/video_core/engines/engine_upload.cpp
+--- a/src/video_core/engines/engine_upload.cpp
++++ b/src/video_core/engines/engine_upload.cpp
+@@ -6,6 +6,8 @@
+ 
+ #include <cstdlib>
+ #include <cstring>
++#include <limits>
++#include <new>
+ 
+ #include "common/algorithm.h"
+ #include "common/assert.h"
+@@ -38,7 +40,7 @@
+         return value != nullptr ? static_cast<u64>(std::strtoull(value, nullptr, 10)) << 20 : u64{0};
+     }();
+     const u64 wanted = static_cast<u64>(regs.line_length_in) * regs.line_count;
+-    refused = cap != 0 && wanted > cap;
++    refused = wanted > std::numeric_limits<u32>::max() || (cap != 0 && wanted > cap);
+     if (refused) {
+         LOG_ERROR(HW_GPU,
+                   "Upload refused: {} bytes, line_length_in={} line_count={} dest=0x{:x} pitch={} "
+@@ -50,13 +52,20 @@
+         is_linear = is_linear_;
+         return;
+     }
+-    copy_size = regs.line_length_in * regs.line_count;
+-    inner_buffer.resize_destructive(copy_size);
++    copy_size = static_cast<u32>(wanted);
++    try {
++        inner_buffer.resize_destructive(copy_size);
++    } catch (const std::bad_alloc&) {
++        // Reuse the existing refused-upload path; the next exec may start a new transfer.
++        refused = true;
++        copy_size = 0;
++        LOG_ERROR(HW_GPU, "Upload input allocation refused: {} bytes; transfer ignored", wanted);
++    }
+     is_linear = is_linear_;
+ }
+ 
+ void State::ProcessData(const u32 data, const bool is_last_call) {
+-    if (refused) {
++    if (refused || copy_size == 0) {
+         return;
+     }
+     const u32 sub_copy_size = (std::min)(4U, copy_size - write_offset);
+@@ -78,7 +87,7 @@
+ }
+ 
+ void State::ProcessData(const u32* data, size_t num_data) {
+-    if (refused) {
++    if (refused || copy_size == 0) {
+         return;
+     }
+     if (native_partial && is_linear && regs.line_count == 1) {

@@ -1,0 +1,20 @@
+{
+  "status": "pass",
+  "exit_code": 0,
+  "source": "/var/lib/eglantine-build/zelda-test4-a/Eglantine-PS5",
+  "cache": "/var/lib/eglantine-build/.cache/ps5-eden-headless.3831e9a45c07",
+  "pinned_repositories": {
+    "ps5-native-app-boilerplate": "dd44bbdc75437332ed22e3ba95126733419ef25a",
+    "mihawk-vulkan-review": "5b5e4fc2d80fdb67a4f61ba9e6a8a424026bb8a5",
+    "mihawk-mesa-review": "f5610fe27090acd2509e5ce807140676f0b04473",
+    "mihawk-sdk-review": "b83202be73e930050e00de0f1b4d9ec46c0391bf"
+  },
+  "copied_input_hashes": {
+    "ffmpeg-native/install/lib/libavcodec.a": "3520d664ef23fb26f990809539580963e6b3efe58477ad0537e74605358368b3",
+    "cdeps/lib/libcrypto.a": "e8fe42a8159e30d4c8a2ab1be74ee10b119c3f547265e3cc872bdaecda620944",
+    "sdk/.complete": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "old_runtime_sha256": "e6ff45d16adf687855cc3b33b0c8a4132b6504360b221e0a34c7e99fb3ba0036",
+  "independent_mutable_driver_tree": true,
+  "independent_radv_isolated_directory": true
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "directory": "01_Test4A_12GiB_2Workers_LATEST",
+    "original_archive": "EglantinePS5-Test4A-12GB-2Workers-Source-Kit.zip",
+    "files": 463,
+    "size_bytes": 7664441
+  },
+  {
+    "directory": "02_Test4A_Graphics_Crash_Fixes",
+    "original_archive": "EglantinePS5-Zelda-Test4-A-Source-Changes(1).zip",
+    "files": 456,
+    "size_bytes": 7593828
+  },
+  {
+    "directory": "03_Test3_Graphics_Crash_Fixes",
+    "original_archive": "EglantinePS5-Zelda-Test3-Source-Changes(1).zip",
+    "files": 25,
+    "size_bytes": 387778
+  },
+  {
+    "directory": "04_Test2_Memory_Fix",
+    "original_archive": "EglantinePS5-Zelda-Memory-Fix-Test2-sources.zip",
+    "files": 11,
+    "size_bytes": 25209
+  }
+]

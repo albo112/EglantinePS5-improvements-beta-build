@@ -1,0 +1,35 @@
+{
+  "status": "pass",
+  "exit_code": 0,
+  "report_count": 7,
+  "files": {
+    "Test4-A-Changelog.md": "e7e904cdedf7a4c6cf7b1c17e769ebd4108132f977a82f50f42d810d6e522726",
+    "Test4-A-Crash-Analysis.md": "6a82a2283b1d89d3d994deb067f43ade2725f2b0768e41540bf5fff0d2fb7231",
+    "Test4-A-PS5-Testing.md": "c9aaab7e6b3bff2ab7cfc523321d712c87185c4e7913066d57f70d6ca8429df9",
+    "Test4-A-README.md": "2317f46172e18a0bbcf917a103e4633aa0feba798ad1944cb85e098ee6e38e7a",
+    "Test4-A-Regression-Comparison.md": "db89baac689fee7a1c521902b9ab3bb40b4ea2a25da9642c7c781c2a81c6e1c5",
+    "Test4-A-Source-and-Build.md": "4949d97553971531a182c45a16c6be4958e008aad5dbd39a389a1ca8df024515",
+    "Test4-A-Validation.md": "c3e1af6b6acc66bac1e1602daf5553a6edc99cee03a8f82a8ab47f628d74dcfc"
+  },
+  "original_archives_unchanged": true,
+  "native_build_receipt": "Completed receipt reports exit **0**, with unchanged source hashes during the build.",
+  "final_checks_receipt": "8 recorded final commands, all exit **0**.",
+  "package_receipt": "Final outer-ZIP CRC, manifests, file permissions and SHA-256 hashes are recorded in the adjacent `Zelda-Test4-A-Verification.json` after packaging. Validate that receipt before installing.",
+  "no_ps5_runtime_claim": true,
+  "source_inventory_live": true,
+  "for_package": true,
+  "changed_source_snapshot": [
+    "Eglantine/src/video_core/renderer_vulkan/vk_pipeline_cache.cpp",
+    "Eglantine/src/video_core/renderer_vulkan/vk_rasterizer.cpp",
+    "Eglantine/src/video_core/renderer_vulkan/vk_texture_cache.cpp",
+    "Eglantine/src/video_core/texture_cache/texture_cache.h",
+    "Eglantine/src/video_core/texture_cache/texture_cache_base.h",
+    "headless/crash_report.cpp",
+    "headless/main.cpp",
+    "tools/check-crash-report.py",
+    "tools/check-gpu-producer-stop.py",
+    "tools/check-gpu-sync-stop.py",
+    "tools/patch-radv-series.py",
+    "tools/patch-radv-wsi.py"
+  ]
+}

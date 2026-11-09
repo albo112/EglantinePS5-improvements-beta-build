@@ -1,0 +1,26 @@
+--- a/src/video_core/renderer_vulkan/vk_rasterizer.cpp
++++ b/src/video_core/renderer_vulkan/vk_rasterizer.cpp
+@@ -696,7 +696,10 @@
+     // EDEN_NX2_NO_MESH=1: skip task/mesh draws as before they were supported (A/B comparisons).
+     // EDEN_NX2_NO_MESH_FILE=<path>: skip them while that file exists (checked every 1024 draws),
+     // to compare the same scene with and without them in one run.
+-    static const bool no_mesh_always{std::getenv("EDEN_NX2_NO_MESH") != nullptr};
++    static const bool no_mesh_always = [] {
++        const char* const value = std::getenv("EDEN_NX2_NO_MESH");
++        return value != nullptr && value[0] != '0';
++    }();
+     static const char* const no_mesh_file{std::getenv("EDEN_NX2_NO_MESH_FILE")};
+     static bool no_mesh{no_mesh_always};
+     static u32 no_mesh_check{};
+--- a/src/video_core/renderer_vulkan/vk_pipeline_cache.cpp
++++ b/src/video_core/renderer_vulkan/vk_pipeline_cache.cpp
+@@ -808,7 +808,8 @@
+ bool DropMeshDrawsBeforeBuild() {
+     static const bool drop = [] {
+         const char* value = std::getenv("EDEN_NX2_NO_MESH_BUILD");
+-        return value != nullptr && value[0] == '1' && std::getenv("EDEN_NX2_NO_MESH") != nullptr &&
++        const char* const no_mesh = std::getenv("EDEN_NX2_NO_MESH");
++        return value != nullptr && value[0] == '1' && no_mesh != nullptr && no_mesh[0] != '0' &&
+                std::getenv("EDEN_NX2_NO_MESH_FILE") == nullptr;
+     }();
+     return drop;

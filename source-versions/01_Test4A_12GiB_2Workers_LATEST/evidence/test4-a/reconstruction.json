@@ -1,0 +1,13 @@
+{
+  "status": "pass",
+  "exit_code": 0,
+  "source": "/var/lib/eglantine-build/zelda-test4-a/Eglantine-PS5",
+  "branch": "codex/zelda-test4-a",
+  "frontend": "25cfc07be0a3675749adece5d012fdb916c4cd48",
+  "core": "0ca2032bffc5f1a3fca75427f7d4a4718adda660",
+  "applied_core_overlays": 261,
+  "compared_test3_source_files": 5684,
+  "missing": [],
+  "changed": [],
+  "original_test3_package_sha256": "55ec27a975ded934698ca04185f622459ed45ff032741502ce383ed49e9cfef7"
+}

@@ -1,0 +1,2 @@
+MKW_TRANSIENT_POOL used=1 type=2 bytes=4194304
+Temporary image method PASS: opt-in, type constraints/reuse, 16MiB/32-block bound, large fallback and all partial-resource failure paths

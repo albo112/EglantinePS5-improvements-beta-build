@@ -1,0 +1,11 @@
+{
+  "frontend_repository": "https://github.com/Vampinity/Eglantine-PS5-",
+  "frontend_commit": "94d6bb21757b0e7255655088f851331635871138",
+  "core_commit": "e736dfde9e45bc3640935e373927814883803d95",
+  "upstream_shadow_fix": "39ebc72b789eab847cc657f122db22cd1f85d307",
+  "new_overlays": [
+    "0425-spirv-shadow-sampled-type.patch",
+    "0427-release-failed-compute-module.patch"
+  ],
+  "excluded_experiment": "0426-bound-pending-texture-decodes.patch is not applied or shipped"
+}

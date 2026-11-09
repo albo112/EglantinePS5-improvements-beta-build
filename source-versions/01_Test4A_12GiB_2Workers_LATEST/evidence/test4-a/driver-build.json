@@ -1,0 +1,10 @@
+{
+  "command": [
+    "bash",
+    "tools/build-radv-dependencies.sh"
+  ],
+  "started_utc": "2026-11-08T08:01:44.740115+00:00",
+  "status": "pass",
+  "exit_code": 0,
+  "finished_utc": "2026-11-08T08:35:12.617989+00:00"
+}

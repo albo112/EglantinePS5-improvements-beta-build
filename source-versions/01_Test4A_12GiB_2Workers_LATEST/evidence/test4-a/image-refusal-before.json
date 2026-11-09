@@ -1,0 +1,13 @@
+{
+  "status": "fail",
+  "exit_code": 1,
+  "baseline": true,
+  "source_sha256": {
+    "Eglantine/src/video_core/renderer_vulkan/vk_texture_cache.cpp": "7047f7035769f40146902d30ebdeae98521abdb4b61d13f3b64e8a0dde5e5dbe",
+    "Eglantine/src/video_core/texture_cache/texture_cache.h": "6b3a572ef89913e069c01a194c9ea60a53e5bc32046264c9f0f8b57999afc214"
+  },
+  "scope": "actual constructor branch, shared refusal path, feedback creation branch, refresh flags, generated SlotVector; simulated device allocation",
+  "compile_exit": 0,
+  "stdout": "FAIL: ordinary OOM publishes no slot and RAII destroys the empty VkImage\nFAIL: existing one-second backoff avoids allocation churn\nFAIL: recovery reuses the failed slot and uploads guest content without another guest write\nFAIL: feedback shadow OOM uses the existing null descriptor without publishing a shadow\nFAIL: feedback shadows share refusal backoff\nFAIL: feedback shadow is retried and backed after recovery\nPASS: intentional unwritten/huge/sparse layer/sparse tile and backed paths preserved\nPASS: intentional unwritten/huge/sparse layer/sparse tile and backed paths preserved\nPASS: intentional unwritten/huge/sparse layer/sparse tile and backed paths preserved\nPASS: intentional unwritten/huge/sparse layer/sparse tile and backed paths preserved\nPASS: intentional unwritten/huge/sparse layer/sparse tile and backed paths preserved\nPASS: intentional unwritten/huge/sparse layer/sparse tile and backed paths preserved\nPASS: intentional unwritten/huge/sparse layer/sparse tile and backed paths preserved\nFAIL: explicit end-on-OOM policy still propagates with clean ownership\nPASS: non-device-OOM exceptions are never swallowed\nPASS: all test-owned VkImages released\n",
+  "stderr": ""
+}

@@ -1,0 +1,16 @@
+diff --git a/headless/vulkan_surface.cpp b/headless/vulkan_surface.cpp
+index e48f002..262fa14 100644
+--- a/headless/vulkan_surface.cpp
++++ b/headless/vulkan_surface.cpp
+@@ -71,9 +71,10 @@ vk::SurfaceKHR CreateSurface(const vk::Instance& instance,
+     // buffer of each size to fill the screen (PS5_Mesa wsi_common_videoout.c), and at 1080p the five
+     // take 50 MiB. EDEN_VULKAN_FULL_FRAMEBUFFERS=1 keeps 3840x2160.
+     const char* const full_size = std::getenv("EDEN_VULKAN_FULL_FRAMEBUFFERS");
++    const bool selected_fast = mode.parameters.refreshRate >= 119000;
+     if (!full_size || full_size[0] != '1') {
+         for (const auto& candidate : modes) {
+-            if ((candidate.parameters.refreshRate >= 119000) == fast &&
++            if ((candidate.parameters.refreshRate >= 119000) == selected_fast &&
+                 static_cast<int>(candidate.parameters.visibleRegion.width) == Eden::Display::output_width.load() &&
+                 static_cast<int>(candidate.parameters.visibleRegion.height) == Eden::Display::output_height.load()) {
+                 mode = candidate;

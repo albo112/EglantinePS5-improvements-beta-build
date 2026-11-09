@@ -1,0 +1,16 @@
+{
+  "frontend_repository": "https://github.com/Vampinity/Eglantine-PS5-",
+  "frontend_commit": "25cfc07be0a3675749adece5d012fdb916c4cd48",
+  "core_commit": "0ca2032bffc5f1a3fca75427f7d4a4718adda660",
+  "core_upstream_branches_reviewed": 175,
+  "base_core_overlays": 257,
+  "extra_core_overlays": [
+    "0425-spirv-shadow-sampled-type.patch",
+    "0427-release-failed-compute-module.patch",
+    "0428-upload-size-and-allocation-guard.patch",
+    "0429-gpu-memory-range-guards.patch"
+  ],
+  "base_driver_series": 11,
+  "local_changes_ai_assisted": true,
+  "published_to_upstream": false
+}

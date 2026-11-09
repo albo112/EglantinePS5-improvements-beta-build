@@ -1,0 +1,548 @@
+{
+  "status": "pass",
+  "exit_code": 0,
+  "files": 53,
+  "bytes": 130434078,
+  "lines": 910036,
+  "crash_groups": 8,
+  "game_launches_in_crash_captures": 9,
+  "folders": {
+    "Logs3": {
+      "files": 27,
+      "bytes": 4747905,
+      "lines": 35484
+    },
+    "Logs4": {
+      "files": 15,
+      "bytes": 47397990,
+      "lines": 332031
+    },
+    "Logs5": {
+      "files": 11,
+      "bytes": 78288183,
+      "lines": 542521
+    }
+  },
+  "category_counts_all_files": {
+    "pipeline_builder_count": 9,
+    "native_compute_rejected": 90,
+    "shader_failure": 234,
+    "shutdown_or_leave": 10,
+    "mesh_skipped": 244,
+    "hang_watch_mentions": 164,
+    "timeout_mentions": 223,
+    "uncached_storage_pointer_lines": 111,
+    "storage_binding_budget_lines": 63,
+    "native_qmd_failed_lines": 144,
+    "normal_session_end_lines": 1,
+    "over_budget_image_allocation_lines": 208,
+    "allocation_failure": 15,
+    "shader_cache_progress": 13,
+    "shader_cache_ready": 9,
+    "heap_failure": 5,
+    "bad_alloc": 7,
+    "crash_notice": 8,
+    "unbacked_sparse_image": 308,
+    "sparse_image_allocation_fallback_lines": 192,
+    "vulkan_oom": 37,
+    "direct_allocation_failed_lines": 5,
+    "hang_watch_warning_lines": 146,
+    "native_graphics_failed": 27262
+  },
+  "manifest": [
+    {
+      "path": "/mnt/c/Users/Doni/Documents/Codex/2026-11-06/ca/work/test4-a/inputs/logs-archive/Logs3/boot-trace.prev.txt",
+      "relative": "Logs3/boot-trace.prev.txt",
+      "bytes": 1448,
+      "lines": 20,
+      "sha256": "5f34bbce8bfc567542b5ad5ca6c436299490d69793c74e321ab90140f11439a8",
+      "read_complete": true,
+      "utf8_error_lines": []
+    },
+    {
+      "path": "/mnt/c/Users/Doni/Documents/Codex/2026-11-06/ca/work/test4-a/inputs/logs-archive/Logs3/boot-trace.sandbox-prev.txt",
+      "relative": "Logs3/boot-trace.sandbox-prev.txt",
+      "bytes": 310,
+      "lines": 4,
+      "sha256": "c54d1c79c15f23c5420d299395d7d7b765779cbc51c0d05b1d4c51211d4cf0b5",
+      "read_complete": true,
+      "utf8_error_lines": []
+    },
+    {
+      "path": "/mnt/c/Users/Doni/Documents/Codex/2026-11-06/ca/work/test4-a/inputs/logs-archive/Logs3/boot-trace.txt",
+      "relative": "Logs3/boot-trace.txt",
+      "bytes": 1071,
+      "lines": 13,
+      "sha256": "f0b472297136de235dda0fe056d909126ff0be86c671818b3d173f363e53389b",
+      "read_complete": true,
+      "utf8_error_lines": []
+    },
+    {
+      "path": "/mnt/c/Users/Doni/Documents/Codex/2026-11-06/ca/work/test4-a/inputs/logs-archive/Logs3/crash-20261107-200504-eden_log.txt",
+      "relative": "Logs3/crash-20261107-200504-eden_log.txt",
+      "bytes": 767906,
+      "lines": 5071,
+      "sha256": "e32a5a0768a8619c59c4f41544900c83eecf24331c314e3a29a6af77a01f6320",
+      "read_complete": true,
+      "utf8_error_lines": []
+    },
+    {
+      "path": "/mnt/c/Users/Doni/Documents/Codex/2026-11-06/ca/work/test4-a/inputs/logs-archive/Logs3/crash-20261107-200504-heap.log",
+      "relative": "Logs3/crash-20261107-200504-heap.log",
+      "bytes": 40444,
+      "lines": 632,
+      "sha256": "c84b3711f1000d99b5fe85ed358ef44482cd2334de77c8618463df9a69161516",
+      "read_complete": true,
+      "utf8_error_lines": []
+    },
+    {
+      "path": "/mnt/c/Users/Doni/Documents/Codex/2026-11-06/ca/work/test4-a/inputs/logs-archive/Logs3/crash-20261107-200504-stderr.log",
+      "relative": "Logs3/crash-20261107-200504-stderr.log",
+      "bytes": 90701,
+      "lines": 1038,
+      "sha256": "36b589572a3e0a08743bb50bb197a89cf3d9febb40b8446225fcf94fe360726a",
+      "read_complete": true,
+      "utf8_error_lines": []
+    },
+    {
+      "path": "/mnt/c/Users/Doni/Documents/Codex/2026-11-06/ca/work/test4-a/inputs/logs-archive/Logs3/crash-20261107-200504.txt",
+      "relative": "Logs3/crash-20261107-200504.txt",
+      "bytes": 2024,
+      "lines": 62,
+      "sha256": "7f894aee3a6dd3a48ee7f8c5e8f3e06a583e3cc96c6bb3c7756b9e29afd8b3c8",
+      "read_complete": true,
+      "utf8_error_lines": []
+    },
+    {
+      "path": "/mnt/c/Users/Doni/Documents/Codex/2026-11-06/ca/work/test4-a/inputs/logs-archive/Logs3/crash-20261107-200953-eden_log.txt",
+      "relative": "Logs3/crash-20261107-200953-eden_log.txt",
+      "bytes": 548549,
+      "lines": 3264,
+      "sha256": "74d0e231109f89b36678bf159a6d9c6120dac12fb6a162075a7aaa77f69e795d",
+      "read_complete": true,
+      "utf8_error_lines": []
+    },
+    {
+      "path": "/mnt/c/Users/Doni/Documents/Codex/2026-11-06/ca/work/test4-a/inputs/logs-archive/Logs3/crash-20261107-200953-heap.log",
+      "relative": "Logs3/crash-20261107-200953-heap.log",
+      "bytes": 21194,
+      "lines": 335,
+      "sha256": "1f219fa4c3342590adc2bbb96cfa84d21bfb7f143651bed47ffbd59cc6b028d8",
+      "read_complete": true,
+      "utf8_error_lines": []
+    },
+    {
+      "path": "/mnt/c/Users/Doni/Documents/Codex/2026-11-06/ca/work/test4-a/inputs/logs-archive/Logs3/crash-20261107-200953-stderr.log",
+      "relative": "Logs3/crash-20261107-200953-stderr.log",
+      "bytes": 43925,
+      "lines": 488,
+      "sha256": "3ca0409e3acda63dc9928eafff942a026d5763d1cb33814f506424ccf72f7e58",
+      "read_complete": true,
+      "utf8_error_lines": []
+    },
+    {
+      "path": "/mnt/c/Users/Doni/Documents/Codex/2026-11-06/ca/work/test4-a/inputs/logs-archive/Logs3/crash-20261107-200953.txt",
+      "relative": "Logs3/crash-20261107-200953.txt",
+      "bytes": 1950,
+      "lines": 56,
+      "sha256": "56f6fe599506e87abc135d3894213bcc0692629c33ec288110023b9378eec8c8",
+      "read_complete": true,
+      "utf8_error_lines": []
+    },
+    {
+      "path": "/mnt/c/Users/Doni/Documents/Codex/2026-11-06/ca/work/test4-a/inputs/logs-archive/Logs3/crash-20261107-201432-eden_log.txt",
+      "relative": "Logs3/crash-20261107-201432-eden_log.txt",
+      "bytes": 781968,
+      "lines": 4545,
+      "sha256": "e045882293c03cc9914c98cbb1d41413d9b4bd32c3b9e001c410add9656da223",
+      "read_complete": true,
+      "utf8_error_lines": []
+    },
+    {
+      "path": "/mnt/c/Users/Doni/Documents/Codex/2026-11-06/ca/work/test4-a/inputs/logs-archive/Logs3/crash-20261107-201432-heap.log",
+      "relative": "Logs3/crash-20261107-201432-heap.log",
+      "bytes": 33785,
+      "lines": 529,
+      "sha256": "2942036d87b661f4ce43a9e8099f8a35a71ef76c3736f9ab7459bb0bdaff9cc3",
+      "read_complete": true,
+      "utf8_error_lines": []
+    },
+    {
+      "path": "/mnt/c/Users/Doni/Documents/Codex/2026-11-06/ca/work/test4-a/inputs/logs-archive/Logs3/crash-20261107-201432-stderr.log",
+      "relative": "Logs3/crash-20261107-201432-stderr.log",
+      "bytes": 307600,
+      "lines": 3263,
+      "sha256": "9c1c143925067af2b058e23e4e0c5db5e204c4fdebb550f23146f01fc774a72f",
+      "read_complete": true,
+      "utf8_error_lines": []
+    },
+    {
+      "path": "/mnt/c/Users/Doni/Documents/Codex/2026-11-06/ca/work/test4-a/inputs/logs-archive/Logs3/crash-20261107-201432.txt",
+      "relative": "Logs3/crash-20261107-201432.txt",
+      "bytes": 2433,
+      "lines": 83,
+      "sha256": "0d0a21f570aca06f093e865522275e177b9792ecc9c07848c2196e5669a3b08b",
+      "read_complete": true,
+      "utf8_error_lines": []
+    },
+    {
+      "path": "/mnt/c/Users/Doni/Documents/Codex/2026-11-06/ca/work/test4-a/inputs/logs-archive/Logs3/crash-20261107-201818-eden_log.txt",
+      "relative": "Logs3/crash-20261107-201818-eden_log.txt",
+      "bytes": 599086,
+      "lines": 3664,
+      "sha256": "a46c08b4c4f9b40bb7f7da6e80a198525b7355e11a79f38187a3c622f38ba0f1",
+      "read_complete": true,
+      "utf8_error_lines": []
+    },
+    {
+      "path": "/mnt/c/Users/Doni/Documents/Codex/2026-11-06/ca/work/test4-a/inputs/logs-archive/Logs3/crash-20261107-201818-heap.log",
+      "relative": "Logs3/crash-20261107-201818-heap.log",
+      "bytes": 29479,
+      "lines": 470,
+      "sha256": "22179aea61fff5d2cd40e9d830d790c7fdbdf968367030f4ceeefd4ab6d7ea7f",
+      "read_complete": true,
+      "utf8_error_lines": []
+    },
+    {
+      "path": "/mnt/c/Users/Doni/Documents/Codex/2026-11-06/ca/work/test4-a/inputs/logs-archive/Logs3/crash-20261107-201818-stderr.log",
+      "relative": "Logs3/crash-20261107-201818-stderr.log",
+      "bytes": 77428,
+      "lines": 816,
+      "sha256": "cadb81e00c12a0b7584ea777748d53dce32b5e7ac96556828eab5ebf90222a01",
+      "read_complete": true,
+      "utf8_error_lines": []
+    },
+    {
+      "path": "/mnt/c/Users/Doni/Documents/Codex/2026-11-06/ca/work/test4-a/inputs/logs-archive/Logs3/crash-20261107-201818.txt",
+      "relative": "Logs3/crash-20261107-201818.txt",
+      "bytes": 2437,
+      "lines": 83,
+      "sha256": "23228c9b71e829843f2142760d9b4bf42b918a3c6c1650d5d4a415d5a0582f6a",
+      "read_complete": true,
+      "utf8_error_lines": []
+    },
+    {
+      "path": "/mnt/c/Users/Doni/Documents/Codex/2026-11-06/ca/work/test4-a/inputs/logs-archive/Logs3/crash-20261107-202529-eden_log.txt",
+      "relative": "Logs3/crash-20261107-202529-eden_log.txt",
+      "bytes": 902481,
+      "lines": 5433,
+      "sha256": "c9439278a53061ddf8c1e6ae5fdb3eeac668ce7f8925fa8ae6db47d98567c614",
+      "read_complete": true,
+      "utf8_error_lines": []
+    },
+    {
+      "path": "/mnt/c/Users/Doni/Documents/Codex/2026-11-06/ca/work/test4-a/inputs/logs-archive/Logs3/crash-20261107-202529-heap.log",
+      "relative": "Logs3/crash-20261107-202529-heap.log",
+      "bytes": 78197,
+      "lines": 1287,
+      "sha256": "005e2850ce450ea83acf843af7c38f8af0d6db4f304bf368d3b731fe5f3e8cc7",
+      "read_complete": true,
+      "utf8_error_lines": []
+    },
+    {
+      "path": "/mnt/c/Users/Doni/Documents/Codex/2026-11-06/ca/work/test4-a/inputs/logs-archive/Logs3/crash-20261107-202529-stderr.log",
+      "relative": "Logs3/crash-20261107-202529-stderr.log",
+      "bytes": 405921,
+      "lines": 4222,
+      "sha256": "a4349c0db3d19986d042ba2108ea1bfbf3b25038ea03f8aa4a930b17f1cbcb76",
+      "read_complete": true,
+      "utf8_error_lines": []
+    },
+    {
+      "path": "/mnt/c/Users/Doni/Documents/Codex/2026-11-06/ca/work/test4-a/inputs/logs-archive/Logs3/crash-20261107-202529.txt",
+      "relative": "Logs3/crash-20261107-202529.txt",
+      "bytes": 1372,
+      "lines": 26,
+      "sha256": "f85a3e4916d3f4e7c198e9aa147413ac37da8d17e8b61b0c07f22e172eeca1ac",
+      "read_complete": true,
+      "utf8_error_lines": []
+    },
+    {
+      "path": "/mnt/c/Users/Doni/Documents/Codex/2026-11-06/ca/work/test4-a/inputs/logs-archive/Logs3/crash-index.txt",
+      "relative": "Logs3/crash-index.txt",
+      "bytes": 110,
+      "lines": 5,
+      "sha256": "f00a9cf625044025d319b13dfb318826eacc6dc0cbb6477152effcdfb0f54983",
+      "read_complete": true,
+      "utf8_error_lines": []
+    },
+    {
+      "path": "/mnt/c/Users/Doni/Documents/Codex/2026-11-06/ca/work/test4-a/inputs/logs-archive/Logs3/heap.log",
+      "relative": "Logs3/heap.log",
+      "bytes": 4665,
+      "lines": 52,
+      "sha256": "40f38c8573472695195d10b8126740e3de62c920525e5aa4c0e8bb3a317bc1d3",
+      "read_complete": true,
+      "utf8_error_lines": []
+    },
+    {
+      "path": "/mnt/c/Users/Doni/Documents/Codex/2026-11-06/ca/work/test4-a/inputs/logs-archive/Logs3/result.tsv",
+      "relative": "Logs3/result.tsv",
+      "bytes": 0,
+      "lines": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "read_complete": true,
+      "utf8_error_lines": []
+    },
+    {
+      "path": "/mnt/c/Users/Doni/Documents/Codex/2026-11-06/ca/work/test4-a/inputs/logs-archive/Logs3/stderr.log",
+      "relative": "Logs3/stderr.log",
+      "bytes": 1421,
+      "lines": 23,
+      "sha256": "5bae9a3808d6ccf45ea4f993a99f29cd90e9e85062886b0db1d43aa569c1382a",
+      "read_complete": true,
+      "utf8_error_lines": []
+    },
+    {
+      "path": "/mnt/c/Users/Doni/Documents/Codex/2026-11-06/ca/work/test4-a/inputs/logs-archive/Logs4/boot-trace.prev.txt",
+      "relative": "Logs4/boot-trace.prev.txt",
+      "bytes": 1448,
+      "lines": 20,
+      "sha256": "da2ab478c590f1caa58144f0e23ac4337fddf905032853fb13ab57b99212410d",
+      "read_complete": true,
+      "utf8_error_lines": []
+    },
+    {
+      "path": "/mnt/c/Users/Doni/Documents/Codex/2026-11-06/ca/work/test4-a/inputs/logs-archive/Logs4/boot-trace.sandbox-prev.txt",
+      "relative": "Logs4/boot-trace.sandbox-prev.txt",
+      "bytes": 310,
+      "lines": 4,
+      "sha256": "d3dd3ccc4fdfc0fa96d951dae6ab3d6ec6f9932410edfafd2366ab6c4cbffcdd",
+      "read_complete": true,
+      "utf8_error_lines": []
+    },
+    {
+      "path": "/mnt/c/Users/Doni/Documents/Codex/2026-11-06/ca/work/test4-a/inputs/logs-archive/Logs4/boot-trace.txt",
+      "relative": "Logs4/boot-trace.txt",
+      "bytes": 1071,
+      "lines": 13,
+      "sha256": "99f99a5721b0150365f90232b8a24bde8657ca201bdbc30448db86ea592e15d9",
+      "read_complete": true,
+      "utf8_error_lines": []
+    },
+    {
+      "path": "/mnt/c/Users/Doni/Documents/Codex/2026-11-06/ca/work/test4-a/inputs/logs-archive/Logs4/crash-20261107-203446-eden_log.txt",
+      "relative": "Logs4/crash-20261107-203446-eden_log.txt",
+      "bytes": 46320019,
+      "lines": 322862,
+      "sha256": "960a1e21ddf80c24ed7e5a08181673f0ac5b8dba6834f1114d931bcdac287e59",
+      "read_complete": true,
+      "utf8_error_lines": []
+    },
+    {
+      "path": "/mnt/c/Users/Doni/Documents/Codex/2026-11-06/ca/work/test4-a/inputs/logs-archive/Logs4/crash-20261107-203446-heap.log",
+      "relative": "Logs4/crash-20261107-203446-heap.log",
+      "bytes": 31266,
+      "lines": 481,
+      "sha256": "24149d954c6167c3e4047385d82d39526a3c5b632d1e80d513b506eaf6a1840c",
+      "read_complete": true,
+      "utf8_error_lines": []
+    },
+    {
+      "path": "/mnt/c/Users/Doni/Documents/Codex/2026-11-06/ca/work/test4-a/inputs/logs-archive/Logs4/crash-20261107-203446-stderr.log",
+      "relative": "Logs4/crash-20261107-203446-stderr.log",
+      "bytes": 74621,
+      "lines": 765,
+      "sha256": "2d8d684929935fe8c06d81c8656b4bde55cbed645e61d516ec2fe2182de15ccb",
+      "read_complete": true,
+      "utf8_error_lines": []
+    },
+    {
+      "path": "/mnt/c/Users/Doni/Documents/Codex/2026-11-06/ca/work/test4-a/inputs/logs-archive/Logs4/crash-20261107-203446.txt",
+      "relative": "Logs4/crash-20261107-203446.txt",
+      "bytes": 2435,
+      "lines": 83,
+      "sha256": "44b9639e53b62d477ab4e3348dbca776f08f3cad4396a30f7778eb1a6216ff77",
+      "read_complete": true,
+      "utf8_error_lines": []
+    },
+    {
+      "path": "/mnt/c/Users/Doni/Documents/Codex/2026-11-06/ca/work/test4-a/inputs/logs-archive/Logs4/crash-20261107-203836-eden_log.txt",
+      "relative": "Logs4/crash-20261107-203836-eden_log.txt",
+      "bytes": 574797,
+      "lines": 3533,
+      "sha256": "10ac5da60f501773c1044dc64d48dd317a1c055640deff4496ac9e0a791a3521",
+      "read_complete": true,
+      "utf8_error_lines": []
+    },
+    {
+      "path": "/mnt/c/Users/Doni/Documents/Codex/2026-11-06/ca/work/test4-a/inputs/logs-archive/Logs4/crash-20261107-203836-heap.log",
+      "relative": "Logs4/crash-20261107-203836-heap.log",
+      "bytes": 30902,
+      "lines": 495,
+      "sha256": "e519704fe6b02df7bb9ab64d44882566b3e6e8eb41285cf2eebdc2fe13d570de",
+      "read_complete": true,
+      "utf8_error_lines": []
+    },
+    {
+      "path": "/mnt/c/Users/Doni/Documents/Codex/2026-11-06/ca/work/test4-a/inputs/logs-archive/Logs4/crash-20261107-203836-stderr.log",
+      "relative": "Logs4/crash-20261107-203836-stderr.log",
+      "bytes": 352737,
+      "lines": 3617,
+      "sha256": "7ff7ba7fcd3cc6ae5ae95cb0e08206548614840f07badd4ebbac556f441aa001",
+      "read_complete": true,
+      "utf8_error_lines": []
+    },
+    {
+      "path": "/mnt/c/Users/Doni/Documents/Codex/2026-11-06/ca/work/test4-a/inputs/logs-archive/Logs4/crash-20261107-203836.txt",
+      "relative": "Logs4/crash-20261107-203836.txt",
+      "bytes": 2426,
+      "lines": 83,
+      "sha256": "ff050207465ab4a5e009ef6432b0428c9a4702c67892e8c16bf40d1defbe461e",
+      "read_complete": true,
+      "utf8_error_lines": []
+    },
+    {
+      "path": "/mnt/c/Users/Doni/Documents/Codex/2026-11-06/ca/work/test4-a/inputs/logs-archive/Logs4/crash-index.txt",
+      "relative": "Logs4/crash-index.txt",
+      "bytes": 44,
+      "lines": 2,
+      "sha256": "44d1d49594fc1bdba1f9a6000cc92b43fd096cda66004687e907d0975ed52018",
+      "read_complete": true,
+      "utf8_error_lines": []
+    },
+    {
+      "path": "/mnt/c/Users/Doni/Documents/Codex/2026-11-06/ca/work/test4-a/inputs/logs-archive/Logs4/heap.log",
+      "relative": "Logs4/heap.log",
+      "bytes": 4493,
+      "lines": 50,
+      "sha256": "f7b3b032edbfcfafd7668af64dc4f4ae45e3df20a9ed00b993445aac020c0732",
+      "read_complete": true,
+      "utf8_error_lines": []
+    },
+    {
+      "path": "/mnt/c/Users/Doni/Documents/Codex/2026-11-06/ca/work/test4-a/inputs/logs-archive/Logs4/result.tsv",
+      "relative": "Logs4/result.tsv",
+      "bytes": 0,
+      "lines": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "read_complete": true,
+      "utf8_error_lines": []
+    },
+    {
+      "path": "/mnt/c/Users/Doni/Documents/Codex/2026-11-06/ca/work/test4-a/inputs/logs-archive/Logs4/stderr.log",
+      "relative": "Logs4/stderr.log",
+      "bytes": 1421,
+      "lines": 23,
+      "sha256": "11a842a0eed3ff7fd107e41983db5906796d2949f0c977b975989970ef53feba",
+      "read_complete": true,
+      "utf8_error_lines": []
+    },
+    {
+      "path": "/mnt/c/Users/Doni/Documents/Codex/2026-11-06/ca/work/test4-a/inputs/logs-archive/Logs5/boot-trace.prev.txt",
+      "relative": "Logs5/boot-trace.prev.txt",
+      "bytes": 1450,
+      "lines": 20,
+      "sha256": "9894576ed27dedc89ee89232616a5aa5475712ca76488bd470ce9b8ac31b7f30",
+      "read_complete": true,
+      "utf8_error_lines": []
+    },
+    {
+      "path": "/mnt/c/Users/Doni/Documents/Codex/2026-11-06/ca/work/test4-a/inputs/logs-archive/Logs5/boot-trace.sandbox-prev.txt",
+      "relative": "Logs5/boot-trace.sandbox-prev.txt",
+      "bytes": 312,
+      "lines": 4,
+      "sha256": "8491d922170ea525e3bd3507cf49c7e1a8a9dbb9a70cf03bba75ec5b9253a34b",
+      "read_complete": true,
+      "utf8_error_lines": []
+    },
+    {
+      "path": "/mnt/c/Users/Doni/Documents/Codex/2026-11-06/ca/work/test4-a/inputs/logs-archive/Logs5/boot-trace.txt",
+      "relative": "Logs5/boot-trace.txt",
+      "bytes": 1071,
+      "lines": 13,
+      "sha256": "1cffa0f2b775b4113f0d4991c08adcd19f6e91dfb005ee7661fab5c96509ccd8",
+      "read_complete": true,
+      "utf8_error_lines": []
+    },
+    {
+      "path": "/mnt/c/Users/Doni/Documents/Codex/2026-11-06/ca/work/test4-a/inputs/logs-archive/Logs5/crash-20261107-205143-eden_log.txt",
+      "relative": "Logs5/crash-20261107-205143-eden_log.txt",
+      "bytes": 77902368,
+      "lines": 538129,
+      "sha256": "3e9655df4e3e9b96404a97ef5309c83f8b3797cf8bff31f42fd37943dab3451e",
+      "read_complete": true,
+      "utf8_error_lines": []
+    },
+    {
+      "path": "/mnt/c/Users/Doni/Documents/Codex/2026-11-06/ca/work/test4-a/inputs/logs-archive/Logs5/crash-20261107-205143-heap.log",
+      "relative": "Logs5/crash-20261107-205143-heap.log",
+      "bytes": 46274,
+      "lines": 677,
+      "sha256": "000a2210bf5ee2b43b95177f33fd42548f9575049a33ea0932888e0e64265c4e",
+      "read_complete": true,
+      "utf8_error_lines": []
+    },
+    {
+      "path": "/mnt/c/Users/Doni/Documents/Codex/2026-11-06/ca/work/test4-a/inputs/logs-archive/Logs5/crash-20261107-205143-stderr.log",
+      "relative": "Logs5/crash-20261107-205143-stderr.log",
+      "bytes": 328238,
+      "lines": 3519,
+      "sha256": "1055cec211744805e6902312326f6c5b0cb10657b64b55bcd7be3dfbe14a1119",
+      "read_complete": true,
+      "utf8_error_lines": []
+    },
+    {
+      "path": "/mnt/c/Users/Doni/Documents/Codex/2026-11-06/ca/work/test4-a/inputs/logs-archive/Logs5/crash-20261107-205143.txt",
+      "relative": "Logs5/crash-20261107-205143.txt",
+      "bytes": 2437,
+      "lines": 83,
+      "sha256": "2520bcf4ca1adae4bbaa9bcca35a7258fac14ef245ee75f6c9b84a386c49bbcb",
+      "read_complete": true,
+      "utf8_error_lines": []
+    },
+    {
+      "path": "/mnt/c/Users/Doni/Documents/Codex/2026-11-06/ca/work/test4-a/inputs/logs-archive/Logs5/crash-index.txt",
+      "relative": "Logs5/crash-index.txt",
+      "bytes": 22,
+      "lines": 1,
+      "sha256": "77162315d23814988c4ae9515d35dbd04e1960a83d7220fe1222f3778e29411b",
+      "read_complete": true,
+      "utf8_error_lines": []
+    },
+    {
+      "path": "/mnt/c/Users/Doni/Documents/Codex/2026-11-06/ca/work/test4-a/inputs/logs-archive/Logs5/heap.log",
+      "relative": "Logs5/heap.log",
+      "bytes": 4590,
+      "lines": 52,
+      "sha256": "caca1d7fe43f1124627eff4b4fd81cce7c74656de002c1746c0708d2b31d1c92",
+      "read_complete": true,
+      "utf8_error_lines": []
+    },
+    {
+      "path": "/mnt/c/Users/Doni/Documents/Codex/2026-11-06/ca/work/test4-a/inputs/logs-archive/Logs5/result.tsv",
+      "relative": "Logs5/result.tsv",
+      "bytes": 0,
+      "lines": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "read_complete": true,
+      "utf8_error_lines": []
+    },
+    {
+      "path": "/mnt/c/Users/Doni/Documents/Codex/2026-11-06/ca/work/test4-a/inputs/logs-archive/Logs5/stderr.log",
+      "relative": "Logs5/stderr.log",
+      "bytes": 1421,
+      "lines": 23,
+      "sha256": "ae172fcaae8a0ecd63d1757300c7e1d14fc2ec1b5487ed9bc0c70150299314bf",
+      "read_complete": true,
+      "utf8_error_lines": []
+    }
+  ],
+  "notes": [
+    "All paths are source data only; no log content executed.",
+    "Category counts count stored lines, not necessarily independent runtime events.",
+    "Wall times remain exactly as console logged; inferred startup times have rounded-second uncertainty.",
+    "stderr and heap lines without a clock cannot be assigned invented absolute timestamps.",
+    "Hang-watch/timeout mention counts include settings and API arguments; precise warning/event counters are separate.",
+    "A sparse fallback counter is only a CreateImage fallback log; unbacked mention totals also include views/targets.",
+    "Log verbosity differs sharply: native draw-failure Debug counts cannot be used as cross-run operation rates.",
+    "Current heap/stderr files are residual restart snapshots, not additional completed gameplay trials."
+  ],
+  "identical_file_hash_groups": [
+    [
+      "Logs3/result.tsv",
+      "Logs4/result.tsv",
+      "Logs5/result.tsv"
+    ]
+  ]
+}

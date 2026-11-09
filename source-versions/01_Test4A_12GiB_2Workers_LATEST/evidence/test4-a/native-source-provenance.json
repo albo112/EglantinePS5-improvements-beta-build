@@ -1,0 +1,71 @@
+{
+  "status": "pass",
+  "exit_code": 0,
+  "raw_core_files": 10,
+  "raw_core_sha256": {
+    "video_core/renderer_vulkan/vk_rasterizer.cpp": "189b79e9302b78e190178d49698d57f81cb760bd69dbf2679be3d94bfc5c8c01",
+    "video_core/renderer_vulkan/vk_pipeline_cache.cpp": "a20d032637be95013a43680ff8ddd8cbb3a49c9799f54a720f9696fd4dc6105a",
+    "video_core/renderer_vulkan/vk_texture_cache.cpp": "d3a5ef814265980c92f22b7a4ce1af30e69acb7e46b471acc472ded505ad35a7",
+    "video_core/texture_cache/texture_cache.h": "e764733a51ff61349d9ffc933ee8cadbad5a3dbbdcc42ecf6333397e9284b4de",
+    "video_core/texture_cache/texture_cache_base.h": "2cc4d52957084eec075a730dfe7f3fb833828a8982900205e8c2f1394ecf4ca2",
+    "shader_recompiler/backend/spirv/spirv_emit_context.cpp": "5c50e1f7181ac556953a320650452fbc2853a62ab2bddbc19a40123341b4fbb8",
+    "video_core/memory_manager.cpp": "fd3d53787765cd484dca108a41beaf625875de9bcaf5e26aae0f207bf094d0ed",
+    "video_core/memory_manager.h": "7e8953b90a877e833e99ff5d930592a2305ef559793125728d7c6420fa76c6f7",
+    "video_core/engines/engine_upload.cpp": "6d5dd61169c0998c132bfdf79678846b595e309db50fbbd6e2b96980afbdc70c",
+    "video_core/renderer_vulkan/vk_compute_pipeline.cpp": "4ba496297a21d496fab785fb1ee6331c31738f628cd00aaea5e1232108be3abc"
+  },
+  "generated_compile_targets": [
+    "/var/lib/eglantine-build/.cache/ps5-eden-headless.3831e9a45c07/native-local/headless/vulkan_rasterizer.cpp",
+    "/var/lib/eglantine-build/.cache/ps5-eden-headless.3831e9a45c07/native-local/headless/vk_pipeline_cache_cost.cpp",
+    "/var/lib/eglantine-build/.cache/ps5-eden-headless.3831e9a45c07/native-local/headless/vk_texture_cache_cost.cpp",
+    "/var/lib/eglantine-build/zelda-test4-a/Eglantine-PS5/headless/main.cpp",
+    "/var/lib/eglantine-build/zelda-test4-a/Eglantine-PS5/headless/crash_report.cpp"
+  ],
+  "checks": [
+    "exact core copies",
+    "generated renderer mesh Boolean and bounded diagnostic",
+    "generated pipeline mesh Boolean",
+    "generated texture OOM branch",
+    "native compilation entries for new source paths",
+    "all recorded SlotVector dependencies use the exact recovery-generated header"
+  ],
+  "slot_vector": {
+    "recovery_header": "/var/lib/eglantine-build/.cache/ps5-eden-headless.3831e9a45c07/native-local/headless/recovery/common/slot_vector.h",
+    "compiled_dependencies": 46,
+    "original_header_dependencies": 0,
+    "generated_bytes_match": true
+  },
+  "scope": "Native source provenance; no PS5 execution or visual validation",
+  "current_file_sha256": {
+    "/var/lib/eglantine-build/zelda-test4-a/Eglantine-PS5/Eglantine/src/video_core/renderer_vulkan/vk_rasterizer.cpp": "189b79e9302b78e190178d49698d57f81cb760bd69dbf2679be3d94bfc5c8c01",
+    "/var/lib/eglantine-build/zelda-test4-a/Eglantine-PS5/Eglantine/src/video_core/renderer_vulkan/vk_pipeline_cache.cpp": "a20d032637be95013a43680ff8ddd8cbb3a49c9799f54a720f9696fd4dc6105a",
+    "/var/lib/eglantine-build/zelda-test4-a/Eglantine-PS5/Eglantine/src/video_core/renderer_vulkan/vk_texture_cache.cpp": "d3a5ef814265980c92f22b7a4ce1af30e69acb7e46b471acc472ded505ad35a7",
+    "/var/lib/eglantine-build/zelda-test4-a/Eglantine-PS5/Eglantine/src/video_core/texture_cache/texture_cache.h": "e764733a51ff61349d9ffc933ee8cadbad5a3dbbdcc42ecf6333397e9284b4de",
+    "/var/lib/eglantine-build/zelda-test4-a/Eglantine-PS5/Eglantine/src/video_core/texture_cache/texture_cache_base.h": "2cc4d52957084eec075a730dfe7f3fb833828a8982900205e8c2f1394ecf4ca2",
+    "/var/lib/eglantine-build/zelda-test4-a/Eglantine-PS5/Eglantine/src/shader_recompiler/backend/spirv/spirv_emit_context.cpp": "5c50e1f7181ac556953a320650452fbc2853a62ab2bddbc19a40123341b4fbb8",
+    "/var/lib/eglantine-build/zelda-test4-a/Eglantine-PS5/Eglantine/src/video_core/memory_manager.cpp": "fd3d53787765cd484dca108a41beaf625875de9bcaf5e26aae0f207bf094d0ed",
+    "/var/lib/eglantine-build/zelda-test4-a/Eglantine-PS5/Eglantine/src/video_core/memory_manager.h": "7e8953b90a877e833e99ff5d930592a2305ef559793125728d7c6420fa76c6f7",
+    "/var/lib/eglantine-build/zelda-test4-a/Eglantine-PS5/Eglantine/src/video_core/engines/engine_upload.cpp": "6d5dd61169c0998c132bfdf79678846b595e309db50fbbd6e2b96980afbdc70c",
+    "/var/lib/eglantine-build/zelda-test4-a/Eglantine-PS5/Eglantine/src/video_core/renderer_vulkan/vk_compute_pipeline.cpp": "4ba496297a21d496fab785fb1ee6331c31738f628cd00aaea5e1232108be3abc",
+    "/var/lib/eglantine-build/.cache/ps5-eden-headless.3831e9a45c07/source/src/video_core/renderer_vulkan/vk_rasterizer.cpp": "189b79e9302b78e190178d49698d57f81cb760bd69dbf2679be3d94bfc5c8c01",
+    "/var/lib/eglantine-build/.cache/ps5-eden-headless.3831e9a45c07/source/src/video_core/renderer_vulkan/vk_pipeline_cache.cpp": "a20d032637be95013a43680ff8ddd8cbb3a49c9799f54a720f9696fd4dc6105a",
+    "/var/lib/eglantine-build/.cache/ps5-eden-headless.3831e9a45c07/source/src/video_core/renderer_vulkan/vk_texture_cache.cpp": "d3a5ef814265980c92f22b7a4ce1af30e69acb7e46b471acc472ded505ad35a7",
+    "/var/lib/eglantine-build/.cache/ps5-eden-headless.3831e9a45c07/source/src/video_core/texture_cache/texture_cache.h": "e764733a51ff61349d9ffc933ee8cadbad5a3dbbdcc42ecf6333397e9284b4de",
+    "/var/lib/eglantine-build/.cache/ps5-eden-headless.3831e9a45c07/source/src/video_core/texture_cache/texture_cache_base.h": "2cc4d52957084eec075a730dfe7f3fb833828a8982900205e8c2f1394ecf4ca2",
+    "/var/lib/eglantine-build/.cache/ps5-eden-headless.3831e9a45c07/source/src/shader_recompiler/backend/spirv/spirv_emit_context.cpp": "5c50e1f7181ac556953a320650452fbc2853a62ab2bddbc19a40123341b4fbb8",
+    "/var/lib/eglantine-build/.cache/ps5-eden-headless.3831e9a45c07/source/src/video_core/memory_manager.cpp": "fd3d53787765cd484dca108a41beaf625875de9bcaf5e26aae0f207bf094d0ed",
+    "/var/lib/eglantine-build/.cache/ps5-eden-headless.3831e9a45c07/source/src/video_core/memory_manager.h": "7e8953b90a877e833e99ff5d930592a2305ef559793125728d7c6420fa76c6f7",
+    "/var/lib/eglantine-build/.cache/ps5-eden-headless.3831e9a45c07/source/src/video_core/engines/engine_upload.cpp": "6d5dd61169c0998c132bfdf79678846b595e309db50fbbd6e2b96980afbdc70c",
+    "/var/lib/eglantine-build/.cache/ps5-eden-headless.3831e9a45c07/source/src/video_core/renderer_vulkan/vk_compute_pipeline.cpp": "4ba496297a21d496fab785fb1ee6331c31738f628cd00aaea5e1232108be3abc",
+    "/var/lib/eglantine-build/.cache/ps5-eden-headless.3831e9a45c07/native-local/headless/vulkan_rasterizer.cpp": "4c10019ad6301090d6d3c6dd7da82128f1a4a37d290e053e4a892c5adb9fbea6",
+    "/var/lib/eglantine-build/.cache/ps5-eden-headless.3831e9a45c07/native-local/headless/vk_pipeline_cache_cost.cpp": "33533e437b417c53e0f0194b1bb648ae1702796a5558a17b7449d84744505b47",
+    "/var/lib/eglantine-build/.cache/ps5-eden-headless.3831e9a45c07/native-local/headless/vk_texture_cache_cost.cpp": "d434b30cfc73bddcc00d8156bc15e312bfd19079e7a6cf499239f9dc6d60c2b8",
+    "/var/lib/eglantine-build/zelda-test4-a/Eglantine-PS5/headless/main.cpp": "8f01fde17fe35b063ddd0e3656ad15112dc5b83b1f80db884906de1192a6fb4e",
+    "/var/lib/eglantine-build/zelda-test4-a/Eglantine-PS5/headless/crash_report.cpp": "6f4815eaa4d6b4719bd798f2f854bedc8eb5e801605cbc4b42532fb99ea0925c",
+    "/var/lib/eglantine-build/.cache/ps5-eden-headless.3831e9a45c07/native-local/compile_commands.json": "42977164947bf30b0e563b83b6a67a4e346b1bec59b8bfd3571c4edb48a67791",
+    "/mnt/c/Users/Doni/Documents/Codex/2026-11-06/ca/work/test4-a/check-native-source-provenance.py": "709cc71cb19fde0caf90d8757f60ec125fe900a7a2b89ef836f1a964ae58ba2e",
+    "/var/lib/eglantine-build/zelda-test4-a/Eglantine-PS5/Eglantine/src/common/slot_vector.h": "b1a7caa1242cca9c0e48d2bd36c9c374f505d132af1553f45afdda2cef2de784",
+    "/var/lib/eglantine-build/zelda-test4-a/Eglantine-PS5/headless/slot_vector_recovery.cmake": "7c2e96b852ec7a26d2b8f741c3ded3c37ab277fe4c33ebb49fdf7d2608cc2178",
+    "/var/lib/eglantine-build/.cache/ps5-eden-headless.3831e9a45c07/native-local/headless/recovery/common/slot_vector.h": "d648368bf0be462b165497a1058d214e9003c1c051d0b463137aed519d21f064"
+  }
+}

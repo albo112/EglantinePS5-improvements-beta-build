@@ -1,0 +1,1 @@
+Crash report: signal, address, thread, session, registers and calls; abort, illegal instruction and uncaught exception; one report for many threads; no restart loop; refusal falls back to the system; unreadable memory; logs kept beside five reports; functions named from the report PASS

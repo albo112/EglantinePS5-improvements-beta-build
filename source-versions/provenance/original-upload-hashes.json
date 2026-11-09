@@ -1,0 +1,65 @@
+[
+  {
+    "name": "EglantinePS5-Zelda-Test4-A-Source-Changes.rar",
+    "bytes": 1814898,
+    "sha256": "ac4c7df2d882e4946542d5d4180487f86e4a3956d0bdda7f10b76e5819d4f148",
+    "kind": "source",
+    "included_in_source_package": true
+  },
+  {
+    "name": "EglantinePS5-Zelda-Test4-A-Source-Changes(1).zip",
+    "bytes": 2155755,
+    "sha256": "4534a7db29d7fc578ccab019683fd6244f04f71478f87745a801d8b51920e104",
+    "kind": "source",
+    "included_in_source_package": true
+  },
+  {
+    "name": "EglantinePS5-Zelda-Test3-Source-Changes(1).zip",
+    "bytes": 99412,
+    "sha256": "5a06546cec7c9314ddb7f45003988d87da0a4d7f90e4d047ca56fc8bd20ee1fb",
+    "kind": "source",
+    "included_in_source_package": true
+  },
+  {
+    "name": "EglantinePS5-Zelda-Memory-Fix-Test2-sources.zip",
+    "bytes": 11911,
+    "sha256": "820dce248d2ca7e2e7d3a5dc08eb7dc0c3b36b2fb070d07366de5a3dc1eed87d",
+    "kind": "source",
+    "included_in_source_package": true
+  },
+  {
+    "name": "EglantinePS5-Zelda-Test4-A-12GB(1).zip",
+    "bytes": 37913266,
+    "sha256": "a0410ea88a56e2520b59f5a58138bfeb305b26bbb1d1412b465b93e8c5972f97",
+    "kind": "compiled build",
+    "included_in_source_package": false
+  },
+  {
+    "name": "EglantinePS5-Zelda-Test4-A-Graphics-and-Crash-Fixes(1).zip",
+    "bytes": 37912481,
+    "sha256": "3cd62c1beeebeed14351c55fe81bb82597ed5c7b98ba37103954c55a31c4592b",
+    "kind": "compiled build",
+    "included_in_source_package": false
+  },
+  {
+    "name": "EglantinePS5-Zelda-Test3-Graphics-and-Crash-Fixes(1).zip",
+    "bytes": 37902593,
+    "sha256": "55ec27a975ded934698ca04185f622459ed45ff032741502ce383ed49e9cfef7",
+    "kind": "compiled build",
+    "included_in_source_package": false
+  },
+  {
+    "name": "EglantinePS5-Zelda-T34-RADV-fix.zip",
+    "bytes": 37770751,
+    "sha256": "f8354bb8a1b722c8a3755679ee2deab89b7377cb43c383e17a85b25e4e84d26e",
+    "kind": "compiled build",
+    "included_in_source_package": false
+  },
+  {
+    "name": "EglantinePS5-Zelda-Memory-Fix-Test2.zip",
+    "bytes": 37770822,
+    "sha256": "1d18cae9fc27a8948b128c72c44e45b9a2b535d1043ca4bce491dbe3eb64d46f",
+    "kind": "compiled build",
+    "included_in_source_package": false
+  }
+]

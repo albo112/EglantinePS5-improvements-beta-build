@@ -1,0 +1,22 @@
+{
+  "source_rar_filename": "EglantinePS5-Zelda-Test4-A-Source-Changes.rar",
+  "source_rar_sha256": "ac4c7df2d882e4946542d5d4180487f86e4a3956d0bdda7f10b76e5819d4f148",
+  "previous_source_zip_filename": "EglantinePS5-Zelda-Test4-A-Source-Changes(1).zip",
+  "previous_source_zip_sha256": "4534a7db29d7fc578ccab019683fd6244f04f71478f87745a801d8b51920e104",
+  "source_archive_file_count": 456,
+  "matching_file_count": 455,
+  "changed_file_count": 1,
+  "changed_files": [
+    "profiles/env-0400486024dec000.txt"
+  ],
+  "profile_old_sha256": "0b3150cec905cf1bde03815998a97f26f3b091405e1cf4fcc67d5cca2ce0be49",
+  "profile_new_sha256": "40ae3d8b2db0b360012853e6ba0d1430730c68c60ccd6248c93e96306c488c16",
+  "manifest_verified_file_count": 455,
+  "manifest_failures": [],
+  "guest_memory_layout_gib": 12,
+  "vulkan_pipeline_workers": 2,
+  "full_upstream_source_included": false,
+  "reconstruction_executed": false,
+  "ps5_build_executed": false,
+  "ps5_gameplay_tested": false
+}

@@ -1,0 +1,2 @@
+{"status":"pass","mode":1,"nested":0,"scenario":0,"failures":1,"failed_bytes":672,"partial_progress":1,"result":2087,"stores":1}
+EglantinePS5 Test4-A: NIR copy propagation stopped on allocation failure; retaining valid shader IR

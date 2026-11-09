@@ -1,0 +1,13 @@
+../source/src/compiler/nir/tests/test4a_nir_copy_prop_baseline.c:419:4: runtime error: null pointer passed as argument 1, which is declared to never be null
+    #0 0x63dacc9d8f92 in copy_entry_create ../source/src/compiler/nir/tests/test4a_nir_copy_prop_baseline.c:419
+    #1 0x63dacca3d904 in copy_prop_vars_block ../source/src/compiler/nir/tests/test4a_nir_copy_prop_baseline.c:1221
+    #2 0x63dacca443a5 in copy_prop_vars_cf_node ../source/src/compiler/nir/tests/test4a_nir_copy_prop_baseline.c:1525
+    #3 0x63dacca43a48 in copy_prop_vars_cf_node ../source/src/compiler/nir/tests/test4a_nir_copy_prop_baseline.c:1544
+    #4 0x63dacca43c49 in copy_prop_vars_cf_node ../source/src/compiler/nir/tests/test4a_nir_copy_prop_baseline.c:1515
+    #5 0x63dacca480c4 in nir_copy_prop_vars_impl ../source/src/compiler/nir/tests/test4a_nir_copy_prop_baseline.c:1615
+    #6 0x63dacca48487 in nir_opt_copy_prop_vars ../source/src/compiler/nir/tests/test4a_nir_copy_prop_baseline.c:1630
+    #7 0x63dacca20d6f in main ../source/src/compiler/nir/tests/test4a_nir_oom.c:90
+    #8 0x78c10822a600  (/usr/lib/x86_64-linux-gnu/libc.so.6+0x2a600) (BuildId: 066527e430a32768d82741e00b81eebb1a872294)
+    #9 0x78c10822a717 in __libc_start_main (/usr/lib/x86_64-linux-gnu/libc.so.6+0x2a717) (BuildId: 066527e430a32768d82741e00b81eebb1a872294)
+    #10 0x63dacca25fa4 in _start (/var/lib/eglantine-build/zelda-test4-a/mesa-oom-host/build/src/compiler/nir/test4a_nir_oom_baseline+0xb4ffa4) (BuildId: ae9993580dfe2ffe8d7c9849768dceb179d69787)
+

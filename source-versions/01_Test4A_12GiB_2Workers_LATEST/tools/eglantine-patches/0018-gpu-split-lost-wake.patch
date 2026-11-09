@@ -1,0 +1,87 @@
+diff --git a/src/video_core/gpu_split.cpp b/src/video_core/gpu_split.cpp
+index 07ac984222..57a6431093 100644
+--- a/src/video_core/gpu_split.cpp
++++ b/src/video_core/gpu_split.cpp
+@@ -2,6 +2,7 @@
+ // SPDX-License-Identifier: GPL-3.0-or-later
+ 
+ #include <algorithm>
++#include <chrono>
+ #include <cstdlib>
+ #include <thread>
+ 
+@@ -129,7 +130,7 @@ void GpuSplit::Stop() {
+     }
+     back_thread.request_stop();
+     wake.fetch_add(1, std::memory_order_seq_cst);
+-    wake.notify_one();
++    wake.notify_all();
+     back_thread.join();
+     active = false;
+     // The split is static and outlives the emulation session. The next session's back thread
+@@ -179,6 +180,11 @@ void GpuSplit::WaitForSpace(size_t words) {
+             Pause();
+         } else {
+             std::this_thread::yield();
++            // As in Drain: re-wake a back thread whose wake-up was lost.
++            if ((spins & 1023) == 0 && back_waiting.load(std::memory_order_seq_cst)) {
++                wake.fetch_add(1, std::memory_order_seq_cst);
++                wake.notify_all();
++            }
+         }
+     }
+ }
+@@ -192,7 +198,9 @@ void GpuSplit::Publish() {
+     published.store(write_position, std::memory_order_seq_cst);
+     if (back_waiting.load(std::memory_order_seq_cst)) {
+         wake.fetch_add(1, std::memory_order_seq_cst);
+-        wake.notify_one();
++        // All: libc++ (Android) parks atomic waiters in a shared hash table, where notify_one
++        // can wake an unrelated waiter on the same slot and leave the back thread asleep.
++        wake.notify_all();
+     }
+ }
+ 
+@@ -203,6 +211,7 @@ void GpuSplit::Drain() {
+     }
+     Publish();
+     Nx2Profile::Scope scope{Nx2Profile::Zone::SplitDrain};
++    auto next_report = std::chrono::steady_clock::now() + std::chrono::seconds{5};
+     // Everything consumed is not enough: the back submits deferred work (Scheduler::DeferFlush)
+     // from its idle hook afterwards, and the caller may use the scheduler once this returns.
+     bool hook_asked = false;
+@@ -222,6 +231,21 @@ void GpuSplit::Drain() {
+             Pause();
+         } else {
+             std::this_thread::yield();
++            // Still waiting on an asleep back thread: its wake-up was lost (it froze Mario Kart
++            // World on Android with the front here and the back parked). Wake it again.
++            if ((spins & 1023) == 0 && back_waiting.load(std::memory_order_seq_cst)) {
++                wake.fetch_add(1, std::memory_order_seq_cst);
++                wake.notify_all();
++            }
++            if ((spins & 1023) == 0 && std::chrono::steady_clock::now() >= next_report) {
++                next_report += std::chrono::seconds{5};
++                LOG_WARNING(HW_GPU,
++                            "GPU split drain waiting on the back thread: {} of {} words consumed, "
++                            "back {} ({})",
++                            consumed_cache, write_position,
++                            back_waiting.load() ? "parked" : "running",
++                            g_back_busy.load() ? "inside a command" : "between batches");
++            }
+         }
+     }
+ }
+diff --git a/src/video_core/gpu_split.h b/src/video_core/gpu_split.h
+index 836c46c795..7280dd2272 100644
+--- a/src/video_core/gpu_split.h
++++ b/src/video_core/gpu_split.h
+@@ -72,7 +72,7 @@ public:
+     void RequestIdleHook() {
+         hook_requested.store(true, std::memory_order_seq_cst);
+         wake.fetch_add(1, std::memory_order_seq_cst);
+-        wake.notify_one();
++        wake.notify_all(); // as in Publish: notify_one can wake another waiter on libc++'s table
+     }
+ 
+     /// Starts the back thread once the split is wanted (EDEN_NX2_SPLIT=1, a Switch 2 title,

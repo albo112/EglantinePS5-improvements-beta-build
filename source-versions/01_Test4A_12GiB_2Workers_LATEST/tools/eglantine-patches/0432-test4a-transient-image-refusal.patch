@@ -1,0 +1,133 @@
+--- a/src/video_core/renderer_vulkan/vk_texture_cache.cpp
++++ b/src/video_core/renderer_vulkan/vk_texture_cache.cpp
+@@ -2901,8 +2901,11 @@
+                 }
+             }
+         } else if (texels <= (u64{1} << 28)) {
+-            // Not too big to back (see MemoryAllocator::CreateImage): unbacked because nothing
+-            // was written there yet, so the first write gets it replaced.
++            // A written ordinary image can also be unbacked after an allocation failure. Do not
++            // cache that as an unwritten image: a later read must retry and upload the guest data.
++            if (!IsUnwrittenSparse(runtime_.device, info, gpu_addr_)) {
++                throw vk::Exception{VK_ERROR_OUT_OF_DEVICE_MEMORY};
++            }
+             flags |= VideoCommon::ImageFlagBits::UnwrittenSparse;
+         }
+     }
+--- a/src/video_core/texture_cache/texture_cache.h
++++ b/src/video_core/texture_cache/texture_cache.h
+@@ -710,7 +710,14 @@
+         if (it == feedback_shadows.end()) {
+             const ImageInfo info = slot_images[image_id].info;
+             const DAddr cpu_addr = slot_images[image_id].cpu_addr;
+-            feedback_shadows.push_back(slot_images.insert(runtime, info, gpu_addr, cpu_addr));
++            const ImageId new_shadow_id = TryMakeImage(info, gpu_addr, cpu_addr);
++            if (!new_shadow_id) {
++                // Use the existing null descriptor until memory is available; do not keep a
++                // shadow with no backing, or sample the target while this draw writes it.
++                view.id = NULL_IMAGE_VIEW_ID;
++                continue;
++            }
++            feedback_shadows.push_back(new_shadow_id);
+             LOG_INFO(HW_GPU, "Colour target {}x{} format {} sampled by its own draw: copying it",
+                      info.size.width, info.size.height, static_cast<u32>(info.format));
+             it = std::prev(feedback_shadows.end());
+@@ -3229,6 +3236,39 @@
+ }
+ 
+ template <class P>
++ImageId TextureCache<P>::TryMakeImage(const ImageInfo& info, GPUVAddr gpu_addr, DAddr cpu_addr) {
++    ImageId new_image_id{};
++    const auto make_image = [&] {
++        new_image_id = slot_images.insert(runtime, info, gpu_addr, cpu_addr);
++    };
++    if constexpr (requires { runtime.SurvivesImageRefusal(make_image); }) {
++        // The device could not back this image, or even create an empty sparse image. Do not
++        // keep a clean cached image with missing content. As for an unmapped address, a texture reads
++        // zero, a render target is left out, a blit goes through guest memory. Nothing needs
++        // undoing (an overlap's Alias mark is only read to be cleared). What the GPU writes
++        // meanwhile is lost; guest memory keeps the guest's data, and a later use makes the image
++        // and loads it as any new image. For a moment nothing this size or larger is asked for.
++        constexpr auto RefusalPause = std::chrono::seconds(1);
++        const u64 image_bytes = CalculateGuestSizeInBytes(info);
++        const auto now = std::chrono::steady_clock::now();
++        const bool paused = now < image_refused_until && image_bytes >= image_refused_bytes;
++        if (paused || !runtime.SurvivesImageRefusal(make_image)) {
++            if (!paused) {
++                LOG_ERROR(HW_GPU, "No memory for the image at {:#x} ({}x{}, {} MiB): left out",
++                          gpu_addr, info.size.width, info.size.height, image_bytes >> 20);
++                image_refused_until = now + RefusalPause;
++                image_refused_bytes = image_bytes;
++            }
++            image_refused = true;
++            return ImageId{};
++        }
++    } else {
++        make_image();
++    }
++    return new_image_id;
++}
++
++template <class P>
+ ImageId TextureCache<P>::JoinImages(const ImageInfo& info, GPUVAddr gpu_addr, DAddr cpu_addr) {
+     ImageInfo new_info = info;
+     const size_t size_bytes = CalculateGuestSizeInBytes(new_info);
+@@ -3339,34 +3379,9 @@
+             }
+         }
+     }
+-    ImageId new_image_id{};
+-    const auto make_image = [&] {
+-        new_image_id = slot_images.insert(runtime, new_info, gpu_addr, cpu_addr);
+-    };
+-    if constexpr (requires { runtime.SurvivesImageRefusal(make_image); }) {
+-        // The device has neither memory for this image nor one with nothing bound (Mario Kart
+-        // World, 2026-11-06: the kernel refused the mappings with 1886 MiB in one piece). There is
+-        // no image to give the caller, so it gets what an unmapped address gets: a texture reads
+-        // zero, a render target is left out, a blit goes through guest memory. Nothing needs
+-        // undoing (an overlap's Alias mark is only read to be cleared). What the GPU writes
+-        // meanwhile is lost; guest memory keeps the guest's data, and a later use makes the image
+-        // and loads it as any new image. For a moment nothing this size or larger is asked for.
+-        constexpr auto RefusalPause = std::chrono::seconds(1);
+-        const u64 image_bytes = CalculateGuestSizeInBytes(new_info);
+-        const auto now = std::chrono::steady_clock::now();
+-        const bool paused = now < image_refused_until && image_bytes >= image_refused_bytes;
+-        if (paused || !runtime.SurvivesImageRefusal(make_image)) {
+-            if (!paused) {
+-                LOG_ERROR(HW_GPU, "No memory for the image at {:#x} ({}x{}, {} MiB): left out",
+-                          gpu_addr, new_info.size.width, new_info.size.height, image_bytes >> 20);
+-                image_refused_until = now + RefusalPause;
+-                image_refused_bytes = image_bytes;
+-            }
+-            image_refused = true;
+-            return ImageId{};
+-        }
+-    } else {
+-        make_image();
++    const ImageId new_image_id = TryMakeImage(new_info, gpu_addr, cpu_addr);
++    if (!new_image_id) {
++        return ImageId{};
+     }
+     Image& new_image = slot_images[new_image_id];
+ 
+--- a/src/video_core/texture_cache/texture_cache_base.h
++++ b/src/video_core/texture_cache/texture_cache_base.h
+@@ -458,6 +458,9 @@
+     [[nodiscard]] ImageId InsertImage(const ImageInfo& info, GPUVAddr gpu_addr,
+                                       RelaxedOptions options);
+ 
++    /// Construct an image, leaving no slot on memory refusal and retrying after the pause.
++    [[nodiscard]] ImageId TryMakeImage(const ImageInfo& info, GPUVAddr gpu_addr, DAddr cpu_addr);
++
+     /// Create a new image and join perfectly matching existing images
+     /// Remove joined images from the cache
+     [[nodiscard]] ImageId JoinImages(const ImageInfo& info, GPUVAddr gpu_addr, DAddr cpu_addr);
+@@ -601,7 +604,7 @@
+ 
+     bool has_deleted_images = false;
+ 
+-    /// Until when no image of image_refused_bytes or more is asked for (JoinImages).
++    /// Until when no image of image_refused_bytes or more is asked for (TryMakeImage).
+     std::chrono::steady_clock::time_point image_refused_until{};
+     u64 image_refused_bytes = 0;
+     /// The image just looked up was refused (VisitImageView keeps no view for it).

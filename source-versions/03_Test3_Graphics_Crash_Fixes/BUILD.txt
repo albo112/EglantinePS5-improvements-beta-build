@@ -1,0 +1,9 @@
+Start from the pinned PS5 frontend with recursive dependencies in SOURCE.json.
+Apply local-frontend-and-check.patch to the frontend; copy the four extra core overlays.
+Build via tools/ci/build-release.sh with JOBS=2 RADV_BUILD_JOBS=2.
+The upstream CI route skips legacy source checks. Run the included focused checks separately.
+Run GPU range check with --source Eglantine --applied --patch tools/eglantine-patches/0429-gpu-memory-range-guards.patch.
+Run other checks from the frontend working directory.
+After stock package validation, copy profiles/env-0400486024dec000.txt into PPSA98515/.
+The optional faster profile replaces that title file; close the app before changing profiles.
+No game, firmware, keys or proprietary SDK files are included in this change bundle.

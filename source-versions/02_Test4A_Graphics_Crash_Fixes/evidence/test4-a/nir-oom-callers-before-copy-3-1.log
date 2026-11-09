@@ -1,0 +1,13 @@
+../source/src/util/ralloc.c:1053:4: runtime error: member access within null pointer of type 'struct linear_ctx'
+    #0 0x647f261f3347 in linear_alloc_child ../source/src/util/ralloc.c:1053
+    #1 0x647f261f3e13 in linear_zalloc_child ../source/src/util/ralloc.c:1153
+    #2 0x647f259ed0af in create_vars_written ../source/src/compiler/nir/tests/test4a_nir_copy_prop_baseline.c:150
+    #3 0x647f259ed0af in gather_vars_written ../source/src/compiler/nir/tests/test4a_nir_copy_prop_baseline.c:273
+    #4 0x647f259eda3f in gather_vars_written ../source/src/compiler/nir/tests/test4a_nir_copy_prop_baseline.c:166
+    #5 0x647f259f00a6 in nir_copy_prop_vars_impl ../source/src/compiler/nir/tests/test4a_nir_copy_prop_baseline.c:1613
+    #6 0x647f259f0487 in nir_opt_copy_prop_vars ../source/src/compiler/nir/tests/test4a_nir_copy_prop_baseline.c:1630
+    #7 0x647f259c8d6f in main ../source/src/compiler/nir/tests/test4a_nir_oom.c:90
+    #8 0x78065ee2a600  (/usr/lib/x86_64-linux-gnu/libc.so.6+0x2a600) (BuildId: 066527e430a32768d82741e00b81eebb1a872294)
+    #9 0x78065ee2a717 in __libc_start_main (/usr/lib/x86_64-linux-gnu/libc.so.6+0x2a717) (BuildId: 066527e430a32768d82741e00b81eebb1a872294)
+    #10 0x647f259cdfa4 in _start (/var/lib/eglantine-build/zelda-test4-a/mesa-oom-host/build/src/compiler/nir/test4a_nir_oom_baseline+0xb4ffa4) (BuildId: ae9993580dfe2ffe8d7c9849768dceb179d69787)
+

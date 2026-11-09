@@ -1,0 +1,9 @@
+{
+  "status": "pass",
+  "exit_code": 0,
+  "native_export": "/var/lib/eglantine-build/zelda-test4-a/mihawk-vulkan-review/.deps/work/radv-src/src/compiler/nir/nir_opt_copy_prop_vars.c",
+  "host_tested_source": "/var/lib/eglantine-build/zelda-test4-a/mesa-oom-host/source/src/compiler/nir/nir_opt_copy_prop_vars.c",
+  "native_sha256": "3f15ec24932e2e7b04ab03cac3fd3b2bd0d79dd7cdd33af6069dade4b7da3306",
+  "host_sha256": "3f15ec24932e2e7b04ab03cac3fd3b2bd0d79dd7cdd33af6069dade4b7da3306",
+  "bounded_diagnostic_present_in_native_elf": true
+}

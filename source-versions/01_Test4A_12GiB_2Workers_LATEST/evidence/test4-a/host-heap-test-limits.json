@@ -1,0 +1,37 @@
+{
+  "status": "unavailable",
+  "record_exit_code": 0,
+  "test_exit_code": 1,
+  "scope": "Optional full unchanged-heap ThreadSanitizer stress test; not a supplied Test3 check",
+  "first_attempt": {
+    "exit_code": 1,
+    "child_exit_code": -9,
+    "kernel_oom": true,
+    "kernel_records": [
+      "[ 1662.395439] Out of memory: Killed process 19372 (heap-thread) total-vm:123486848232kB, anon-rss:3529244kB, file-rss:352kB, shmem-rss:176kB, UID:999 pgtables:12504kB oom_score_adj:0"
+    ]
+  },
+  "retry": {
+    "exit_code": 1,
+    "timeout_seconds": 900,
+    "exception": "TimeoutExpired",
+    "TSAN_OPTIONS": "memory_limit_mb=1536"
+  },
+  "ubsan_modes": {
+    "pieces_exit_code": 0,
+    "whole_exit_code": 0,
+    "passed_in_both_attempts": true
+  },
+  "heap_runtime_source_changed": false,
+  "heap_diff_from_pinned_exit_code": 0,
+  "heap_source_sha256": {
+    "headless/heap_arenas.inc": "41667aaaf1dc0fc8761795346814d37893d68f302819ce934ce52da36e446cc4",
+    "third_party/app_heap.c": "df61acb51502c3b75c4fda62859c42eac6d19a6690f9b68c0e2dfbf20ae72c0f"
+  },
+  "limitation": "Full heap ThreadSanitizer validation did not finish on this 3818MiB WSL host; no race-free claim.",
+  "evidence_sha256": {
+    "check-heap-growth-first-attempt.log": "13de4fa3c7ee6bf260576dfe1deac6f7b97489ae9c132da9b89c18f3bd3a211b",
+    "check-heap-growth.py.log": "46f1158d3fe8380a217a48b030d6f059571176addb87d3282012e34e69c1be0b",
+    "project-checks-source.json": "ba4dbbfdb73d34f6ab4448a8a791d968c41e04b22e4a55e9cb1e9549e4614df5"
+  }
+}

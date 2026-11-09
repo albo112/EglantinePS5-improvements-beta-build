@@ -1,0 +1,91 @@
+[
+  {
+    "command": [
+      "python3",
+      "-B",
+      "/mnt/c/Users/Doni/Documents/Codex/2026-11-06/ca/work/test4-a/checks/supplied/check-display-mode.py"
+    ],
+    "exit_code": 0,
+    "output": "Display mode selection PASS: unsupported and supported refresh, requested dimensions, explicit full size",
+    "script_sha256": "f8bff3b56d6f3dd2e826b375a4bb6231b8173981088398aad50dd29c6dd488d9"
+  },
+  {
+    "command": [
+      "python3",
+      "-B",
+      "/mnt/c/Users/Doni/Documents/Codex/2026-11-06/ca/work/test4-a/checks/supplied/check-failed-compute-module.py"
+    ],
+    "exit_code": 0,
+    "output": "Failed compute module PASS: old path rejected; module freed before low-memory log and completion, success preserved",
+    "script_sha256": "e2a0ef8871dc3cf259fc6d8a996bd0e404dfac99f7c594648bbfc1d2f7fee600"
+  },
+  {
+    "command": [
+      "python3",
+      "-B",
+      "/mnt/c/Users/Doni/Documents/Codex/2026-11-06/ca/work/test4-a/checks/supplied/check-gpu-memory-ranges.py",
+      "--source",
+      "Eglantine",
+      "--applied",
+      "--patch",
+      "/var/lib/eglantine-build/zelda-test4-a/Eglantine-PS5/tools/eglantine-patches/0429-gpu-memory-range-guards.patch",
+      "--work-dir",
+      "/mnt/c/Users/Doni/Documents/Codex/2026-11-06/ca/work/test4-a/gpu-ranges-final",
+      "--evidence",
+      "/mnt/c/Users/Doni/Documents/Codex/2026-11-06/ca/work/test4-a/gpu-ranges-final.json"
+    ],
+    "exit_code": 0,
+    "output": "{\n  \"source\": \"Eglantine\",\n  \"patch\": \"/var/lib/eglantine-build/zelda-test4-a/Eglantine-PS5/tools/eglantine-patches/0429-gpu-memory-range-guards.patch\",\n  \"source_sha256\": {\n    \"src/video_core/memory_manager.cpp\": \"fd3d53787765cd484dca108a41beaf625875de9bcaf5e26aae0f207bf094d0ed\",\n    \"src/video_core/memory_manager.h\": \"7e8953b90a877e833e99ff5d930592a2305ef559793125728d7c6420fa76c6f7\"\n  },\n  \"tests\": {\n    \"baseline\": {\n      \"compile_command\": [\n        \"clang++-18\",\n        \"-std=c++20\",\n        \"-Wall\",\n        \"-Wextra\",\n        \"-Werror\",\n        \"-O1\",\n        \"-g\",\n        \"-fsanitize=address,undefined\",\n        \"-fno-omit-frame-pointer\",\n        \"/mnt/c/Users/Doni/Documents/Codex/2026-11-06/ca/work/test4-a/gpu-ranges-final/baseline/harness.cpp\",\n        \"-o\",\n        \"/mnt/c/Users/Doni/Documents/Codex/2026-11-06/ca/work/test4-a/gpu-ranges-final/baseline/harness\"\n      ],\n      \"compile_exit_code\": 0,\n      \"compile_stderr\": \"\",\n      \"run_exit_code\": 0,\n      \"stdout\": \"{\\\"baseline_oob_reproductions\\\":2,\\\"table_oob_attempts\\\":2,\\\"table_reads\\\":0}\\n\",\n      \"stderr\": \"\"\n    },\n    \"patched\": {\n      \"compile_command\": [\n        \"clang++-18\",\n        \"-DPATCHED_FUNCTIONS\",\n        \"-std=c++20\",\n        \"-Wall\",\n        \"-Wextra\",\n        \"-Werror\",\n        \"-O1\",\n        \"-g\",\n        \"-fsanitize=address,undefined\",\n        \"-fno-omit-frame-pointer\",\n        \"/mnt/c/Users/Doni/Documents/Codex/2026-11-06/ca/work/test4-a/gpu-ranges-final/patched/harness.cpp\",\n        \"-o\",\n        \"/mnt/c/Users/Doni/Documents/Codex/2026-11-06/ca/work/test4-a/gpu-ranges-final/patched/harness\"\n      ],\n      \"compile_exit_code\": 0,\n      \"compile_stderr\": \"\",\n      \"run_exit_code\": 0,\n      \"stdout\": \"{\\\"assertions\\\":258,\\\"table_oob_attempts\\\":0,\\\"invalid_cases\\\":9,\\\"source_functions\\\":15}\\n\",\n      \"stderr\": \"\"\n    }\n  },\n  \"actual_source_git_apply_check\": {\n    \"exit_code\": 0,\n    \"stderr\": \"\"\n  },\n  \"source_unchanged\": true,\n  \"patch_sha256\": \"648b619d135a387f54521f31c6a68fc6ba94ef5127ad0c3738d3f5211b2a73fe\",\n  \"warning_note\": \"Only existing source unused-parameter warnings are suppressed around exact extracted functions; all other Wall/Wextra warnings remain errors.\"\n}",
+    "script_sha256": "1386d0620aa3cbc3aa21c28e90ac203f5c742f83daf5ec78df55a8187ad6207f"
+  },
+  {
+    "command": [
+      "python3",
+      "-B",
+      "/mnt/c/Users/Doni/Documents/Codex/2026-11-06/ca/work/test4-a/checks/supplied/check-pipeline-allocation.py"
+    ],
+    "exit_code": 0,
+    "output": "Pipeline allocation guard PASS: success, enabled/disabled allocation failure, Vulkan errors and unrelated exceptions",
+    "script_sha256": "84a61e593e54b2d202eadf9a62ed9cfaa2cc0645d3f8142abea12dacd88b3bc4"
+  },
+  {
+    "command": [
+      "python3",
+      "-B",
+      "/mnt/c/Users/Doni/Documents/Codex/2026-11-06/ca/work/test4-a/checks/supplied/check-upload-allocation-guard.py"
+    ],
+    "exit_code": 0,
+    "output": "{\"status\": \"pass\", \"exit_code\": 0, \"results\": [{\"variant\": \"baseline\", \"arguments\": [], \"exit_code\": 0, \"output\": \"baseline input allocation exception reproduced\", \"stderr\": \"\"}, {\"variant\": \"patched\", \"arguments\": [], \"exit_code\": 0, \"output\": \"{\\\"cases\\\":8,\\\"status\\\":\\\"pass\\\"}\", \"stderr\": \"\"}, {\"variant\": \"patched\", \"arguments\": [\"uncapped\"], \"exit_code\": 0, \"output\": \"{\\\"cases\\\":2,\\\"status\\\":\\\"pass\\\"}\", \"stderr\": \"\"}]}",
+    "script_sha256": "1d8cb58481bd0128da490b7d24e2f593801ddf2073e02adef83b67f0c0773768"
+  },
+  {
+    "command": [
+      "python3",
+      "-B",
+      "/mnt/c/Users/Doni/Documents/Codex/2026-11-06/ca/work/test4-a/checks/supplied/check-zelda-accuracy-profile.py"
+    ],
+    "exit_code": 0,
+    "output": "PASS: old unsafe-setting path rejected; 6 title-scoped accuracy cases passed",
+    "script_sha256": "5db814597738021331e5e585e3611cedb33369710809aba9ef791acddef24650"
+  },
+  {
+    "command": [
+      "python3",
+      "-B",
+      "/mnt/c/Users/Doni/Documents/Codex/2026-11-06/ca/work/test4-a/checks/supplied/check-zelda-shadow.py"
+    ],
+    "exit_code": 0,
+    "output": "Zelda shadow SPIR-V PASS: old unsigned depth image rejected, patched float depth image accepted; non-depth integer path preserved",
+    "script_sha256": "94cdb02d6607653319a98d46f229df083bb8d07dad86ad2ed92232a5ee95f952"
+  },
+  {
+    "command": [
+      "python3",
+      "-B",
+      "tools/check-fence-requirements.py"
+    ],
+    "exit_code": 0,
+    "output": "Fence requirements PASS: 32 query/accuracy/cache combinations, empty skip, side-work and callback ordering",
+    "script_sha256": "dbe40d93949ace7fa55d227401f563c1b0d7f69f45501e7e0127dc682e5fd2bb"
+  }
+]

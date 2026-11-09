@@ -1,0 +1,261 @@
+{
+  "status": "pass",
+  "exit_code": 0,
+  "stage": "after",
+  "target": "test4a_nir_oom",
+  "cases": [
+    {
+      "scenario": "store",
+      "mode": 0,
+      "nested": 0,
+      "exit_code": 0,
+      "expected_failure": false,
+      "expected_result_observed": true,
+      "log": "nir-oom-callers-after-store-0-0.log",
+      "stdout": "{\"status\":\"pass\",\"mode\":0,\"nested\":0,\"scenario\":0,\"failures\":0,\"failed_bytes\":0,\"partial_progress\":1,\"result\":2087,\"stores\":1}"
+    },
+    {
+      "scenario": "store",
+      "mode": 0,
+      "nested": 1,
+      "exit_code": 0,
+      "expected_failure": false,
+      "expected_result_observed": true,
+      "log": "nir-oom-callers-after-store-0-1.log",
+      "stdout": "{\"status\":\"pass\",\"mode\":0,\"nested\":1,\"scenario\":0,\"failures\":0,\"failed_bytes\":0,\"partial_progress\":1,\"result\":2087,\"stores\":2}"
+    },
+    {
+      "scenario": "store",
+      "mode": 1,
+      "nested": 0,
+      "exit_code": 0,
+      "expected_failure": false,
+      "expected_result_observed": true,
+      "log": "nir-oom-callers-after-store-1-0.log",
+      "stdout": "{\"status\":\"pass\",\"mode\":1,\"nested\":0,\"scenario\":0,\"failures\":1,\"failed_bytes\":672,\"partial_progress\":1,\"result\":2087,\"stores\":1}"
+    },
+    {
+      "scenario": "store",
+      "mode": 1,
+      "nested": 1,
+      "exit_code": 0,
+      "expected_failure": false,
+      "expected_result_observed": true,
+      "log": "nir-oom-callers-after-store-1-1.log",
+      "stdout": "{\"status\":\"pass\",\"mode\":1,\"nested\":1,\"scenario\":0,\"failures\":1,\"failed_bytes\":672,\"partial_progress\":1,\"result\":2087,\"stores\":2}"
+    },
+    {
+      "scenario": "store",
+      "mode": 2,
+      "nested": 0,
+      "exit_code": 0,
+      "expected_failure": false,
+      "expected_result_observed": true,
+      "log": "nir-oom-callers-after-store-2-0.log",
+      "stdout": "{\"status\":\"pass\",\"mode\":2,\"nested\":0,\"scenario\":0,\"failures\":1,\"failed_bytes\":0,\"partial_progress\":0,\"result\":2087,\"stores\":1}"
+    },
+    {
+      "scenario": "store",
+      "mode": 2,
+      "nested": 1,
+      "exit_code": 0,
+      "expected_failure": false,
+      "expected_result_observed": true,
+      "log": "nir-oom-callers-after-store-2-1.log",
+      "stdout": "{\"status\":\"pass\",\"mode\":2,\"nested\":1,\"scenario\":0,\"failures\":1,\"failed_bytes\":0,\"partial_progress\":0,\"result\":2087,\"stores\":2}"
+    },
+    {
+      "scenario": "store",
+      "mode": 3,
+      "nested": 0,
+      "exit_code": 0,
+      "expected_failure": false,
+      "expected_result_observed": true,
+      "log": "nir-oom-callers-after-store-3-0.log",
+      "stdout": "{\"status\":\"pass\",\"mode\":3,\"nested\":0,\"scenario\":0,\"failures\":1,\"failed_bytes\":0,\"partial_progress\":0,\"result\":2087,\"stores\":1}"
+    },
+    {
+      "scenario": "store",
+      "mode": 3,
+      "nested": 1,
+      "exit_code": 0,
+      "expected_failure": false,
+      "expected_result_observed": true,
+      "log": "nir-oom-callers-after-store-3-1.log",
+      "stdout": "{\"status\":\"pass\",\"mode\":3,\"nested\":1,\"scenario\":0,\"failures\":1,\"failed_bytes\":0,\"partial_progress\":0,\"result\":2087,\"stores\":2}"
+    },
+    {
+      "scenario": "load",
+      "mode": 0,
+      "nested": 0,
+      "exit_code": 0,
+      "expected_failure": false,
+      "expected_result_observed": true,
+      "log": "nir-oom-callers-after-load-0-0.log",
+      "stdout": "{\"status\":\"pass\",\"mode\":0,\"nested\":0,\"scenario\":1,\"failures\":0,\"failed_bytes\":0,\"partial_progress\":1,\"result\":2087,\"stores\":1}"
+    },
+    {
+      "scenario": "load",
+      "mode": 0,
+      "nested": 1,
+      "exit_code": 0,
+      "expected_failure": false,
+      "expected_result_observed": true,
+      "log": "nir-oom-callers-after-load-0-1.log",
+      "stdout": "{\"status\":\"pass\",\"mode\":0,\"nested\":1,\"scenario\":1,\"failures\":0,\"failed_bytes\":0,\"partial_progress\":1,\"result\":2087,\"stores\":2}"
+    },
+    {
+      "scenario": "load",
+      "mode": 1,
+      "nested": 0,
+      "exit_code": 0,
+      "expected_failure": false,
+      "expected_result_observed": true,
+      "log": "nir-oom-callers-after-load-1-0.log",
+      "stdout": "{\"status\":\"pass\",\"mode\":1,\"nested\":0,\"scenario\":1,\"failures\":1,\"failed_bytes\":168,\"partial_progress\":1,\"result\":2087,\"stores\":1}"
+    },
+    {
+      "scenario": "load",
+      "mode": 1,
+      "nested": 1,
+      "exit_code": 0,
+      "expected_failure": false,
+      "expected_result_observed": true,
+      "log": "nir-oom-callers-after-load-1-1.log",
+      "stdout": "{\"status\":\"pass\",\"mode\":1,\"nested\":1,\"scenario\":1,\"failures\":1,\"failed_bytes\":168,\"partial_progress\":1,\"result\":2087,\"stores\":2}"
+    },
+    {
+      "scenario": "load",
+      "mode": 2,
+      "nested": 0,
+      "exit_code": 0,
+      "expected_failure": false,
+      "expected_result_observed": true,
+      "log": "nir-oom-callers-after-load-2-0.log",
+      "stdout": "{\"status\":\"pass\",\"mode\":2,\"nested\":0,\"scenario\":1,\"failures\":1,\"failed_bytes\":0,\"partial_progress\":0,\"result\":2087,\"stores\":1}"
+    },
+    {
+      "scenario": "load",
+      "mode": 2,
+      "nested": 1,
+      "exit_code": 0,
+      "expected_failure": false,
+      "expected_result_observed": true,
+      "log": "nir-oom-callers-after-load-2-1.log",
+      "stdout": "{\"status\":\"pass\",\"mode\":2,\"nested\":1,\"scenario\":1,\"failures\":1,\"failed_bytes\":0,\"partial_progress\":0,\"result\":2087,\"stores\":2}"
+    },
+    {
+      "scenario": "load",
+      "mode": 3,
+      "nested": 0,
+      "exit_code": 0,
+      "expected_failure": false,
+      "expected_result_observed": true,
+      "log": "nir-oom-callers-after-load-3-0.log",
+      "stdout": "{\"status\":\"pass\",\"mode\":3,\"nested\":0,\"scenario\":1,\"failures\":1,\"failed_bytes\":0,\"partial_progress\":0,\"result\":2087,\"stores\":1}"
+    },
+    {
+      "scenario": "load",
+      "mode": 3,
+      "nested": 1,
+      "exit_code": 0,
+      "expected_failure": false,
+      "expected_result_observed": true,
+      "log": "nir-oom-callers-after-load-3-1.log",
+      "stdout": "{\"status\":\"pass\",\"mode\":3,\"nested\":1,\"scenario\":1,\"failures\":1,\"failed_bytes\":0,\"partial_progress\":0,\"result\":2087,\"stores\":2}"
+    },
+    {
+      "scenario": "copy",
+      "mode": 0,
+      "nested": 0,
+      "exit_code": 0,
+      "expected_failure": false,
+      "expected_result_observed": true,
+      "log": "nir-oom-callers-after-copy-0-0.log",
+      "stdout": "{\"status\":\"pass\",\"mode\":0,\"nested\":0,\"scenario\":2,\"failures\":0,\"failed_bytes\":0,\"partial_progress\":1,\"result\":2087,\"stores\":1}"
+    },
+    {
+      "scenario": "copy",
+      "mode": 0,
+      "nested": 1,
+      "exit_code": 0,
+      "expected_failure": false,
+      "expected_result_observed": true,
+      "log": "nir-oom-callers-after-copy-0-1.log",
+      "stdout": "{\"status\":\"pass\",\"mode\":0,\"nested\":1,\"scenario\":2,\"failures\":0,\"failed_bytes\":0,\"partial_progress\":1,\"result\":2087,\"stores\":2}"
+    },
+    {
+      "scenario": "copy",
+      "mode": 1,
+      "nested": 0,
+      "exit_code": 0,
+      "expected_failure": false,
+      "expected_result_observed": true,
+      "log": "nir-oom-callers-after-copy-1-0.log",
+      "stdout": "{\"status\":\"pass\",\"mode\":1,\"nested\":0,\"scenario\":2,\"failures\":1,\"failed_bytes\":168,\"partial_progress\":1,\"result\":2087,\"stores\":1}"
+    },
+    {
+      "scenario": "copy",
+      "mode": 1,
+      "nested": 1,
+      "exit_code": 0,
+      "expected_failure": false,
+      "expected_result_observed": true,
+      "log": "nir-oom-callers-after-copy-1-1.log",
+      "stdout": "{\"status\":\"pass\",\"mode\":1,\"nested\":1,\"scenario\":2,\"failures\":1,\"failed_bytes\":168,\"partial_progress\":1,\"result\":2087,\"stores\":2}"
+    },
+    {
+      "scenario": "copy",
+      "mode": 2,
+      "nested": 0,
+      "exit_code": 0,
+      "expected_failure": false,
+      "expected_result_observed": true,
+      "log": "nir-oom-callers-after-copy-2-0.log",
+      "stdout": "{\"status\":\"pass\",\"mode\":2,\"nested\":0,\"scenario\":2,\"failures\":1,\"failed_bytes\":0,\"partial_progress\":0,\"result\":2087,\"stores\":1}"
+    },
+    {
+      "scenario": "copy",
+      "mode": 2,
+      "nested": 1,
+      "exit_code": 0,
+      "expected_failure": false,
+      "expected_result_observed": true,
+      "log": "nir-oom-callers-after-copy-2-1.log",
+      "stdout": "{\"status\":\"pass\",\"mode\":2,\"nested\":1,\"scenario\":2,\"failures\":1,\"failed_bytes\":0,\"partial_progress\":0,\"result\":2087,\"stores\":2}"
+    },
+    {
+      "scenario": "copy",
+      "mode": 3,
+      "nested": 0,
+      "exit_code": 0,
+      "expected_failure": false,
+      "expected_result_observed": true,
+      "log": "nir-oom-callers-after-copy-3-0.log",
+      "stdout": "{\"status\":\"pass\",\"mode\":3,\"nested\":0,\"scenario\":2,\"failures\":1,\"failed_bytes\":0,\"partial_progress\":0,\"result\":2087,\"stores\":1}"
+    },
+    {
+      "scenario": "copy",
+      "mode": 3,
+      "nested": 1,
+      "exit_code": 0,
+      "expected_failure": false,
+      "expected_result_observed": true,
+      "log": "nir-oom-callers-after-copy-3-1.log",
+      "stdout": "{\"status\":\"pass\",\"mode\":3,\"nested\":1,\"scenario\":2,\"failures\":1,\"failed_bytes\":0,\"partial_progress\":0,\"result\":2087,\"stores\":2}"
+    }
+  ],
+  "sanitizers": [
+    "address",
+    "undefined"
+  ],
+  "checks": [
+    "NIR validation",
+    "control-flow metadata",
+    "semantic result 2087",
+    "all three copy-entry consumers",
+    "partial progress",
+    "initial state allocation failure leaves IR unchanged",
+    "cleanup"
+  ]
+}

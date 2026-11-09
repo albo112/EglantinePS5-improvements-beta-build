@@ -1,0 +1,1 @@
+GPU producer: PASS 16384 FIFO publications, exact pinned fence/block ordering, stopped enqueue and synchronous wait, completion before/after parking, eight ordered concurrent waiters

@@ -1,0 +1,12 @@
+diff --git a/src/video_core/renderer_vulkan/vk_compute_pipeline.cpp b/src/video_core/renderer_vulkan/vk_compute_pipeline.cpp
+--- a/src/video_core/renderer_vulkan/vk_compute_pipeline.cpp
++++ b/src/video_core/renderer_vulkan/vk_compute_pipeline.cpp
+@@ -121,6 +121,8 @@
+         try {
+             pipeline = device.GetLogical().CreateComputePipeline(compute_ci, *pipeline_cache);
+         } catch (const vk::Exception& exception) {
++            // A failed build is final too: release SPIR-V before logging under memory pressure.
++            spv_module.reset();
+             LOG_CRITICAL(Render_Vulkan, "Adreno rejected compute shader {:016X}: {}", shader_hash,
+                          exception.what());
+             std::scoped_lock lock{build_mutex};

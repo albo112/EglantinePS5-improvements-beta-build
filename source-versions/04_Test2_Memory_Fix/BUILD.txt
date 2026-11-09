@@ -1,0 +1,9 @@
+Use frontend and recursive dependencies at the pinned revisions in SOURCE.json.
+Apply display-mode-fallback.patch to the frontend with git apply.
+Copy the two overlay files to tools/eglantine-patches/.
+Build via tools/ci/build-release.sh (JOBS=2 RADV_BUILD_JOBS=2).
+This upstream CI route skips legacy source checks. Run the included focused checks separately.
+The memory-profile check takes --source FRONTEND --profile env-0400486024dec000.txt --evidence RESULT.json.
+After the stock package inventory check passes, copy env-0400486024dec000.txt to PPSA98515/.
+Repackage with tools/ci/make-dist.py. All ZIP entries must retain 0777 permissions.
+No game, keys or proprietary SDK files are included in this source-change bundle.

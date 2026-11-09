@@ -1,0 +1,227 @@
+{
+  "status": "pass",
+  "exit_code": 0,
+  "source_sha256": {
+    "Eglantine/src/video_core/renderer_vulkan/vk_rasterizer.cpp": "189b79e9302b78e190178d49698d57f81cb760bd69dbf2679be3d94bfc5c8c01",
+    "Eglantine/src/video_core/renderer_vulkan/vk_pipeline_cache.cpp": "a20d032637be95013a43680ff8ddd8cbb3a49c9799f54a720f9696fd4dc6105a",
+    "tools/patch-radv-wsi.py": "3fdeca304e37d77ab45834d7c9e0f630e96b757eeaf5de80bd2827882a4f554b"
+  },
+  "cases": [
+    {
+      "no_mesh_value": null,
+      "no_mesh_build": null,
+      "no_mesh_buffers": null,
+      "file_toggle": null,
+      "expected": {
+        "no_mesh": 0,
+        "drop_before_build": 0,
+        "driver_buffers": 1,
+        "with_fallback": 0,
+        "without_fallback": 1,
+        "with_extension": 0,
+        "mkw_skipped": 1
+      },
+      "actual": {
+        "no_mesh": 0,
+        "drop_before_build": 0,
+        "driver_buffers": 1,
+        "with_fallback": 0,
+        "without_fallback": 1,
+        "with_extension": 0,
+        "mkw_skipped": 1
+      },
+      "exit_code": 0,
+      "stderr": "",
+      "pass": true
+    },
+    {
+      "no_mesh_value": "0",
+      "no_mesh_build": "1",
+      "no_mesh_buffers": "1",
+      "file_toggle": null,
+      "expected": {
+        "no_mesh": 0,
+        "drop_before_build": 0,
+        "driver_buffers": 1,
+        "with_fallback": 0,
+        "without_fallback": 1,
+        "with_extension": 0,
+        "mkw_skipped": 1
+      },
+      "actual": {
+        "no_mesh": 0,
+        "drop_before_build": 0,
+        "driver_buffers": 1,
+        "with_fallback": 0,
+        "without_fallback": 1,
+        "with_extension": 0,
+        "mkw_skipped": 1
+      },
+      "exit_code": 0,
+      "stderr": "",
+      "pass": true
+    },
+    {
+      "no_mesh_value": "1",
+      "no_mesh_build": "1",
+      "no_mesh_buffers": "1",
+      "file_toggle": null,
+      "expected": {
+        "no_mesh": 1,
+        "drop_before_build": 1,
+        "driver_buffers": 0,
+        "with_fallback": 1,
+        "without_fallback": 1,
+        "with_extension": 1,
+        "mkw_skipped": 1
+      },
+      "actual": {
+        "no_mesh": 1,
+        "drop_before_build": 1,
+        "driver_buffers": 0,
+        "with_fallback": 1,
+        "without_fallback": 1,
+        "with_extension": 1,
+        "mkw_skipped": 1
+      },
+      "exit_code": 0,
+      "stderr": "",
+      "pass": true
+    },
+    {
+      "no_mesh_value": "",
+      "no_mesh_build": "1",
+      "no_mesh_buffers": "1",
+      "file_toggle": null,
+      "expected": {
+        "no_mesh": 1,
+        "drop_before_build": 1,
+        "driver_buffers": 0,
+        "with_fallback": 1,
+        "without_fallback": 1,
+        "with_extension": 1,
+        "mkw_skipped": 1
+      },
+      "actual": {
+        "no_mesh": 1,
+        "drop_before_build": 1,
+        "driver_buffers": 0,
+        "with_fallback": 1,
+        "without_fallback": 1,
+        "with_extension": 1,
+        "mkw_skipped": 1
+      },
+      "exit_code": 0,
+      "stderr": "",
+      "pass": true
+    },
+    {
+      "no_mesh_value": "0",
+      "no_mesh_build": "0",
+      "no_mesh_buffers": "1",
+      "file_toggle": null,
+      "expected": {
+        "no_mesh": 0,
+        "drop_before_build": 0,
+        "driver_buffers": 1,
+        "with_fallback": 0,
+        "without_fallback": 1,
+        "with_extension": 0,
+        "mkw_skipped": 1
+      },
+      "actual": {
+        "no_mesh": 0,
+        "drop_before_build": 0,
+        "driver_buffers": 1,
+        "with_fallback": 0,
+        "without_fallback": 1,
+        "with_extension": 0,
+        "mkw_skipped": 1
+      },
+      "exit_code": 0,
+      "stderr": "",
+      "pass": true
+    },
+    {
+      "no_mesh_value": "1",
+      "no_mesh_build": "1",
+      "no_mesh_buffers": "1",
+      "file_toggle": "missing",
+      "expected": {
+        "no_mesh": 0,
+        "drop_before_build": 0,
+        "driver_buffers": 1,
+        "with_fallback": 0,
+        "without_fallback": 1,
+        "with_extension": 0,
+        "mkw_skipped": 1
+      },
+      "actual": {
+        "no_mesh": 0,
+        "drop_before_build": 0,
+        "driver_buffers": 1,
+        "with_fallback": 0,
+        "without_fallback": 1,
+        "with_extension": 0,
+        "mkw_skipped": 1
+      },
+      "exit_code": 0,
+      "stderr": "",
+      "pass": true
+    },
+    {
+      "no_mesh_value": "0",
+      "no_mesh_build": "1",
+      "no_mesh_buffers": "1",
+      "file_toggle": "present",
+      "expected": {
+        "no_mesh": 1,
+        "drop_before_build": 0,
+        "driver_buffers": 1,
+        "with_fallback": 1,
+        "without_fallback": 1,
+        "with_extension": 1,
+        "mkw_skipped": 1
+      },
+      "actual": {
+        "no_mesh": 1,
+        "drop_before_build": 0,
+        "driver_buffers": 1,
+        "with_fallback": 1,
+        "without_fallback": 1,
+        "with_extension": 1,
+        "mkw_skipped": 1
+      },
+      "exit_code": 0,
+      "stderr": "",
+      "pass": true
+    },
+    {
+      "no_mesh_value": null,
+      "no_mesh_build": "1",
+      "no_mesh_buffers": "1",
+      "file_toggle": "present",
+      "expected": {
+        "no_mesh": 1,
+        "drop_before_build": 0,
+        "driver_buffers": 1,
+        "with_fallback": 1,
+        "without_fallback": 1,
+        "with_extension": 1,
+        "mkw_skipped": 1
+      },
+      "actual": {
+        "no_mesh": 1,
+        "drop_before_build": 0,
+        "driver_buffers": 1,
+        "with_fallback": 1,
+        "without_fallback": 1,
+        "with_extension": 1,
+        "mkw_skipped": 1
+      },
+      "exit_code": 0,
+      "stderr": "",
+      "pass": true
+    }
+  ]
+}

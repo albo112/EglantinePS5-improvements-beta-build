@@ -1,0 +1,73 @@
+{
+  "status": "fail",
+  "exit_code": 1,
+  "stage": "before",
+  "cases": [
+    {
+      "mode": 0,
+      "nested": 0,
+      "exit_code": 0,
+      "log": "nir-oom-before-0-0.log",
+      "stdout": "{\"status\":\"pass\",\"mode\":0,\"nested\":0,\"failures\":0,\"failed_bytes\":0,\"partial_progress\":1,\"result\":2087,\"stores\":1}"
+    },
+    {
+      "mode": 0,
+      "nested": 1,
+      "exit_code": 0,
+      "log": "nir-oom-before-0-1.log",
+      "stdout": "{\"status\":\"pass\",\"mode\":0,\"nested\":1,\"failures\":0,\"failed_bytes\":0,\"partial_progress\":1,\"result\":2087,\"stores\":2}"
+    },
+    {
+      "mode": 1,
+      "nested": 0,
+      "exit_code": 1,
+      "log": "nir-oom-before-1-0.log",
+      "stdout": ""
+    },
+    {
+      "mode": 1,
+      "nested": 1,
+      "exit_code": 1,
+      "log": "nir-oom-before-1-1.log",
+      "stdout": ""
+    },
+    {
+      "mode": 2,
+      "nested": 0,
+      "exit_code": -6,
+      "log": "nir-oom-before-2-0.log",
+      "stdout": ""
+    },
+    {
+      "mode": 2,
+      "nested": 1,
+      "exit_code": -6,
+      "log": "nir-oom-before-2-1.log",
+      "stdout": ""
+    },
+    {
+      "mode": 3,
+      "nested": 0,
+      "exit_code": -6,
+      "log": "nir-oom-before-3-0.log",
+      "stdout": ""
+    },
+    {
+      "mode": 3,
+      "nested": 1,
+      "exit_code": 1,
+      "log": "nir-oom-before-3-1.log",
+      "stdout": ""
+    }
+  ],
+  "sanitizers": [
+    "address",
+    "undefined"
+  ],
+  "checks": [
+    "NIR validation",
+    "control-flow metadata",
+    "semantic result 2087",
+    "cleanup"
+  ]
+}

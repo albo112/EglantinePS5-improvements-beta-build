@@ -1,0 +1,1350 @@
+[
+  {
+    "source": "C:/Users/Doni/Desktop/nsw2 emu log files.rar",
+    "archive_sha256": "7d60ed64c5ba1ff9bc9e5ca7fa915a873d634166cd4212c33b2991e68e3c6afa",
+    "destination": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\logs-archive",
+    "archive_entries": 56,
+    "integrity_exit": 0,
+    "extraction_exit": 0,
+    "files": [
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\logs-archive\\Logs3\\boot-trace.prev.txt",
+        "relative": "Logs3\\boot-trace.prev.txt",
+        "bytes": 1448,
+        "sha256": "5f34bbce8bfc567542b5ad5ca6c436299490d69793c74e321ab90140f11439a8"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\logs-archive\\Logs3\\boot-trace.sandbox-prev.txt",
+        "relative": "Logs3\\boot-trace.sandbox-prev.txt",
+        "bytes": 310,
+        "sha256": "c54d1c79c15f23c5420d299395d7d7b765779cbc51c0d05b1d4c51211d4cf0b5"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\logs-archive\\Logs3\\boot-trace.txt",
+        "relative": "Logs3\\boot-trace.txt",
+        "bytes": 1071,
+        "sha256": "f0b472297136de235dda0fe056d909126ff0be86c671818b3d173f363e53389b"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\logs-archive\\Logs3\\crash-20261107-200504-eden_log.txt",
+        "relative": "Logs3\\crash-20261107-200504-eden_log.txt",
+        "bytes": 767906,
+        "sha256": "e32a5a0768a8619c59c4f41544900c83eecf24331c314e3a29a6af77a01f6320"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\logs-archive\\Logs3\\crash-20261107-200504-heap.log",
+        "relative": "Logs3\\crash-20261107-200504-heap.log",
+        "bytes": 40444,
+        "sha256": "c84b3711f1000d99b5fe85ed358ef44482cd2334de77c8618463df9a69161516"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\logs-archive\\Logs3\\crash-20261107-200504-stderr.log",
+        "relative": "Logs3\\crash-20261107-200504-stderr.log",
+        "bytes": 90701,
+        "sha256": "36b589572a3e0a08743bb50bb197a89cf3d9febb40b8446225fcf94fe360726a"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\logs-archive\\Logs3\\crash-20261107-200504.txt",
+        "relative": "Logs3\\crash-20261107-200504.txt",
+        "bytes": 2024,
+        "sha256": "7f894aee3a6dd3a48ee7f8c5e8f3e06a583e3cc96c6bb3c7756b9e29afd8b3c8"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\logs-archive\\Logs3\\crash-20261107-200953-eden_log.txt",
+        "relative": "Logs3\\crash-20261107-200953-eden_log.txt",
+        "bytes": 548549,
+        "sha256": "74d0e231109f89b36678bf159a6d9c6120dac12fb6a162075a7aaa77f69e795d"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\logs-archive\\Logs3\\crash-20261107-200953-heap.log",
+        "relative": "Logs3\\crash-20261107-200953-heap.log",
+        "bytes": 21194,
+        "sha256": "1f219fa4c3342590adc2bbb96cfa84d21bfb7f143651bed47ffbd59cc6b028d8"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\logs-archive\\Logs3\\crash-20261107-200953-stderr.log",
+        "relative": "Logs3\\crash-20261107-200953-stderr.log",
+        "bytes": 43925,
+        "sha256": "3ca0409e3acda63dc9928eafff942a026d5763d1cb33814f506424ccf72f7e58"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\logs-archive\\Logs3\\crash-20261107-200953.txt",
+        "relative": "Logs3\\crash-20261107-200953.txt",
+        "bytes": 1950,
+        "sha256": "56f6fe599506e87abc135d3894213bcc0692629c33ec288110023b9378eec8c8"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\logs-archive\\Logs3\\crash-20261107-201432-eden_log.txt",
+        "relative": "Logs3\\crash-20261107-201432-eden_log.txt",
+        "bytes": 781968,
+        "sha256": "e045882293c03cc9914c98cbb1d41413d9b4bd32c3b9e001c410add9656da223"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\logs-archive\\Logs3\\crash-20261107-201432-heap.log",
+        "relative": "Logs3\\crash-20261107-201432-heap.log",
+        "bytes": 33785,
+        "sha256": "2942036d87b661f4ce43a9e8099f8a35a71ef76c3736f9ab7459bb0bdaff9cc3"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\logs-archive\\Logs3\\crash-20261107-201432-stderr.log",
+        "relative": "Logs3\\crash-20261107-201432-stderr.log",
+        "bytes": 307600,
+        "sha256": "9c1c143925067af2b058e23e4e0c5db5e204c4fdebb550f23146f01fc774a72f"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\logs-archive\\Logs3\\crash-20261107-201432.txt",
+        "relative": "Logs3\\crash-20261107-201432.txt",
+        "bytes": 2433,
+        "sha256": "0d0a21f570aca06f093e865522275e177b9792ecc9c07848c2196e5669a3b08b"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\logs-archive\\Logs3\\crash-20261107-201818-eden_log.txt",
+        "relative": "Logs3\\crash-20261107-201818-eden_log.txt",
+        "bytes": 599086,
+        "sha256": "a46c08b4c4f9b40bb7f7da6e80a198525b7355e11a79f38187a3c622f38ba0f1"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\logs-archive\\Logs3\\crash-20261107-201818-heap.log",
+        "relative": "Logs3\\crash-20261107-201818-heap.log",
+        "bytes": 29479,
+        "sha256": "22179aea61fff5d2cd40e9d830d790c7fdbdf968367030f4ceeefd4ab6d7ea7f"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\logs-archive\\Logs3\\crash-20261107-201818-stderr.log",
+        "relative": "Logs3\\crash-20261107-201818-stderr.log",
+        "bytes": 77428,
+        "sha256": "cadb81e00c12a0b7584ea777748d53dce32b5e7ac96556828eab5ebf90222a01"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\logs-archive\\Logs3\\crash-20261107-201818.txt",
+        "relative": "Logs3\\crash-20261107-201818.txt",
+        "bytes": 2437,
+        "sha256": "23228c9b71e829843f2142760d9b4bf42b918a3c6c1650d5d4a415d5a0582f6a"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\logs-archive\\Logs3\\crash-20261107-202529-eden_log.txt",
+        "relative": "Logs3\\crash-20261107-202529-eden_log.txt",
+        "bytes": 902481,
+        "sha256": "c9439278a53061ddf8c1e6ae5fdb3eeac668ce7f8925fa8ae6db47d98567c614"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\logs-archive\\Logs3\\crash-20261107-202529-heap.log",
+        "relative": "Logs3\\crash-20261107-202529-heap.log",
+        "bytes": 78197,
+        "sha256": "005e2850ce450ea83acf843af7c38f8af0d6db4f304bf368d3b731fe5f3e8cc7"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\logs-archive\\Logs3\\crash-20261107-202529-stderr.log",
+        "relative": "Logs3\\crash-20261107-202529-stderr.log",
+        "bytes": 405921,
+        "sha256": "a4349c0db3d19986d042ba2108ea1bfbf3b25038ea03f8aa4a930b17f1cbcb76"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\logs-archive\\Logs3\\crash-20261107-202529.txt",
+        "relative": "Logs3\\crash-20261107-202529.txt",
+        "bytes": 1372,
+        "sha256": "f85a3e4916d3f4e7c198e9aa147413ac37da8d17e8b61b0c07f22e172eeca1ac"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\logs-archive\\Logs3\\crash-index.txt",
+        "relative": "Logs3\\crash-index.txt",
+        "bytes": 110,
+        "sha256": "f00a9cf625044025d319b13dfb318826eacc6dc0cbb6477152effcdfb0f54983"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\logs-archive\\Logs3\\heap.log",
+        "relative": "Logs3\\heap.log",
+        "bytes": 4665,
+        "sha256": "40f38c8573472695195d10b8126740e3de62c920525e5aa4c0e8bb3a317bc1d3"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\logs-archive\\Logs3\\result.tsv",
+        "relative": "Logs3\\result.tsv",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\logs-archive\\Logs3\\stderr.log",
+        "relative": "Logs3\\stderr.log",
+        "bytes": 1421,
+        "sha256": "5bae9a3808d6ccf45ea4f993a99f29cd90e9e85062886b0db1d43aa569c1382a"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\logs-archive\\Logs4\\boot-trace.prev.txt",
+        "relative": "Logs4\\boot-trace.prev.txt",
+        "bytes": 1448,
+        "sha256": "da2ab478c590f1caa58144f0e23ac4337fddf905032853fb13ab57b99212410d"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\logs-archive\\Logs4\\boot-trace.sandbox-prev.txt",
+        "relative": "Logs4\\boot-trace.sandbox-prev.txt",
+        "bytes": 310,
+        "sha256": "d3dd3ccc4fdfc0fa96d951dae6ab3d6ec6f9932410edfafd2366ab6c4cbffcdd"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\logs-archive\\Logs4\\boot-trace.txt",
+        "relative": "Logs4\\boot-trace.txt",
+        "bytes": 1071,
+        "sha256": "99f99a5721b0150365f90232b8a24bde8657ca201bdbc30448db86ea592e15d9"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\logs-archive\\Logs4\\crash-20261107-203446-eden_log.txt",
+        "relative": "Logs4\\crash-20261107-203446-eden_log.txt",
+        "bytes": 46320019,
+        "sha256": "960a1e21ddf80c24ed7e5a08181673f0ac5b8dba6834f1114d931bcdac287e59"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\logs-archive\\Logs4\\crash-20261107-203446-heap.log",
+        "relative": "Logs4\\crash-20261107-203446-heap.log",
+        "bytes": 31266,
+        "sha256": "24149d954c6167c3e4047385d82d39526a3c5b632d1e80d513b506eaf6a1840c"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\logs-archive\\Logs4\\crash-20261107-203446-stderr.log",
+        "relative": "Logs4\\crash-20261107-203446-stderr.log",
+        "bytes": 74621,
+        "sha256": "2d8d684929935fe8c06d81c8656b4bde55cbed645e61d516ec2fe2182de15ccb"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\logs-archive\\Logs4\\crash-20261107-203446.txt",
+        "relative": "Logs4\\crash-20261107-203446.txt",
+        "bytes": 2435,
+        "sha256": "44b9639e53b62d477ab4e3348dbca776f08f3cad4396a30f7778eb1a6216ff77"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\logs-archive\\Logs4\\crash-20261107-203836-eden_log.txt",
+        "relative": "Logs4\\crash-20261107-203836-eden_log.txt",
+        "bytes": 574797,
+        "sha256": "10ac5da60f501773c1044dc64d48dd317a1c055640deff4496ac9e0a791a3521"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\logs-archive\\Logs4\\crash-20261107-203836-heap.log",
+        "relative": "Logs4\\crash-20261107-203836-heap.log",
+        "bytes": 30902,
+        "sha256": "e519704fe6b02df7bb9ab64d44882566b3e6e8eb41285cf2eebdc2fe13d570de"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\logs-archive\\Logs4\\crash-20261107-203836-stderr.log",
+        "relative": "Logs4\\crash-20261107-203836-stderr.log",
+        "bytes": 352737,
+        "sha256": "7ff7ba7fcd3cc6ae5ae95cb0e08206548614840f07badd4ebbac556f441aa001"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\logs-archive\\Logs4\\crash-20261107-203836.txt",
+        "relative": "Logs4\\crash-20261107-203836.txt",
+        "bytes": 2426,
+        "sha256": "ff050207465ab4a5e009ef6432b0428c9a4702c67892e8c16bf40d1defbe461e"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\logs-archive\\Logs4\\crash-index.txt",
+        "relative": "Logs4\\crash-index.txt",
+        "bytes": 44,
+        "sha256": "44d1d49594fc1bdba1f9a6000cc92b43fd096cda66004687e907d0975ed52018"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\logs-archive\\Logs4\\heap.log",
+        "relative": "Logs4\\heap.log",
+        "bytes": 4493,
+        "sha256": "f7b3b032edbfcfafd7668af64dc4f4ae45e3df20a9ed00b993445aac020c0732"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\logs-archive\\Logs4\\result.tsv",
+        "relative": "Logs4\\result.tsv",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\logs-archive\\Logs4\\stderr.log",
+        "relative": "Logs4\\stderr.log",
+        "bytes": 1421,
+        "sha256": "11a842a0eed3ff7fd107e41983db5906796d2949f0c977b975989970ef53feba"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\logs-archive\\Logs5\\boot-trace.prev.txt",
+        "relative": "Logs5\\boot-trace.prev.txt",
+        "bytes": 1450,
+        "sha256": "9894576ed27dedc89ee89232616a5aa5475712ca76488bd470ce9b8ac31b7f30"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\logs-archive\\Logs5\\boot-trace.sandbox-prev.txt",
+        "relative": "Logs5\\boot-trace.sandbox-prev.txt",
+        "bytes": 312,
+        "sha256": "8491d922170ea525e3bd3507cf49c7e1a8a9dbb9a70cf03bba75ec5b9253a34b"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\logs-archive\\Logs5\\boot-trace.txt",
+        "relative": "Logs5\\boot-trace.txt",
+        "bytes": 1071,
+        "sha256": "1cffa0f2b775b4113f0d4991c08adcd19f6e91dfb005ee7661fab5c96509ccd8"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\logs-archive\\Logs5\\crash-20261107-205143-eden_log.txt",
+        "relative": "Logs5\\crash-20261107-205143-eden_log.txt",
+        "bytes": 77902368,
+        "sha256": "3e9655df4e3e9b96404a97ef5309c83f8b3797cf8bff31f42fd37943dab3451e"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\logs-archive\\Logs5\\crash-20261107-205143-heap.log",
+        "relative": "Logs5\\crash-20261107-205143-heap.log",
+        "bytes": 46274,
+        "sha256": "000a2210bf5ee2b43b95177f33fd42548f9575049a33ea0932888e0e64265c4e"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\logs-archive\\Logs5\\crash-20261107-205143-stderr.log",
+        "relative": "Logs5\\crash-20261107-205143-stderr.log",
+        "bytes": 328238,
+        "sha256": "1055cec211744805e6902312326f6c5b0cb10657b64b55bcd7be3dfbe14a1119"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\logs-archive\\Logs5\\crash-20261107-205143.txt",
+        "relative": "Logs5\\crash-20261107-205143.txt",
+        "bytes": 2437,
+        "sha256": "2520bcf4ca1adae4bbaa9bcca35a7258fac14ef245ee75f6c9b84a386c49bbcb"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\logs-archive\\Logs5\\crash-index.txt",
+        "relative": "Logs5\\crash-index.txt",
+        "bytes": 22,
+        "sha256": "77162315d23814988c4ae9515d35dbd04e1960a83d7220fe1222f3778e29411b"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\logs-archive\\Logs5\\heap.log",
+        "relative": "Logs5\\heap.log",
+        "bytes": 4590,
+        "sha256": "caca1d7fe43f1124627eff4b4fd81cce7c74656de002c1746c0708d2b31d1c92"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\logs-archive\\Logs5\\result.tsv",
+        "relative": "Logs5\\result.tsv",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\logs-archive\\Logs5\\stderr.log",
+        "relative": "Logs5\\stderr.log",
+        "bytes": 1421,
+        "sha256": "ae172fcaae8a0ecd63d1757300c7e1d14fc2ec1b5487ed9bc0c70150299314bf"
+      }
+    ]
+  },
+  {
+    "source": "C:/Users/Doni/Desktop/EglantinePS5-v1.219.020.zip",
+    "archive_sha256": "8209561dc5e9328e92cc8668a084e4f4e37b26e30df5c9d614a28a90470d4ae7",
+    "destination": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\public-release",
+    "archive_entries": 69,
+    "integrity_exit": 0,
+    "extraction_exit": 0,
+    "files": [
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\public-release\\LICENSE",
+        "relative": "LICENSE",
+        "bytes": 35149,
+        "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\public-release\\README.md",
+        "relative": "README.md",
+        "bytes": 29436,
+        "sha256": "a1ef3540000c26744f98864904ad28791cd36802357ce03a74cbbb893eb36af7"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\public-release\\THIRD_PARTY_NOTICES.md",
+        "relative": "THIRD_PARTY_NOTICES.md",
+        "bytes": 6521,
+        "sha256": "ab38c1dabb19b12d90fb0adb5222a938975beb71881544413b75e798c09ccb73"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\public-release\\PPSA98515\\core-homebrew.nro",
+        "relative": "PPSA98515\\core-homebrew.nro",
+        "bytes": 16384,
+        "sha256": "b3c95e1c0dba8080fd172d1554af33506126ed0f74c18fb42b4ed3b9ea9032c2"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\public-release\\PPSA98515\\eboot.bin",
+        "relative": "PPSA98515\\eboot.bin",
+        "bytes": 80056414,
+        "sha256": "95864f6191e467694722ace114e2e723385350a2c74d4886c45d4e2d661860f2"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\public-release\\PPSA98515\\lapy-manifest.json",
+        "relative": "PPSA98515\\lapy-manifest.json",
+        "bytes": 608,
+        "sha256": "03ba3f4123aeaab8f0ab5039a3c53de0d095ffe066b6989c73ba7140062d3f02"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\public-release\\PPSA98515\\lapy.elf",
+        "relative": "PPSA98515\\lapy.elf",
+        "bytes": 155264,
+        "sha256": "4e8886710c3563a14c6fd04655440c0809b9a51caabd81906642e9db00c9cb12"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\public-release\\PPSA98515\\self-updater.elf",
+        "relative": "PPSA98515\\self-updater.elf",
+        "bytes": 823152,
+        "sha256": "7b08e9cb2e1fc8b37bd748368bef71d4bcb75813a42bff903bdb60d6df69cea9"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\public-release\\PPSA98515\\licenses\\Lapy-MIT.txt",
+        "relative": "PPSA98515\\licenses\\Lapy-MIT.txt",
+        "bytes": 1741,
+        "sha256": "5ef18e95f617c9d3a2674cc3256f5c0d6ec2f794a57e9e40f2185dd454c9f8da"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\public-release\\PPSA98515\\sce_module\\libc.prx",
+        "relative": "PPSA98515\\sce_module\\libc.prx",
+        "bytes": 1284674,
+        "sha256": "e6ff45d16adf687855cc3b33b0c8a4132b6504360b221e0a34c7e99fb3ba0036"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\public-release\\PPSA98515\\sce_sys\\icon0.png",
+        "relative": "PPSA98515\\sce_sys\\icon0.png",
+        "bytes": 114685,
+        "sha256": "4069d8e7580680e3b0315bffea5670f641d32e91f33fc4df8e1ef7108f1a6139"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\public-release\\PPSA98515\\sce_sys\\param.json",
+        "relative": "PPSA98515\\sce_sys\\param.json",
+        "bytes": 906,
+        "sha256": "ec2e7d072994cce9f599f8be337b1532422c5451781619fde4483e3dcf4f6b95"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\public-release\\PPSA98515\\sce_sys\\pic0.dds",
+        "relative": "PPSA98515\\sce_sys\\pic0.dds",
+        "bytes": 8294548,
+        "sha256": "edeaccdcb2fbd787e29855c2a659660a551355576e3a1ffedc2b8116505c5f2b"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\public-release\\PPSA98515\\sce_sys\\pic1.dds",
+        "relative": "PPSA98515\\sce_sys\\pic1.dds",
+        "bytes": 8294548,
+        "sha256": "5206ed84ad9340f10a96b2f40a63c8e192fc7fb45d8898df76cfde51dbb287b5"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\public-release\\PPSA98515\\sce_sys\\snd0.at9",
+        "relative": "PPSA98515\\sce_sys\\snd0.at9",
+        "bytes": 1281704,
+        "sha256": "47cbad547b1f705094af1eefbf303db477cf489d2fd3e499f8171f691a7d72c7"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\public-release\\PPSA98515\\ui\\art\\backdrop-blur.tga",
+        "relative": "PPSA98515\\ui\\art\\backdrop-blur.tga",
+        "bytes": 589868,
+        "sha256": "85c735ef66958a63b54e7152530316f10d96413711151830b40a0374564721c6"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\public-release\\PPSA98515\\ui\\art\\backdrop.tga",
+        "relative": "PPSA98515\\ui\\art\\backdrop.tga",
+        "bytes": 9437228,
+        "sha256": "9d032c526b75b59522ee4b102767519dd7ac21313ec055aa6517f02ed66a3d73"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\public-release\\PPSA98515\\ui\\art\\brand.tga",
+        "relative": "PPSA98515\\ui\\art\\brand.tga",
+        "bytes": 589868,
+        "sha256": "31cea91e9f88035a91bfc860e43461f2d6032c172dcdfb92a5d5796917b71c0f"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\public-release\\PPSA98515\\ui\\art\\controller.tga",
+        "relative": "PPSA98515\\ui\\art\\controller.tga",
+        "bytes": 57644,
+        "sha256": "5d5e3c8edf7be13a110071bcfc3bfce57587847affd6e700cae14e10777273e4"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\public-release\\PPSA98515\\ui\\fonts\\montserrat-medium.pefont",
+        "relative": "PPSA98515\\ui\\fonts\\montserrat-medium.pefont",
+        "bytes": 2500152,
+        "sha256": "38653ae96a2903a16ae2fe3e30154f70055847db8939e8ebc182ce48eb96dd9a"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\public-release\\PPSA98515\\ui\\lang\\ar.po",
+        "relative": "PPSA98515\\ui\\lang\\ar.po",
+        "bytes": 73190,
+        "sha256": "1a7490e76f428b4393576ebb2290a8cce7a616cbe0eda4a07988d58335711295"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\public-release\\PPSA98515\\ui\\lang\\cs-CZ.po",
+        "relative": "PPSA98515\\ui\\lang\\cs-CZ.po",
+        "bytes": 65892,
+        "sha256": "5fd42cb8e6841fec31f95899c7ea4519f33596ea964d16eccff5064e99afce78"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\public-release\\PPSA98515\\ui\\lang\\da-DK.po",
+        "relative": "PPSA98515\\ui\\lang\\da-DK.po",
+        "bytes": 64740,
+        "sha256": "2a63dc45c773f22f1d96551634e4e53221c91fa0de8fd050ea39161aa4d26136"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\public-release\\PPSA98515\\ui\\lang\\de-DE.po",
+        "relative": "PPSA98515\\ui\\lang\\de-DE.po",
+        "bytes": 66531,
+        "sha256": "65f81c568a612d4916cdad30020da6076c58ef1b5a2d980abc895f49775e1874"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\public-release\\PPSA98515\\ui\\lang\\el-GR.po",
+        "relative": "PPSA98515\\ui\\lang\\el-GR.po",
+        "bytes": 81427,
+        "sha256": "f4070704de1175d88a8cb06582739ac6022b0d7473089d82bd034e4db4a85779"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\public-release\\PPSA98515\\ui\\lang\\es-419.po",
+        "relative": "PPSA98515\\ui\\lang\\es-419.po",
+        "bytes": 75674,
+        "sha256": "0c28f569a884ee01a47d6d015733b5d85417b67b2f249a68434f59504e833971"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\public-release\\PPSA98515\\ui\\lang\\es-ES.po",
+        "relative": "PPSA98515\\ui\\lang\\es-ES.po",
+        "bytes": 72754,
+        "sha256": "62368cb320e99d5de06c5614980156b480c6098cf2e8acd45b971f9ae0f7da90"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\public-release\\PPSA98515\\ui\\lang\\fi-FI.po",
+        "relative": "PPSA98515\\ui\\lang\\fi-FI.po",
+        "bytes": 66010,
+        "sha256": "f865a4cd19992b61c938178f5e1270277a446707120bb4c088ec6fa4249e3bd5"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\public-release\\PPSA98515\\ui\\lang\\fr-CA.po",
+        "relative": "PPSA98515\\ui\\lang\\fr-CA.po",
+        "bytes": 67473,
+        "sha256": "0d67d9e0c57700a70dfb67f792b4f68f502c39f87ee04c7627509601b86fc520"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\public-release\\PPSA98515\\ui\\lang\\fr-FR.po",
+        "relative": "PPSA98515\\ui\\lang\\fr-FR.po",
+        "bytes": 67447,
+        "sha256": "efe75387e1e0b29914568663677290e5432e963ae5884b46b51c3202333d9591"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\public-release\\PPSA98515\\ui\\lang\\hu-HU.po",
+        "relative": "PPSA98515\\ui\\lang\\hu-HU.po",
+        "bytes": 67298,
+        "sha256": "6535d089c9698d8abd7f7325ed151434cd9bf9181cd8e42171234fb03b0cfd61"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\public-release\\PPSA98515\\ui\\lang\\id-ID.po",
+        "relative": "PPSA98515\\ui\\lang\\id-ID.po",
+        "bytes": 64981,
+        "sha256": "11fe43bb3da0fd17b7142aad2418e764e3b3a2e9226489fb9a6a6a89a53489ac"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\public-release\\PPSA98515\\ui\\lang\\it-IT.po",
+        "relative": "PPSA98515\\ui\\lang\\it-IT.po",
+        "bytes": 66276,
+        "sha256": "8c092ce708ff7b4b20ac91d3afc489fcd5ab5fffef35ac9d2c781e923abe5cfa"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\public-release\\PPSA98515\\ui\\lang\\ja-JP.po",
+        "relative": "PPSA98515\\ui\\lang\\ja-JP.po",
+        "bytes": 72512,
+        "sha256": "b8b490504e415581426536c25c333abcd7874d6f91007d41bde9d0cb7f63bb3d"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\public-release\\PPSA98515\\ui\\lang\\ko-KR.po",
+        "relative": "PPSA98515\\ui\\lang\\ko-KR.po",
+        "bytes": 68508,
+        "sha256": "4e5b94e1a551fdc6e7dfcbc20addd4fa538d8057e83041d1a7535b58ee9bab60"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\public-release\\PPSA98515\\ui\\lang\\nb-NO.po",
+        "relative": "PPSA98515\\ui\\lang\\nb-NO.po",
+        "bytes": 64652,
+        "sha256": "ee42445f4e8359073ba9ed825b4c97c291e6103d5d3a31ab373cfc48f5d40a7d"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\public-release\\PPSA98515\\ui\\lang\\nl-NL.po",
+        "relative": "PPSA98515\\ui\\lang\\nl-NL.po",
+        "bytes": 65921,
+        "sha256": "42346534ee6451735b8bfd151b13eb3f2a85456f808de12933f4f91458c65e8e"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\public-release\\PPSA98515\\ui\\lang\\pl-PL.po",
+        "relative": "PPSA98515\\ui\\lang\\pl-PL.po",
+        "bytes": 65691,
+        "sha256": "6314d971704c281911c3639d13017570754698ca814c653395494df6d22ca457"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\public-release\\PPSA98515\\ui\\lang\\pt-BR.po",
+        "relative": "PPSA98515\\ui\\lang\\pt-BR.po",
+        "bytes": 66107,
+        "sha256": "e3beab54f029a467ba4f4eb31cc74982bd5d3217c76955ff7780a95bde002542"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\public-release\\PPSA98515\\ui\\lang\\pt-PT.po",
+        "relative": "PPSA98515\\ui\\lang\\pt-PT.po",
+        "bytes": 66728,
+        "sha256": "ebf208cfd73717357fa230a0296c2f163042fcbcab0051b870a09bb118bb0003"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\public-release\\PPSA98515\\ui\\lang\\ro-RO.po",
+        "relative": "PPSA98515\\ui\\lang\\ro-RO.po",
+        "bytes": 66286,
+        "sha256": "e402b1f99be58535d0d3272bb0283619ff33ec803d62ab3ce65155aebf83a392"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\public-release\\PPSA98515\\ui\\lang\\ru-RU.po",
+        "relative": "PPSA98515\\ui\\lang\\ru-RU.po",
+        "bytes": 76993,
+        "sha256": "05fd5de19a46fd86defd97fd4f00a041b430c5cbb90e8c925e931455f29cf4fa"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\public-release\\PPSA98515\\ui\\lang\\sv-SE.po",
+        "relative": "PPSA98515\\ui\\lang\\sv-SE.po",
+        "bytes": 65171,
+        "sha256": "fa5fb3ed84264c884f5a634ce82fdf979d8e32bb0c7004c300bb778991c7d7e7"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\public-release\\PPSA98515\\ui\\lang\\th-TH.po",
+        "relative": "PPSA98515\\ui\\lang\\th-TH.po",
+        "bytes": 89192,
+        "sha256": "7a62a208695f3186e9dbec8dcc7185ec4b3dc5424a40e25454b75ec78f4a0f34"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\public-release\\PPSA98515\\ui\\lang\\tr-TR.po",
+        "relative": "PPSA98515\\ui\\lang\\tr-TR.po",
+        "bytes": 66295,
+        "sha256": "7702f86a9d3b1e7c8c9f7c372006ea33f8e9294aa3c22778c115a10c17c2f2b4"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\public-release\\PPSA98515\\ui\\lang\\uk-UA.po",
+        "relative": "PPSA98515\\ui\\lang\\uk-UA.po",
+        "bytes": 77329,
+        "sha256": "1af48449c06c47e734477fb759e9b48e1832ff3a033d84bea0fec2f2e86be3f9"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\public-release\\PPSA98515\\ui\\lang\\vi-VN.po",
+        "relative": "PPSA98515\\ui\\lang\\vi-VN.po",
+        "bytes": 69246,
+        "sha256": "1c7c7aae70e928be72baf8e772e3edcc960bf4bc31c0efe8cd89f3a301796794"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\public-release\\PPSA98515\\ui\\lang\\zh-Hans.po",
+        "relative": "PPSA98515\\ui\\lang\\zh-Hans.po",
+        "bytes": 63887,
+        "sha256": "fdd52a8f26c0743511570052b5423a8183895e393b4f3842b7a739a5916a6dcc"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\public-release\\PPSA98515\\ui\\lang\\zh-Hant.po",
+        "relative": "PPSA98515\\ui\\lang\\zh-Hant.po",
+        "bytes": 64175,
+        "sha256": "b633656a70e4d2d41a885693b706b46fc5ae627fc0dc4baaa35b81457c1382b5"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\public-release\\PPSA98515\\ui\\sounds\\back_01.wav",
+        "relative": "PPSA98515\\ui\\sounds\\back_01.wav",
+        "bytes": 19244,
+        "sha256": "132a55c945c7a3f17d52ccd513c8f162508a301cbcdca1c3bea376af7e06d8b9"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\public-release\\PPSA98515\\ui\\sounds\\error_01.wav",
+        "relative": "PPSA98515\\ui\\sounds\\error_01.wav",
+        "bytes": 26924,
+        "sha256": "ab0fe700bb8d245f5e42ea2484045908c39971459aafeb985c7413caa30fcf85"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\public-release\\PPSA98515\\ui\\sounds\\focus_01.wav",
+        "relative": "PPSA98515\\ui\\sounds\\focus_01.wav",
+        "bytes": 4844,
+        "sha256": "00a07b88a4a3b9349dd306e6f75e06760f293e2ee89ca437b2513f45cdeb6812"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\public-release\\PPSA98515\\ui\\sounds\\focus_02.wav",
+        "relative": "PPSA98515\\ui\\sounds\\focus_02.wav",
+        "bytes": 4844,
+        "sha256": "8675f6e70ed8c0a446f5899da100e0be92aa43fc7ab8d93bfa010716c24445ca"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\public-release\\PPSA98515\\ui\\sounds\\launch_01.wav",
+        "relative": "PPSA98515\\ui\\sounds\\launch_01.wav",
+        "bytes": 245804,
+        "sha256": "eae4ba7af91695850c7f031eeed0a01807d9ed1dca063fdca5a7df03e97870cd"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\public-release\\PPSA98515\\ui\\sounds\\modal_close_01.wav",
+        "relative": "PPSA98515\\ui\\sounds\\modal_close_01.wav",
+        "bytes": 29680,
+        "sha256": "001e43366472ebf77f105e1cf7a163f87180f7b1afa288740ab55187467ca436"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\public-release\\PPSA98515\\ui\\sounds\\modal_open_01.wav",
+        "relative": "PPSA98515\\ui\\sounds\\modal_open_01.wav",
+        "bytes": 33644,
+        "sha256": "65335418c229edb7e8e9483a427763d0055152c9b9f0ffbf75a49771592c167d"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\public-release\\PPSA98515\\ui\\sounds\\notify_01.wav",
+        "relative": "PPSA98515\\ui\\sounds\\notify_01.wav",
+        "bytes": 145028,
+        "sha256": "e9fd1bd98879ed2eb7746714411a4c499a7e8b8c5eda704e316eca40230e160f"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\public-release\\PPSA98515\\ui\\sounds\\open_01.wav",
+        "relative": "PPSA98515\\ui\\sounds\\open_01.wav",
+        "bytes": 86444,
+        "sha256": "fbbd480d7530d050debe3735ae1ac7a06e75d6b51387c780e2a1649c9c2bba26"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\public-release\\PPSA98515\\ui\\sounds\\page_01.wav",
+        "relative": "PPSA98515\\ui\\sounds\\page_01.wav",
+        "bytes": 21164,
+        "sha256": "78e9228799ea0fa67f1bc921242c635efd524faaf66cb035e0e9211497bbe22c"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\public-release\\PPSA98515\\ui\\sounds\\resume_01.wav",
+        "relative": "PPSA98515\\ui\\sounds\\resume_01.wav",
+        "bytes": 192044,
+        "sha256": "193a9d27b322941c578a307a76da7ffdcfeaff31f42aa054a7c52e59eda0e5ee"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\public-release\\PPSA98515\\ui\\sounds\\saved_01.wav",
+        "relative": "PPSA98515\\ui\\sounds\\saved_01.wav",
+        "bytes": 153644,
+        "sha256": "273d07c2f504fe74d8d1ef09a0c3c8adaa8fead462ab5541b3db1b5816ec81c5"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\public-release\\PPSA98515\\ui\\sounds\\select_01.wav",
+        "relative": "PPSA98515\\ui\\sounds\\select_01.wav",
+        "bytes": 19244,
+        "sha256": "13ef90300db8b7ced7725c443103e97f8eaf3625903a35a869190c70bd35a6f4"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\public-release\\PPSA98515\\ui\\sounds\\slider_01.wav",
+        "relative": "PPSA98515\\ui\\sounds\\slider_01.wav",
+        "bytes": 5804,
+        "sha256": "0337f6f0b9ea012fcf96de9f1d4d0223ccbd677b762c3ab4d686e0433014ba37"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\public-release\\PPSA98515\\ui\\sounds\\slider_02.wav",
+        "relative": "PPSA98515\\ui\\sounds\\slider_02.wav",
+        "bytes": 5804,
+        "sha256": "9768ba4e468987e34b26d32557136e34884811745fe9fca0a976bbae102010a4"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\public-release\\PPSA98515\\ui\\sounds\\slider_03.wav",
+        "relative": "PPSA98515\\ui\\sounds\\slider_03.wav",
+        "bytes": 5804,
+        "sha256": "bdc28efb13a367231a57f3b306795ddc57f20bd63f21c9afabdda3383c8cd489"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\public-release\\PPSA98515\\ui\\sounds\\toggle_01.wav",
+        "relative": "PPSA98515\\ui\\sounds\\toggle_01.wav",
+        "bytes": 5324,
+        "sha256": "0be4d732524d0b58840b2912424ead4b3d137134e53f4ef8c2e6da6aa919a93d"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\public-release\\PPSA98515\\ui\\sounds\\toggle_02.wav",
+        "relative": "PPSA98515\\ui\\sounds\\toggle_02.wav",
+        "bytes": 5324,
+        "sha256": "1647840bf2e0c6b2febeb527c5b8535f3c0d6b5cc9d2745b7433c9f9cc9aa2d9"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\public-release\\PPSA98515\\ui\\sounds\\toggle_03.wav",
+        "relative": "PPSA98515\\ui\\sounds\\toggle_03.wav",
+        "bytes": 5324,
+        "sha256": "1d544bc5f27b5e86ee7fecbff126c4f9690e69c5f34e306344c7a3ddc2997064"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\public-release\\PPSA98515\\ui\\sounds\\welcome_01.wav",
+        "relative": "PPSA98515\\ui\\sounds\\welcome_01.wav",
+        "bytes": 258192,
+        "sha256": "d18fb8de1123437622a7c3926ffc42df9385022002b377742fc75b2a88564c59"
+      }
+    ]
+  },
+  {
+    "source": "C:/Users/Doni/Desktop/EglantinePS5-Zelda-Test3-Graphics-and-Crash-Fixes.zip",
+    "archive_sha256": "55ec27a975ded934698ca04185f622459ed45ff032741502ce383ed49e9cfef7",
+    "destination": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-package",
+    "archive_entries": 71,
+    "integrity_exit": 0,
+    "extraction_exit": 0,
+    "files": [
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-package\\LICENSE",
+        "relative": "LICENSE",
+        "bytes": 35149,
+        "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-package\\README.md",
+        "relative": "README.md",
+        "bytes": 36893,
+        "sha256": "a7f477c3cd0e2ea54e80c5395c25e94b0b45e9b96f4744bc6f8c3350e2a2c9c2"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-package\\THIRD_PARTY_NOTICES.md",
+        "relative": "THIRD_PARTY_NOTICES.md",
+        "bytes": 7356,
+        "sha256": "9bacac3f1cb83f6a8dc596b71679c95eb27f6d8e0a373496605adb1abcc1d062"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-package\\Zelda-faster-profile.txt",
+        "relative": "Zelda-faster-profile.txt",
+        "bytes": 1309,
+        "sha256": "a811e881eaecac6cbaf0e90b41c6443e2c22777cc7fa9e597bd3c63665e9f667"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-package\\PPSA98515\\core-homebrew.nro",
+        "relative": "PPSA98515\\core-homebrew.nro",
+        "bytes": 16384,
+        "sha256": "b3c95e1c0dba8080fd172d1554af33506126ed0f74c18fb42b4ed3b9ea9032c2"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-package\\PPSA98515\\eboot.bin",
+        "relative": "PPSA98515\\eboot.bin",
+        "bytes": 80923422,
+        "sha256": "cc75b73e75bb9964cf5085b2efa5bd643b3c84022a9f5942e0885ddb1bc6e40b"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-package\\PPSA98515\\env-0400486024dec000.txt",
+        "relative": "PPSA98515\\env-0400486024dec000.txt",
+        "bytes": 1309,
+        "sha256": "0b3150cec905cf1bde03815998a97f26f3b091405e1cf4fcc67d5cca2ce0be49"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-package\\PPSA98515\\lapy-manifest.json",
+        "relative": "PPSA98515\\lapy-manifest.json",
+        "bytes": 608,
+        "sha256": "35f170f715f5b7ce9346d2563d22f517be5af4c2bf54ff5c6df8f213f1024955"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-package\\PPSA98515\\lapy.elf",
+        "relative": "PPSA98515\\lapy.elf",
+        "bytes": 155224,
+        "sha256": "cbcc1d94f7fd9e9e204f9d60ca3301b7b46433878c0adb0fb3a64e45d9163842"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-package\\PPSA98515\\self-updater.elf",
+        "relative": "PPSA98515\\self-updater.elf",
+        "bytes": 823104,
+        "sha256": "da2a4bd45e0bd58d4f70c9930bf09e7aad9c5c7c7ae484c19e1b7c70d2d83f25"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-package\\PPSA98515\\licenses\\Lapy-MIT.txt",
+        "relative": "PPSA98515\\licenses\\Lapy-MIT.txt",
+        "bytes": 1741,
+        "sha256": "5ef18e95f617c9d3a2674cc3256f5c0d6ec2f794a57e9e40f2185dd454c9f8da"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-package\\PPSA98515\\sce_module\\libc.prx",
+        "relative": "PPSA98515\\sce_module\\libc.prx",
+        "bytes": 1284674,
+        "sha256": "e6ff45d16adf687855cc3b33b0c8a4132b6504360b221e0a34c7e99fb3ba0036"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-package\\PPSA98515\\sce_sys\\icon0.png",
+        "relative": "PPSA98515\\sce_sys\\icon0.png",
+        "bytes": 114685,
+        "sha256": "4069d8e7580680e3b0315bffea5670f641d32e91f33fc4df8e1ef7108f1a6139"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-package\\PPSA98515\\sce_sys\\param.json",
+        "relative": "PPSA98515\\sce_sys\\param.json",
+        "bytes": 943,
+        "sha256": "c135775c20d3d316e60efaba8020d3655ec5c02ecf5e4477c8fa8afad29673ea"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-package\\PPSA98515\\sce_sys\\pic0.dds",
+        "relative": "PPSA98515\\sce_sys\\pic0.dds",
+        "bytes": 8294548,
+        "sha256": "edeaccdcb2fbd787e29855c2a659660a551355576e3a1ffedc2b8116505c5f2b"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-package\\PPSA98515\\sce_sys\\pic1.dds",
+        "relative": "PPSA98515\\sce_sys\\pic1.dds",
+        "bytes": 8294548,
+        "sha256": "5206ed84ad9340f10a96b2f40a63c8e192fc7fb45d8898df76cfde51dbb287b5"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-package\\PPSA98515\\sce_sys\\snd0.at9",
+        "relative": "PPSA98515\\sce_sys\\snd0.at9",
+        "bytes": 1281704,
+        "sha256": "47cbad547b1f705094af1eefbf303db477cf489d2fd3e499f8171f691a7d72c7"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-package\\PPSA98515\\ui\\art\\backdrop-blur.tga",
+        "relative": "PPSA98515\\ui\\art\\backdrop-blur.tga",
+        "bytes": 589868,
+        "sha256": "85c735ef66958a63b54e7152530316f10d96413711151830b40a0374564721c6"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-package\\PPSA98515\\ui\\art\\backdrop.tga",
+        "relative": "PPSA98515\\ui\\art\\backdrop.tga",
+        "bytes": 9437228,
+        "sha256": "9d032c526b75b59522ee4b102767519dd7ac21313ec055aa6517f02ed66a3d73"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-package\\PPSA98515\\ui\\art\\brand.tga",
+        "relative": "PPSA98515\\ui\\art\\brand.tga",
+        "bytes": 589868,
+        "sha256": "31cea91e9f88035a91bfc860e43461f2d6032c172dcdfb92a5d5796917b71c0f"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-package\\PPSA98515\\ui\\art\\controller.tga",
+        "relative": "PPSA98515\\ui\\art\\controller.tga",
+        "bytes": 57644,
+        "sha256": "5d5e3c8edf7be13a110071bcfc3bfce57587847affd6e700cae14e10777273e4"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-package\\PPSA98515\\ui\\fonts\\montserrat-medium.pefont",
+        "relative": "PPSA98515\\ui\\fonts\\montserrat-medium.pefont",
+        "bytes": 2500152,
+        "sha256": "38653ae96a2903a16ae2fe3e30154f70055847db8939e8ebc182ce48eb96dd9a"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-package\\PPSA98515\\ui\\lang\\ar.po",
+        "relative": "PPSA98515\\ui\\lang\\ar.po",
+        "bytes": 73190,
+        "sha256": "1a7490e76f428b4393576ebb2290a8cce7a616cbe0eda4a07988d58335711295"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-package\\PPSA98515\\ui\\lang\\cs-CZ.po",
+        "relative": "PPSA98515\\ui\\lang\\cs-CZ.po",
+        "bytes": 65892,
+        "sha256": "5fd42cb8e6841fec31f95899c7ea4519f33596ea964d16eccff5064e99afce78"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-package\\PPSA98515\\ui\\lang\\da-DK.po",
+        "relative": "PPSA98515\\ui\\lang\\da-DK.po",
+        "bytes": 64740,
+        "sha256": "2a63dc45c773f22f1d96551634e4e53221c91fa0de8fd050ea39161aa4d26136"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-package\\PPSA98515\\ui\\lang\\de-DE.po",
+        "relative": "PPSA98515\\ui\\lang\\de-DE.po",
+        "bytes": 66531,
+        "sha256": "65f81c568a612d4916cdad30020da6076c58ef1b5a2d980abc895f49775e1874"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-package\\PPSA98515\\ui\\lang\\el-GR.po",
+        "relative": "PPSA98515\\ui\\lang\\el-GR.po",
+        "bytes": 81427,
+        "sha256": "f4070704de1175d88a8cb06582739ac6022b0d7473089d82bd034e4db4a85779"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-package\\PPSA98515\\ui\\lang\\es-419.po",
+        "relative": "PPSA98515\\ui\\lang\\es-419.po",
+        "bytes": 75674,
+        "sha256": "0c28f569a884ee01a47d6d015733b5d85417b67b2f249a68434f59504e833971"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-package\\PPSA98515\\ui\\lang\\es-ES.po",
+        "relative": "PPSA98515\\ui\\lang\\es-ES.po",
+        "bytes": 72754,
+        "sha256": "62368cb320e99d5de06c5614980156b480c6098cf2e8acd45b971f9ae0f7da90"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-package\\PPSA98515\\ui\\lang\\fi-FI.po",
+        "relative": "PPSA98515\\ui\\lang\\fi-FI.po",
+        "bytes": 66010,
+        "sha256": "f865a4cd19992b61c938178f5e1270277a446707120bb4c088ec6fa4249e3bd5"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-package\\PPSA98515\\ui\\lang\\fr-CA.po",
+        "relative": "PPSA98515\\ui\\lang\\fr-CA.po",
+        "bytes": 67473,
+        "sha256": "0d67d9e0c57700a70dfb67f792b4f68f502c39f87ee04c7627509601b86fc520"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-package\\PPSA98515\\ui\\lang\\fr-FR.po",
+        "relative": "PPSA98515\\ui\\lang\\fr-FR.po",
+        "bytes": 67447,
+        "sha256": "efe75387e1e0b29914568663677290e5432e963ae5884b46b51c3202333d9591"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-package\\PPSA98515\\ui\\lang\\hu-HU.po",
+        "relative": "PPSA98515\\ui\\lang\\hu-HU.po",
+        "bytes": 67298,
+        "sha256": "6535d089c9698d8abd7f7325ed151434cd9bf9181cd8e42171234fb03b0cfd61"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-package\\PPSA98515\\ui\\lang\\id-ID.po",
+        "relative": "PPSA98515\\ui\\lang\\id-ID.po",
+        "bytes": 64981,
+        "sha256": "11fe43bb3da0fd17b7142aad2418e764e3b3a2e9226489fb9a6a6a89a53489ac"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-package\\PPSA98515\\ui\\lang\\it-IT.po",
+        "relative": "PPSA98515\\ui\\lang\\it-IT.po",
+        "bytes": 66276,
+        "sha256": "8c092ce708ff7b4b20ac91d3afc489fcd5ab5fffef35ac9d2c781e923abe5cfa"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-package\\PPSA98515\\ui\\lang\\ja-JP.po",
+        "relative": "PPSA98515\\ui\\lang\\ja-JP.po",
+        "bytes": 72512,
+        "sha256": "b8b490504e415581426536c25c333abcd7874d6f91007d41bde9d0cb7f63bb3d"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-package\\PPSA98515\\ui\\lang\\ko-KR.po",
+        "relative": "PPSA98515\\ui\\lang\\ko-KR.po",
+        "bytes": 68508,
+        "sha256": "4e5b94e1a551fdc6e7dfcbc20addd4fa538d8057e83041d1a7535b58ee9bab60"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-package\\PPSA98515\\ui\\lang\\nb-NO.po",
+        "relative": "PPSA98515\\ui\\lang\\nb-NO.po",
+        "bytes": 64652,
+        "sha256": "ee42445f4e8359073ba9ed825b4c97c291e6103d5d3a31ab373cfc48f5d40a7d"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-package\\PPSA98515\\ui\\lang\\nl-NL.po",
+        "relative": "PPSA98515\\ui\\lang\\nl-NL.po",
+        "bytes": 65921,
+        "sha256": "42346534ee6451735b8bfd151b13eb3f2a85456f808de12933f4f91458c65e8e"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-package\\PPSA98515\\ui\\lang\\pl-PL.po",
+        "relative": "PPSA98515\\ui\\lang\\pl-PL.po",
+        "bytes": 65691,
+        "sha256": "6314d971704c281911c3639d13017570754698ca814c653395494df6d22ca457"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-package\\PPSA98515\\ui\\lang\\pt-BR.po",
+        "relative": "PPSA98515\\ui\\lang\\pt-BR.po",
+        "bytes": 66107,
+        "sha256": "e3beab54f029a467ba4f4eb31cc74982bd5d3217c76955ff7780a95bde002542"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-package\\PPSA98515\\ui\\lang\\pt-PT.po",
+        "relative": "PPSA98515\\ui\\lang\\pt-PT.po",
+        "bytes": 66728,
+        "sha256": "ebf208cfd73717357fa230a0296c2f163042fcbcab0051b870a09bb118bb0003"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-package\\PPSA98515\\ui\\lang\\ro-RO.po",
+        "relative": "PPSA98515\\ui\\lang\\ro-RO.po",
+        "bytes": 66286,
+        "sha256": "e402b1f99be58535d0d3272bb0283619ff33ec803d62ab3ce65155aebf83a392"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-package\\PPSA98515\\ui\\lang\\ru-RU.po",
+        "relative": "PPSA98515\\ui\\lang\\ru-RU.po",
+        "bytes": 76993,
+        "sha256": "05fd5de19a46fd86defd97fd4f00a041b430c5cbb90e8c925e931455f29cf4fa"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-package\\PPSA98515\\ui\\lang\\sv-SE.po",
+        "relative": "PPSA98515\\ui\\lang\\sv-SE.po",
+        "bytes": 65171,
+        "sha256": "fa5fb3ed84264c884f5a634ce82fdf979d8e32bb0c7004c300bb778991c7d7e7"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-package\\PPSA98515\\ui\\lang\\th-TH.po",
+        "relative": "PPSA98515\\ui\\lang\\th-TH.po",
+        "bytes": 89192,
+        "sha256": "7a62a208695f3186e9dbec8dcc7185ec4b3dc5424a40e25454b75ec78f4a0f34"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-package\\PPSA98515\\ui\\lang\\tr-TR.po",
+        "relative": "PPSA98515\\ui\\lang\\tr-TR.po",
+        "bytes": 66295,
+        "sha256": "7702f86a9d3b1e7c8c9f7c372006ea33f8e9294aa3c22778c115a10c17c2f2b4"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-package\\PPSA98515\\ui\\lang\\uk-UA.po",
+        "relative": "PPSA98515\\ui\\lang\\uk-UA.po",
+        "bytes": 77329,
+        "sha256": "1af48449c06c47e734477fb759e9b48e1832ff3a033d84bea0fec2f2e86be3f9"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-package\\PPSA98515\\ui\\lang\\vi-VN.po",
+        "relative": "PPSA98515\\ui\\lang\\vi-VN.po",
+        "bytes": 69246,
+        "sha256": "1c7c7aae70e928be72baf8e772e3edcc960bf4bc31c0efe8cd89f3a301796794"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-package\\PPSA98515\\ui\\lang\\zh-Hans.po",
+        "relative": "PPSA98515\\ui\\lang\\zh-Hans.po",
+        "bytes": 63887,
+        "sha256": "fdd52a8f26c0743511570052b5423a8183895e393b4f3842b7a739a5916a6dcc"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-package\\PPSA98515\\ui\\lang\\zh-Hant.po",
+        "relative": "PPSA98515\\ui\\lang\\zh-Hant.po",
+        "bytes": 64175,
+        "sha256": "b633656a70e4d2d41a885693b706b46fc5ae627fc0dc4baaa35b81457c1382b5"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-package\\PPSA98515\\ui\\sounds\\back_01.wav",
+        "relative": "PPSA98515\\ui\\sounds\\back_01.wav",
+        "bytes": 19244,
+        "sha256": "132a55c945c7a3f17d52ccd513c8f162508a301cbcdca1c3bea376af7e06d8b9"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-package\\PPSA98515\\ui\\sounds\\error_01.wav",
+        "relative": "PPSA98515\\ui\\sounds\\error_01.wav",
+        "bytes": 26924,
+        "sha256": "ab0fe700bb8d245f5e42ea2484045908c39971459aafeb985c7413caa30fcf85"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-package\\PPSA98515\\ui\\sounds\\focus_01.wav",
+        "relative": "PPSA98515\\ui\\sounds\\focus_01.wav",
+        "bytes": 4844,
+        "sha256": "00a07b88a4a3b9349dd306e6f75e06760f293e2ee89ca437b2513f45cdeb6812"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-package\\PPSA98515\\ui\\sounds\\focus_02.wav",
+        "relative": "PPSA98515\\ui\\sounds\\focus_02.wav",
+        "bytes": 4844,
+        "sha256": "8675f6e70ed8c0a446f5899da100e0be92aa43fc7ab8d93bfa010716c24445ca"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-package\\PPSA98515\\ui\\sounds\\launch_01.wav",
+        "relative": "PPSA98515\\ui\\sounds\\launch_01.wav",
+        "bytes": 245804,
+        "sha256": "eae4ba7af91695850c7f031eeed0a01807d9ed1dca063fdca5a7df03e97870cd"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-package\\PPSA98515\\ui\\sounds\\modal_close_01.wav",
+        "relative": "PPSA98515\\ui\\sounds\\modal_close_01.wav",
+        "bytes": 29680,
+        "sha256": "001e43366472ebf77f105e1cf7a163f87180f7b1afa288740ab55187467ca436"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-package\\PPSA98515\\ui\\sounds\\modal_open_01.wav",
+        "relative": "PPSA98515\\ui\\sounds\\modal_open_01.wav",
+        "bytes": 33644,
+        "sha256": "65335418c229edb7e8e9483a427763d0055152c9b9f0ffbf75a49771592c167d"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-package\\PPSA98515\\ui\\sounds\\notify_01.wav",
+        "relative": "PPSA98515\\ui\\sounds\\notify_01.wav",
+        "bytes": 145028,
+        "sha256": "e9fd1bd98879ed2eb7746714411a4c499a7e8b8c5eda704e316eca40230e160f"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-package\\PPSA98515\\ui\\sounds\\open_01.wav",
+        "relative": "PPSA98515\\ui\\sounds\\open_01.wav",
+        "bytes": 86444,
+        "sha256": "fbbd480d7530d050debe3735ae1ac7a06e75d6b51387c780e2a1649c9c2bba26"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-package\\PPSA98515\\ui\\sounds\\page_01.wav",
+        "relative": "PPSA98515\\ui\\sounds\\page_01.wav",
+        "bytes": 21164,
+        "sha256": "78e9228799ea0fa67f1bc921242c635efd524faaf66cb035e0e9211497bbe22c"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-package\\PPSA98515\\ui\\sounds\\resume_01.wav",
+        "relative": "PPSA98515\\ui\\sounds\\resume_01.wav",
+        "bytes": 192044,
+        "sha256": "193a9d27b322941c578a307a76da7ffdcfeaff31f42aa054a7c52e59eda0e5ee"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-package\\PPSA98515\\ui\\sounds\\saved_01.wav",
+        "relative": "PPSA98515\\ui\\sounds\\saved_01.wav",
+        "bytes": 153644,
+        "sha256": "273d07c2f504fe74d8d1ef09a0c3c8adaa8fead462ab5541b3db1b5816ec81c5"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-package\\PPSA98515\\ui\\sounds\\select_01.wav",
+        "relative": "PPSA98515\\ui\\sounds\\select_01.wav",
+        "bytes": 19244,
+        "sha256": "13ef90300db8b7ced7725c443103e97f8eaf3625903a35a869190c70bd35a6f4"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-package\\PPSA98515\\ui\\sounds\\slider_01.wav",
+        "relative": "PPSA98515\\ui\\sounds\\slider_01.wav",
+        "bytes": 5804,
+        "sha256": "0337f6f0b9ea012fcf96de9f1d4d0223ccbd677b762c3ab4d686e0433014ba37"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-package\\PPSA98515\\ui\\sounds\\slider_02.wav",
+        "relative": "PPSA98515\\ui\\sounds\\slider_02.wav",
+        "bytes": 5804,
+        "sha256": "9768ba4e468987e34b26d32557136e34884811745fe9fca0a976bbae102010a4"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-package\\PPSA98515\\ui\\sounds\\slider_03.wav",
+        "relative": "PPSA98515\\ui\\sounds\\slider_03.wav",
+        "bytes": 5804,
+        "sha256": "bdc28efb13a367231a57f3b306795ddc57f20bd63f21c9afabdda3383c8cd489"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-package\\PPSA98515\\ui\\sounds\\toggle_01.wav",
+        "relative": "PPSA98515\\ui\\sounds\\toggle_01.wav",
+        "bytes": 5324,
+        "sha256": "0be4d732524d0b58840b2912424ead4b3d137134e53f4ef8c2e6da6aa919a93d"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-package\\PPSA98515\\ui\\sounds\\toggle_02.wav",
+        "relative": "PPSA98515\\ui\\sounds\\toggle_02.wav",
+        "bytes": 5324,
+        "sha256": "1647840bf2e0c6b2febeb527c5b8535f3c0d6b5cc9d2745b7433c9f9cc9aa2d9"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-package\\PPSA98515\\ui\\sounds\\toggle_03.wav",
+        "relative": "PPSA98515\\ui\\sounds\\toggle_03.wav",
+        "bytes": 5324,
+        "sha256": "1d544bc5f27b5e86ee7fecbff126c4f9690e69c5f34e306344c7a3ddc2997064"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-package\\PPSA98515\\ui\\sounds\\welcome_01.wav",
+        "relative": "PPSA98515\\ui\\sounds\\welcome_01.wav",
+        "bytes": 258192,
+        "sha256": "d18fb8de1123437622a7c3926ffc42df9385022002b377742fc75b2a88564c59"
+      }
+    ]
+  },
+  {
+    "source": "C:/Users/Doni/Desktop/EglantinePS5-Zelda-Test3-Source-Changes.zip",
+    "archive_sha256": "5a06546cec7c9314ddb7f45003988d87da0a4d7f90e4d047ca56fc8bd20ee1fb",
+    "destination": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-sources",
+    "archive_entries": 25,
+    "integrity_exit": 0,
+    "extraction_exit": 0,
+    "files": [
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-sources\\BUILD.txt",
+        "relative": "BUILD.txt",
+        "bytes": 772,
+        "sha256": "4bb579d74053a5dc6430d65dec56f0ce38a1d48dca12e7ed72717df652e2fc5d"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-sources\\LICENSE",
+        "relative": "LICENSE",
+        "bytes": 35149,
+        "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-sources\\local-frontend-and-check.patch",
+        "relative": "local-frontend-and-check.patch",
+        "bytes": 10536,
+        "sha256": "3b21e8bde5e6fe83bcf1e90eeea10590b0e708d42bb3f5070a3d16e8cc216f77"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-sources\\SOURCE.json",
+        "relative": "SOURCE.json",
+        "bytes": 587,
+        "sha256": "430e53c14f37dcd6408e1d1bed73e0bfbd22ae1687051a5abc8bc1a95ca4184a"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-sources\\audit\\upstream-audit-report.md",
+        "relative": "audit\\upstream-audit-report.md",
+        "bytes": 9067,
+        "sha256": "c6b62b0d8672388c1364bf903d04e8a820f33a428b27ec8eb8b201aa073dafb6"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-sources\\audit\\upstream-branches-disposition.csv",
+        "relative": "audit\\upstream-branches-disposition.csv",
+        "bytes": 204632,
+        "sha256": "c2b12725e93dd8ce046ac9a85bd2f951e9b6ad4e9f5af429bbdc890e685ef345"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-sources\\audit\\visual-research.md",
+        "relative": "audit\\visual-research.md",
+        "bytes": 15951,
+        "sha256": "733aa911bdb585fef6e3c5e79ca5be56eaaab910f17605c7293ad73245b171fd"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-sources\\checks\\check-display-mode.py",
+        "relative": "checks\\check-display-mode.py",
+        "bytes": 3017,
+        "sha256": "f8bff3b56d6f3dd2e826b375a4bb6231b8173981088398aad50dd29c6dd488d9"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-sources\\checks\\check-failed-compute-module.py",
+        "relative": "checks\\check-failed-compute-module.py",
+        "bytes": 3037,
+        "sha256": "e2a0ef8871dc3cf259fc6d8a996bd0e404dfac99f7c594648bbfc1d2f7fee600"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-sources\\checks\\check-gpu-memory-ranges.py",
+        "relative": "checks\\check-gpu-memory-ranges.py",
+        "bytes": 20326,
+        "sha256": "1386d0620aa3cbc3aa21c28e90ac203f5c742f83daf5ec78df55a8187ad6207f"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-sources\\checks\\check-pipeline-allocation.py",
+        "relative": "checks\\check-pipeline-allocation.py",
+        "bytes": 2164,
+        "sha256": "84a61e593e54b2d202eadf9a62ed9cfaa2cc0645d3f8142abea12dacd88b3bc4"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-sources\\checks\\check-upload-allocation-guard.py",
+        "relative": "checks\\check-upload-allocation-guard.py",
+        "bytes": 4537,
+        "sha256": "1d8cb58481bd0128da490b7d24e2f593801ddf2073e02adef83b67f0c0773768"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-sources\\checks\\check-zelda-accuracy-profile.py",
+        "relative": "checks\\check-zelda-accuracy-profile.py",
+        "bytes": 2865,
+        "sha256": "5db814597738021331e5e585e3611cedb33369710809aba9ef791acddef24650"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-sources\\checks\\check-zelda-shadow.py",
+        "relative": "checks\\check-zelda-shadow.py",
+        "bytes": 2952,
+        "sha256": "94cdb02d6607653319a98d46f229df083bb8d07dad86ad2ed92232a5ee95f952"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-sources\\checks\\upload-mock-prelude.txt",
+        "relative": "checks\\upload-mock-prelude.txt",
+        "bytes": 2286,
+        "sha256": "16e08eeffe5f7f815014c3a8046ad96f49111c73657fcdbef9bc5ef153978e39"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-sources\\checks\\before-crash-guards\\src\\video_core\\memory_manager.cpp",
+        "relative": "checks\\before-crash-guards\\src\\video_core\\memory_manager.cpp",
+        "bytes": 40728,
+        "sha256": "68676ef61f89edeb07cae0104cda85917e1cbedc751734796b3c0d3628ed1cf1"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-sources\\checks\\before-crash-guards\\src\\video_core\\memory_manager.h",
+        "relative": "checks\\before-crash-guards\\src\\video_core\\memory_manager.h",
+        "bytes": 10990,
+        "sha256": "efe02675f63a827350a9b1b4f687c30d2aeba668abb98d131f637f58a272276f"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-sources\\checks\\before-crash-guards\\src\\video_core\\engines\\engine_upload.cpp",
+        "relative": "checks\\before-crash-guards\\src\\video_core\\engines\\engine_upload.cpp",
+        "bytes": 5494,
+        "sha256": "d51de5709f6b4aa65f0925dc426e86dbebaa7b49839a0b067f864162a85d7fa2"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-sources\\checks\\before-crash-guards\\src\\video_core\\engines\\engine_upload.h",
+        "relative": "checks\\before-crash-guards\\src\\video_core\\engines\\engine_upload.h",
+        "bytes": 2236,
+        "sha256": "6f2d9b91c849d313a1741ee44c37d86df7abf3cf1fb09c477d1877ad4a4182f0"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-sources\\profiles\\env-0400486024dec000.txt",
+        "relative": "profiles\\env-0400486024dec000.txt",
+        "bytes": 1309,
+        "sha256": "0b3150cec905cf1bde03815998a97f26f3b091405e1cf4fcc67d5cca2ce0be49"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-sources\\profiles\\zelda-faster-profile.txt",
+        "relative": "profiles\\zelda-faster-profile.txt",
+        "bytes": 1309,
+        "sha256": "a811e881eaecac6cbaf0e90b41c6443e2c22777cc7fa9e597bd3c63665e9f667"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-sources\\tools\\eglantine-patches\\0425-spirv-shadow-sampled-type.patch",
+        "relative": "tools\\eglantine-patches\\0425-spirv-shadow-sampled-type.patch",
+        "bytes": 831,
+        "sha256": "ff925c04b81f61e41d7d4ab2514230e7ec1ac5abbf420af76e6c0bcec5af5045"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-sources\\tools\\eglantine-patches\\0427-release-failed-compute-module.patch",
+        "relative": "tools\\eglantine-patches\\0427-release-failed-compute-module.patch",
+        "bytes": 755,
+        "sha256": "ec3a1c481888a15b80433f037e22b04a7d1f4c08c579d914171bdb452d7650fc"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-sources\\tools\\eglantine-patches\\0428-upload-size-and-allocation-guard.patch",
+        "relative": "tools\\eglantine-patches\\0428-upload-size-and-allocation-guard.patch",
+        "bytes": 1895,
+        "sha256": "e51e7fa533c60be9fd796d49029e8ae11bf6f0f2399596c72aaa45652f82d319"
+      },
+      {
+        "path": "C:\\Users\\Doni\\Documents\\Codex\\2026-11-06\\ca\\work\\test4-a\\inputs\\test3-sources\\tools\\eglantine-patches\\0429-gpu-memory-range-guards.patch",
+        "relative": "tools\\eglantine-patches\\0429-gpu-memory-range-guards.patch",
+        "bytes": 4353,
+        "sha256": "648b619d135a387f54521f31c6a68fc6ba94ef5127ad0c3738d3f5211b2a73fe"
+      }
+    ]
+  }
+]

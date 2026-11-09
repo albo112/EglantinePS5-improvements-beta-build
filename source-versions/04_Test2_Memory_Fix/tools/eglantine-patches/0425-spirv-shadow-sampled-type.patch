@@ -1,0 +1,35 @@
+From 39ebc72b789eab847cc657f122db22cd1f85d307 Mon Sep 17 00:00:00 2001
+From: l33tm4st3r <l33tm4st3r@users.noreply.github.com>
+Date: Fri, 6 Nov 2026 08:05:35 +0100
+Subject: [PATCH] shader/spirv: force float Sampled Type for depth-compare
+ images
+
+OpImageSampleDref* instructions always emit a float result type, and the
+SPIR-V spec requires OpTypeImage to have a float Sampled Type whenever its
+Dref operand is 1. The OoT vegetation shaders fuse shadow maps with
+is_integer=1 and is_depth=1, producing 'OpTypeImage %u32 2D 1 0 0 1', which
+is invalid SPIR-V: spirv_to_nir() rejects it, radv_shader.c dereferences the
+NULL nir, and the VkPipelineBuild thread segfaults in libvulkan_radeon.
+
+Use F32 as the Sampled Type whenever is_depth is set.
+---
+ src/shader_recompiler/backend/spirv/spirv_emit_context.cpp | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+diff --git a/src/shader_recompiler/backend/spirv/spirv_emit_context.cpp b/src/shader_recompiler/backend/spirv/spirv_emit_context.cpp
+index f8f966a6b5..dd034560db 100644
+--- a/src/shader_recompiler/backend/spirv/spirv_emit_context.cpp
++++ b/src/shader_recompiler/backend/spirv/spirv_emit_context.cpp
+@@ -31,7 +31,11 @@ enum class Operation {
+ 
+ Id ImageType(EmitContext& ctx, const TextureDescriptor& desc) {
+     const spv::ImageFormat format{spv::ImageFormat::Unknown};
+-    const Id type{desc.is_integer ? ctx.U32[1] : ctx.F32[1]};
++    // A Sampled Type of integer is invalid SPIR-V when Dref is set (OpTypeImage constraint:
++    // "If Dref is 1, Sampled Type must be a float or vector of float"), and all Dref image
++    // instructions emit a float result type. Depth-compare (shadow) textures must therefore
++    // use a float Sampled Type even when they are also marked as integer.
++    const Id type{desc.is_depth ? ctx.F32[1] : desc.is_integer ? ctx.U32[1] : ctx.F32[1]};
+     const bool depth{desc.is_depth};
+     const bool ms{desc.is_multisample};
+     switch (desc.type) {

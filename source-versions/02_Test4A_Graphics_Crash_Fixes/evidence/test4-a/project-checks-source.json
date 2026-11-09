@@ -1,0 +1,18 @@
+{
+  "status": "fail",
+  "exit_code": 1,
+  "stage": "source",
+  "checks": [
+    {
+      "check": "check-heap-growth.py",
+      "exit_code": 1,
+      "log": "check-heap-growth.py.log"
+    },
+    {
+      "check": "check-performance-settings.py",
+      "exit_code": 0,
+      "log": "check-performance-settings.py.log"
+    }
+  ],
+  "host_tsan_options": "memory_limit_mb=1536"
+}

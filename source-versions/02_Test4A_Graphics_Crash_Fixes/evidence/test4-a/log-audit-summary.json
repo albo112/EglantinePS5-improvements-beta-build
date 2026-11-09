@@ -1,0 +1,30 @@
+{
+  "status": "pass",
+  "exit_code": 0,
+  "files_read": 53,
+  "bytes_read": 130434078,
+  "lines_read": 910036,
+  "complete_crash_groups": 8,
+  "game_launches": 9,
+  "pipeline_crashes_exact_offset": 6,
+  "profile_modes": {
+    "Faster": 9,
+    "Prettier": 0
+  },
+  "precise_stored_log_lines": {
+    "mesh_skipped": 244,
+    "native_graphics_failed": 27262,
+    "native_compute_rejected": 90,
+    "native_qmd_failed_lines": 144,
+    "uncached_storage_pointer_lines": 111,
+    "storage_binding_budget_lines": 63,
+    "over_budget_image_allocation_lines": 208,
+    "sparse_image_allocation_fallback_lines": 192,
+    "hang_watch_warning_lines": 146,
+    "timed_out_messages": 0,
+    "timeout_warning_or_error_lines": 0
+  },
+  "report": "session-timelines.md",
+  "input_hashes_reverified": true,
+  "source_edited": false
+}

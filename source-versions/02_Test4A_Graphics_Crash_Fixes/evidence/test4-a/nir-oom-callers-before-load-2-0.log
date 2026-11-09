@@ -1,0 +1,1 @@
+test4a_nir_oom_baseline: ../source/src/compiler/nir/tests/test4a_nir_oom.c:95: main: Assertion `!progress' failed.

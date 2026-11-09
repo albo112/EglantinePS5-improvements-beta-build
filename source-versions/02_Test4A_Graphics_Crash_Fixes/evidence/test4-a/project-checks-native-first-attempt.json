@@ -1,0 +1,48 @@
+{
+  "status": "fail",
+  "exit_code": 1,
+  "stage": "native",
+  "checks": [
+    {
+      "check": "check-staging-pressure.py",
+      "exit_code": 0,
+      "log": "check-staging-pressure.py.log"
+    },
+    {
+      "check": "check-integer-buffer-clear.py",
+      "exit_code": 0,
+      "log": "check-integer-buffer-clear.py.log"
+    },
+    {
+      "check": "check-radv-native.py",
+      "exit_code": 0,
+      "log": "check-radv-native.py.log"
+    },
+    {
+      "check": "check-native-gpu-thread.py",
+      "exit_code": 0,
+      "log": "check-native-gpu-thread.py.log"
+    },
+    {
+      "check": "check-gpu-sync-stop.py",
+      "exit_code": 1,
+      "log": "check-gpu-sync-stop.py.log"
+    },
+    {
+      "check": "check-gpu-producer-stop.py",
+      "exit_code": 1,
+      "log": "check-gpu-producer-stop.py.log"
+    },
+    {
+      "check": "check-transient-images.py",
+      "exit_code": 0,
+      "log": "check-transient-images.py.log"
+    },
+    {
+      "check": "check-sparse-header.py",
+      "exit_code": 0,
+      "log": "check-sparse-header.py.log"
+    }
+  ],
+  "host_tsan_options": "memory_limit_mb=1536"
+}

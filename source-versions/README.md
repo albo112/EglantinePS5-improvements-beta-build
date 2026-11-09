@@ -1,26 +1,33 @@
-# EglantinePS5 source history — newest to oldest
+# EglantinePS5 — supplied source versions (newest to oldest)
 
-The source uploads have been organized into a local downloadable source archive. This repository is being prepared to receive them. **Do not assume this branch yet contains the complete C/C++ source.**
+This directory includes **all source code and patches supplied in the chat**, arranged by development version newest first. It does not pretend that a compiled PS5 program can be turned back into exact project source or that external upstream checkouts were supplied.
 
-| Order | Version | Contents available from user's uploads |
-|---|---|---|
-| 01 | Zelda Test4-A — 12 GiB guest memory, 2 Vulkan pipeline workers | 264 core patches; frontend patch; RADV driver series; tooling, tests, profiles |
-| 02 | Zelda Test4-A — original graphics and crash fixes | 264 core patches; frontend patch; driver patches; tests |
-| 03 | Zelda Test3 — graphics and crash fixes | 25 supplied source files |
-| 04 | Zelda Test2 — memory fixes | 11 supplied source files |
-| 05 | T34 RADV | Compiled release only; no independently supplied source snapshot |
+| Order | Folder | Included | Status |
+|---|---|---|---|
+| 01 (latest) | `01_Test4A_12GiB_2Workers_LATEST/` | Test4-A frontend + 264 core patches, driver series, scripts, tests, docs, with the **12 GiB / 2 pipeline workers** profile | Reconstruction kit, not full pinned upstream |
+| 02 | `02_Test4A_Graphics_Crash_Fixes/` | Original Test4-A source changes | Patches, not full pinned upstream |
+| 03 | `03_Test3_Graphics_Crash_Fixes/` | Test3 source changes | Partial source/patches |
+| 04 | `04_Test2_Memory_Fix/` | Test2 source changes | Partial source/patches |
+| 05 | `05_T34_RADV_Compiled_Release_Only/` | Source-status note | Only compiled PS5 package was supplied for this version |
 
-## Pinned upstream revisions (Test4-A)
-- Frontend: https://github.com/Vampinity/Eglantine-PS5- at commit `25cfc07be0a3675749adece5d012fdb916c4cd48`
-- Core: https://github.com/Djihads80/Eglantine at commit `0ca2032bffc5f1a3fca75427f7d4a4718adda660`
+## Build the latest source from pinned upstream
 
-The 12 GiB / 2-worker variant sets:
-```ini
-EDEN_NX2_MEMORY_GB=12
-EDEN_NX2_PIPELINE_WORKERS=2
+```bash
+bash scripts/reconstruct-latest.sh ./EglantinePS5-Test4A-Full-Source
 ```
 
-## Reconstruction status
-The supplied source is an overlay-based reconstruction kit, *not a self-contained checkout*. A full reconstruction requires downloading the pinned source trees and applying all ordered patches once. The existing container could not resolve github.com, so neither that checkout nor a new PS5 binary build was completed there. No game or firmware files are included.
+With appropriate Linux/WSL toolchains and dependencies installed, run the combined reconstruction + native build:
 
-**Note:** This index documents the versions and is not a substitute for uploading the actual source contents. The consolidated source ZIP is available in the chat that requested this repository update.
+```bash
+bash scripts/build-latest-on-linux.sh ./EglantinePS5-Test4A-Full-Source
+```
+
+Both require internet to fetch pinned revisions. The reconstruction runner validates hashes, initializes the Eglantine core submodule, applies the frontend patch, copies the core and driver overlays and calls the upstream patch runner. The driver series is applied by the upstream build path.
+
+**Pins:** Frontend `Vampinity/Eglantine-PS5- @ 25cfc07be0a3675749adece5d012fdb916c4cd48`; core `Djihads80/Eglantine @ 0ca2032bffc5f1a3fca75427f7d4a4718adda660`. The latest profile sets `EDEN_NX2_MEMORY_GB=12` and `EDEN_NX2_PIPELINE_WORKERS=2`. The 12 GiB value refers to the guest-memory layout and is not a global host process RAM cap.
+
+## Provenance and limitations
+
+`provenance/original-upload-hashes.json` lists SHA-256 checksums of all source and compiled build archives. Compiled release ZIP files (`PPSA98515/`, `eboot.bin`) are deliberately not embedded here because the request is for source versions, but their original archives remain available in the conversation uploads. Test4-A Source-Changes.rar and the prior ZIP were byte-equal except for the game configuration profile, now included in folder 01. No new build has been compiled or hardware tested.
+
+See `provenance/BUILD-ATTEMPT.md` for the blocking network error and exact build command.

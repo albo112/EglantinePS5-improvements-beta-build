@@ -1,0 +1,13 @@
+{
+  "status": "pass",
+  "exit_code": 0,
+  "installer_and_host_build_exit": 0,
+  "patched_cases_passed": 24,
+  "baseline_normal_passed": 6,
+  "baseline_negative_controls_reproduced": 18,
+  "portable_runners_exit_codes": [
+    0,
+    0
+  ],
+  "python_syntax": "pass"
+}

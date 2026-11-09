@@ -1,0 +1,1 @@
+../source/src/compiler/nir/nir_opt_copy_prop_vars.c:419:4: runtime error: null pointer passed as argument 1, which is declared to never be null

@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/var/lib/eglantine-build/zelda-test4-a/Eglantine-PS5/tools/check-sparse-header.py", line 17, in <module>
+    build = pathlib.Path(sys.argv[1])
+                         ~~~~~~~~^^^
+IndexError: list index out of range

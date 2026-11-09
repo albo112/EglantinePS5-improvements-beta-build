@@ -1,0 +1,2 @@
+Actual GPU sync methods: cancelled/pending/active requests, callback lifetime, repeated shutdown PASS
+Actual DMA fence and semaphore waits: normal completion and unsignalled shutdown PASS

@@ -1,0 +1,597 @@
+diff --git a/headless/crash_report.cpp b/headless/crash_report.cpp
+index c961f47..dd17be1 100644
+--- a/headless/crash_report.cpp
++++ b/headless/crash_report.cpp
+@@ -30,6 +30,7 @@ std::int64_t sceKernelGetDirectMemorySize();
+ std::int32_t sceKernelAvailableDirectMemorySize(std::int64_t, std::int64_t, std::size_t, std::int64_t*, std::size_t*);
+ std::size_t eden_heap_committed(void);
+ std::size_t eden_heap_large_held(unsigned* blocks);
++std::size_t eden_heap_last_failure(unsigned* why, std::size_t* count);
+ #endif
+ // The app's code, from the link (tools/unwind.ld).
+ extern const char __eden_text_start[];
+@@ -370,6 +371,16 @@ void Compose(const Kind* kind, int code, std::uint64_t address, const Registers&
+         t.Put(" MiB in ");
+         t.Dec(blocks);
+         t.Put(" large blocks\n");
++        unsigned failure_reason = 0;
++        std::size_t failure_count = 0;
++        const std::size_t failure_bytes = eden_heap_last_failure(&failure_reason, &failure_count);
++        t.Put("heap allocation failures (global snapshot): count ");
++        t.Dec(failure_count);
++        t.Put(", last request bytes ");
++        t.Dec(failure_bytes);
++        t.Put(", reason ");
++        t.Dec(failure_reason);
++        t.Put(" (1=no space, 2=no memory, 3=limit, 4=overflow)\n");
+     }
+ #endif
+     t.Put("registers:");
+@@ -397,6 +408,16 @@ void Compose(const Kind* kind, int code, std::uint64_t address, const Registers&
+         t.Put("  error 0x");
+         t.Hex(r.error);
+     }
++    unsigned char instruction[32];
++    t.Put("\ninstruction bytes at rip: ");
++    if (r.rip && Copy(reinterpret_cast<const void*>(r.rip), instruction, sizeof(instruction))) {
++        for (unsigned i = 0; i < sizeof(instruction); ++i) {
++            if (i) t.Put(' ');
++            t.Hex(instruction[i], 2);
++        }
++    } else {
++        t.Put("unreadable");
++    }
+     t.Put("\ncode: 0x");
+     t.Hex(CodeStart(), 16);
+     t.Put(" to 0x");
+diff --git a/headless/main.cpp b/headless/main.cpp
+index 76b7340..722414a 100644
+--- a/headless/main.cpp
++++ b/headless/main.cpp
+@@ -327,6 +327,7 @@ int main(int argc, char** argv) {
+         Eden::Crash::Install(Eden::LogsDir(), Eden::kAppVersion, last_crash.restarted);
+         Eden::BootTrace::Ready(Eden::LogsDir(), Eden::FilesystemAccess());
+         Eden::BootTrace::Line("logs and crash handler ready (%s)", Eden::LogsDir().c_str());
++        Eden::BootTrace::Line("local build: Zelda Test4-A (graphics and crash fixes)");
+         for (const char* folder : {"/app0", Eden::kMountedAppDir, Eden::kInstallDir, "/mnt/sandbox/PPSA98515_000/app0"})
+             Eden::BootTrace::Line("app folder candidate %s: eboot %s, font %s", folder,
+                                   Eden::FileExists(std::string{folder} + "/eboot.bin") ? "yes" : "no",
+@@ -1246,6 +1247,14 @@ int main(int argc, char** argv) {
+             if (speed.unsafe_dma) Settings::values.dma_accuracy.SetValue(Settings::DmaAccuracy::Unsafe);
+             Settings::values.use_reactive_flushing.SetValue(speed.reactive_flushing);
+             Settings::values.skip_cpu_inner_invalidation.SetValue(speed.skip_invalidation);
++            // This title's test profile keeps cache freshness independent of saved speed switches.
++            if (const char* safe_memory = std::getenv("EDEN_PS5_ZELDA_SAFE_MEMORY");
++                game_title == 0x0400486024DEC000ULL && safe_memory && safe_memory[0] == '1') {
++                Settings::values.cpu_accuracy = Settings::CpuAccuracy::Auto;
++                Settings::values.dma_accuracy.SetValue(Settings::DmaAccuracy::Default);
++                Settings::values.skip_cpu_inner_invalidation.SetValue(false);
++                Eden::Report("launch", "Zelda accuracy profile: CPU Auto, DMA Default, cache invalidation enabled");
++            }
+             {
+                 // Eden's gpu_fence_behavior has no setting here: EDEN_GPU_FENCE in env.txt
+                 // (immediate, balanced or accurate) chooses it, every session, like the levels
+diff --git a/headless/vulkan_surface.cpp b/headless/vulkan_surface.cpp
+index e48f002..262fa14 100644
+--- a/headless/vulkan_surface.cpp
++++ b/headless/vulkan_surface.cpp
+@@ -71,9 +71,10 @@ vk::SurfaceKHR CreateSurface(const vk::Instance& instance,
+     // buffer of each size to fill the screen (PS5_Mesa wsi_common_videoout.c), and at 1080p the five
+     // take 50 MiB. EDEN_VULKAN_FULL_FRAMEBUFFERS=1 keeps 3840x2160.
+     const char* const full_size = std::getenv("EDEN_VULKAN_FULL_FRAMEBUFFERS");
++    const bool selected_fast = mode.parameters.refreshRate >= 119000;
+     if (!full_size || full_size[0] != '1') {
+         for (const auto& candidate : modes) {
+-            if ((candidate.parameters.refreshRate >= 119000) == fast &&
++            if ((candidate.parameters.refreshRate >= 119000) == selected_fast &&
+                 static_cast<int>(candidate.parameters.visibleRegion.width) == Eden::Display::output_width.load() &&
+                 static_cast<int>(candidate.parameters.visibleRegion.height) == Eden::Display::output_height.load()) {
+                 mode = candidate;
+diff --git a/tools/check-crash-report.py b/tools/check-crash-report.py
+index 4a52967..468520d 100644
+--- a/tools/check-crash-report.py
++++ b/tools/check-crash-report.py
+@@ -70,6 +70,11 @@ extern "C" std::int32_t sceKernelAvailableDirectMemorySize(std::int64_t, std::in
+     return 0;
+ }
+ extern "C" std::size_t eden_heap_committed(void) { return std::size_t{256} << 20; }
++extern "C" std::size_t eden_heap_last_failure(unsigned* why, std::size_t* count) {
++    *why = 2;
++    *count = 5;
++    return 123456;
++}
+ extern "C" std::size_t eden_heap_large_held(unsigned* blocks) {
+     *blocks = 3;
+     return std::size_t{96} << 20;
+@@ -268,11 +273,13 @@ def check(binary, console):
+     assert middle and outer and middle[0] < outer[0], (calls, where)   # the callers, innermost first
+     assert not any(inside(offset, 'Innermost') for offset in calls)    # the fault itself is "where"
+     assert report.endswith('then: the app starts again\n')
++    assert re.search(r'^instruction bytes at rip: (?:[0-9a-f]{2} ){31}[0-9a-f]{2}$', report, re.M), report
+     assert note == reports[0].name + ' 1\n', note
+     assert 'EDEN_CRASH_REPORT installed=1 signals=7 ' in err and 'EDEN_CRASH what=SIGSEGV where=eboot+0x' in err
+     assert f'thread=CPUCore_1 report={reports[0]} restart=1' in err, err[-400:]
+     assert ('memory: largest free block 1234 MiB of 12288 MiB, heap 256 MiB and 96 MiB in 3 large blocks\n' in report) \
+         == console, report
++    assert ('heap allocation failures (global snapshot): count 5, last request bytes 123456, reason 2 ' in report) == console
+ 
+     # The functions, named from the report.
+     named = subprocess.run([sys.executable, str(root / 'tools/symbolize-crash.py'), str(reports[0]), str(binary)],
+diff --git a/tools/check-fence-requirements.py b/tools/check-fence-requirements.py
+index de9bafb..92c194e 100644
+--- a/tools/check-fence-requirements.py
++++ b/tools/check-fence-requirements.py
+@@ -1,68 +1,51 @@
+ #!/usr/bin/env python3
+-"""Exercise actual fence commit/signal code and diagnostic masks with mock caches."""
++"""Exercise actual T49 fence commit/signal paths, including pending query reports."""
+ from pathlib import Path
+ import subprocess
+-import tempfile
++from tempfile import TemporaryDirectory
+ 
+-root = Path(__file__).resolve().parents[1]
++root = Path.cwd()
+ source = (root / 'Eglantine/src/video_core/fence_manager.h').read_text()
+-diagnostic = (root / 'Eglantine/src/video_core/readback_diagnostics.h').read_text()
+-
+-
+-def body(text, signature):
+-    start = text.index(signature)
+-    end = text.index('{', start) + 1
++def body(signature):
++    start = source.index(signature)
++    end = source.index('{', start) + 1
+     depth = 1
+     while depth:
+-        depth += (text[end] == '{') - (text[end] == '}')
++        depth += (source[end] == '{') - (source[end] == '}')
+         end += 1
+-    return text[start:end]
+-
++    return source[start:end]
+ 
+ code = r'''
+-#include <array>
+ #include <cassert>
+-#include <chrono>
++#include <condition_variable>
+ #include <functional>
+ #include <memory>
+ #include <mutex>
+ #include <queue>
+ #include <utility>
+ #include <vector>
+-using u64=unsigned long long;using u8=unsigned char;
+-template<class F>struct Exit { F fn;~Exit(){fn();} };
+-struct ExitMaker { template<class F>auto operator+(F fn){return Exit<F>{std::move(fn)};} };
+-#define SCOPE_EXIT auto exit=ExitMaker{}+[&]()
++using u8=unsigned char;
+ namespace Settings {
+ inline bool delayed{};
+-bool IsGPUFenceBehaviorDefault(){return false;}bool IsGPULevelHigh(){return false;}
+-bool IsGPUFenceBehaviorBalanced(){return delayed;}bool IsGPUFenceBehaviorAccurate(){return false;}
++bool IsGPUFenceBehaviorDefault(){return false;} bool IsGPULevelHigh(){return false;}
++bool IsGPUFenceBehaviorBalanced(){return delayed;} bool IsGPUFenceBehaviorAccurate(){return false;}
+ }
++namespace VideoCore {inline thread_local bool g_signaling_query_report_fence=false;}
+ namespace VideoCommon {
+-namespace Nx2Profile {enum class Zone{Fence,FenceSkipped};struct Scope{Scope(Zone){}};}
+-namespace ReadbackDiagnostics {
+-enum class Event { Count };
+-struct Measurement {};
+-inline bool enabled=true;
+-bool Enabled(){return enabled;}
+-'''
+-code += body(diagnostic, 'struct ThreadData') + ';\ninline thread_local ThreadData data;\n'
+-code += body(diagnostic, 'inline void CountFence') + '\n}\n'
+-code += r'''
++namespace Nx2Profile {enum class Zone{Fence,FenceSkipped};struct Scope{explicit Scope(Zone){}};}
+ struct Cache {
+  std::mutex mutex;bool pending{},side_work{};unsigned checks{},commits{};
+  bool HasUncommittedFlushes(){++checks;return pending;}
+  bool HasAsyncFlushWork(){return pending||side_work;}
+  void CommitAsyncFlushes(){++commits;pending=false;}
+ };
+-struct Gpu {unsigned begins{},ends{};void BeginAsyncGuestWrite(){++begins;}void EndAsyncGuestWrite(){++ends;}};
+ struct Raster {unsigned invalidates{},flushes{};void InvalidateGPUCache(){++invalidates;}void FlushCommands(){++flushes;}};
+ struct TestFence {bool stubbed;};
+ struct Manager {
+  using TFence=std::shared_ptr<TestFence>;
+  static constexpr bool can_async_check=false;
+  static constexpr u8 TextureFlushes=1,BufferFlushes=2;
+- Cache texture_cache,buffer_cache,query_cache;Gpu gpu;Raster rasterizer;
++ Cache texture_cache,buffer_cache,query_cache;Raster rasterizer;
+  std::mutex guard,uncommitted_guard;std::condition_variable cv;
+  unsigned skipped_fences{},queued{};bool skip{};
+  std::vector<std::function<void()>> uncommitted_operations;
+@@ -72,44 +55,35 @@ struct Manager {
+  bool SkipEmptyFence(){return skip;}
+  TFence CreateFence(bool stubbed){return std::make_shared<TestFence>(TestFence{stubbed});}
+  void QueueFence(const TFence&){++queued;}
+- struct CacheFlushes{bool should_flush;u8 committed;u8 required;};
+-'''
+-code += body(source, 'CacheFlushes CommitCacheFlushes()') + '\n'
+-code += body(source, 'void SignalFence(std::function<void()>&& func)') + '\n};\n}\n'
+-code += r'''
++ struct CacheFlushes{bool should_flush;u8 committed;};
++''' + body('CacheFlushes CommitCacheFlushes()') + '\n' + body('void SignalFence(std::function<void()>&& func)') + r'''
++};
++}
+ int main(){
+  using namespace VideoCommon;
+- for(bool delayed:{false,true})for(unsigned mask=0;mask<8;++mask){
+-  Settings::delayed=delayed;ReadbackDiagnostics::data={};Manager m;
++ for(bool query:{false,true})for(bool delayed:{false,true})for(unsigned mask=0;mask<8;++mask){
++  Settings::delayed=delayed;VideoCore::g_signaling_query_report_fence=query;Manager m;m.skip=query;
+   m.texture_cache.pending=mask&1;m.buffer_cache.pending=mask&2;m.query_cache.pending=mask&4;
+   unsigned callbacks{};m.SignalFence([&]{++callbacks;});
+   assert(m.queued==1&&m.fences.size()==1&&m.fences.front()->stubbed==(mask==0));
+-  assert(ReadbackDiagnostics::data.fence_masks[mask]==1&&!ReadbackDiagnostics::data.skipped_empty_fences);
+   assert(m.texture_cache.checks==1&&m.buffer_cache.checks==1&&m.query_cache.checks==1);
+   assert(m.texture_cache.commits==bool(mask&1)&&m.buffer_cache.commits==bool(mask&2)&&m.query_cache.commits==1);
+   assert(m.pending_flushes.back()==(mask&3)&&m.rasterizer.flushes==bool(mask));
+-  assert(callbacks==!delayed&&m.rasterizer.invalidates==1&&m.gpu.begins==m.gpu.ends);
+-  if(delayed){assert(m.pending_operations.back().size()==1);m.pending_operations.back()[0]();assert(callbacks==1);}
++  assert(callbacks==!(query||delayed)&&m.rasterizer.invalidates==1);
++  if(query||delayed){assert(m.pending_operations.back().size()==1);m.pending_operations.back()[0]();assert(callbacks==1);}
+  }
+- Settings::delayed=false;ReadbackDiagnostics::data={};
++ VideoCore::g_signaling_query_report_fence=false;Settings::delayed=false;
+  {Manager m;m.skip=true;unsigned calls{};m.SignalFence([&]{++calls;});
+-  assert(calls==1&&!m.queued&&ReadbackDiagnostics::data.skipped_empty_fences==1);
+-  assert(!m.query_cache.checks&&!m.query_cache.commits&&m.gpu.begins==m.gpu.ends);}
+- ReadbackDiagnostics::data={};
+- {Manager m;m.texture_cache.side_work=true;unsigned calls{};m.SignalFence([&]{++calls;});
++  assert(calls==1&&!m.queued&&!m.query_cache.checks&&!m.query_cache.commits);}
++ {Manager m;m.texture_cache.side_work=true;m.SignalFence([]{});
+   assert(m.queued==1&&m.fences.front()->stubbed&&m.texture_cache.commits==1);
+-  assert(m.pending_flushes.back()==1&&!m.rasterizer.flushes&&ReadbackDiagnostics::data.fence_masks[0]==1);}
+- ReadbackDiagnostics::enabled=false;ReadbackDiagnostics::data={};
+- {Manager m;m.buffer_cache.pending=true;m.SignalFence([]{});assert(m.queued==1&&m.rasterizer.flushes==1);}
+- for(auto n:ReadbackDiagnostics::data.fence_masks)assert(n==0);
++  assert(m.pending_flushes.back()==1&&!m.rasterizer.flushes);}
+ }
+ '''
+-# SignalFence names cv in its discarded asynchronous branch.
+-code = '#include <condition_variable>\n' + code
+-with tempfile.TemporaryDirectory(prefix='fence-requirements-') as temp:
+-    path = Path(temp)
+-    (path / 'check.cpp').write_text(code)
+-    subprocess.run(['clang++-18', '-std=c++20', '-O1', '-g', '-pthread',
+-                    '-fsanitize=address,undefined', str(path / 'check.cpp'), '-o', str(path / 'check')], check=True)
+-    subprocess.run([str(path / 'check')], check=True, timeout=10)
+-print('Fence requirements PASS: all masks in immediate/delayed modes, precommit requirements, empty skip, side-work stub, disabled counters and callback ordering')
++with TemporaryDirectory(prefix='zelda-query-fences-') as directory:
++    work = Path(directory)
++    (work / 'check.cpp').write_text(code)
++    subprocess.run(['clang++-18', '-std=c++20', '-Wall', '-Wextra', '-Werror', '-O1', '-g', '-pthread',
++                    '-fsanitize=address,undefined', str(work / 'check.cpp'), '-o', str(work / 'check')], check=True)
++    subprocess.run([str(work / 'check')], check=True)
++print('Fence requirements PASS: 32 query/accuracy/cache combinations, empty skip, side-work and callback ordering')
+diff --git a/tools/check-gpu-producer-stop.py b/tools/check-gpu-producer-stop.py
+index 5ffa2c7..ae27910 100644
+--- a/tools/check-gpu-producer-stop.py
++++ b/tools/check-gpu-producer-stop.py
+@@ -1,18 +1,28 @@
+ #!/usr/bin/env python3
+-"""Check generated GPU publication, ordering and cancellation without a consumer."""
++"""Check the pinned generated GPU FIFO, fence watermark and stop cancellation."""
+ from pathlib import Path
+ import subprocess, tempfile
+-root=Path(__file__).resolve().parents[1]
+-cache=Path((root/'.local/headless-cache').read_text().strip())
+-worker=(cache/'native-local/headless/gpu_thread.cpp').read_text()
+-start=worker.index('u64 ThreadManager::PushCommand(')
+-body=worker[start:worker.index('\n} // namespace',start)]
++
++root = Path(__file__).resolve().parents[1]
++cache = Path((root / '.local/headless-cache').read_text().strip())
++worker = (cache / 'native-local/headless/gpu_thread.cpp').read_text()
++header = (cache / 'native-local/headless/include/video_core/gpu_thread.h').read_text()
++start = worker.index('u64 ThreadManager::PushCommand(')
++body = worker[start:worker.index('\n} // namespace', start)]
+ assert 'state.queue.EmplaceWait(' not in body
+-signal_start=worker.index('void SignalCommand(')
+-signal_body=worker[signal_start:worker.index('\n} // Anonymous namespace',signal_start)]
+-main=(root/'headless/main.cpp').read_text()
++assert 'state.queue.TryEmplace(std::move(command_data), fence, block)' in body
++assert 'return fence <= state.signaled_fence.load(std::memory_order_relaxed);' in body
++assert 'state.cv.wait(lk, stop_source.get_token(),' in body
++signal_start = worker.index('void SignalCommand(')
++signal_body = worker[signal_start:worker.index('\n} // Anonymous namespace', signal_start)]
++assert 'void SignalCommand(SynchState& state, u64 fence, bool block)' in signal_body
++assert 'state.signaled_fence.store(fence);' in signal_body
++assert signal_body.index('state.signaled_fence.store(fence);') < signal_body.index('std::scoped_lock lk{state.write_lock};')
++assert 'state.cv.notify_all();' in signal_body
++assert 'bool block{};' in header and 'HostCommandCompletion' not in header
++main = (root / 'headless/main.cpp').read_text()
+ assert 'system.Pause();' not in main
+-code=r'''
++code = r'''
+ #include <array>
+ #include <variant>
+ #include <atomic>
+@@ -24,89 +34,144 @@ code=r'''
+ #include <stop_token>
+ #include <thread>
+ #include "common/host_command_queue.h"
+-#include "common/host_command_completion.h"
+-using u64=unsigned long long;
+-struct CpuReadCommand { struct Diagnostic { unsigned before_lock{}, wait_begin{}, wait_end{}; }* diagnostic{}; };
+-using CommandData=std::variant<int,CpuReadCommand>;
+-namespace ReadbackDependencyDiagnostics { inline unsigned Now() { return 0; } }
+-namespace VideoCommon { struct GpuSplit { static GpuSplit& Get() { static GpuSplit split; return split; } void Stop() {} }; }
+-struct Item { CommandData command{}; u64 fence{}; std::shared_ptr<Common::HostCommandCompletion> completion; u64 sequence{}; };
+-struct SynchState { std::mutex write_lock, fence_mutex; u64 last_fence{}; std::atomic<u64> signaled_fence{},published_work_sequence{}; bool shutting_down{};
+-          Common::HostCommandQueue<Item> queue; std::condition_variable_any fence_cv; };
++using u64 = unsigned long long;
++using CommandData = std::variant<int>;
++struct Item { CommandData command{}; u64 fence{}; bool block{}; };
++struct SynchState {
++ std::mutex write_lock;
++ Common::HostCommandQueue<Item> queue;
++ u64 last_fence{};
++ std::atomic<u64> signaled_fence{};
++ std::condition_variable_any cv;
++};
++namespace VideoCommon {
++struct GpuSplit {
++ static GpuSplit& Get() { static GpuSplit split; return split; }
++ void Stop() {}
++};
++}
+ struct ThreadManager {
+  SynchState state;
+  std::stop_source stop_source;
+- u64 PushCommand(CommandData&&,bool,bool);
+- // The worker file defines these after PushCommand; here there is no worker to end.
++ u64 PushCommand(CommandData&&, bool, bool);
+  void NotifyShutdown();
+- void InvalidateReadbackCache() {}
+  void Stop() { stop_source.request_stop(); }
+ };
+-// headless/CMakeLists.txt times a push that found the queue full (gpu_queue_full), so the body
+-// below carries Eden's Timer. This standalone TU does not include headless/performance.h - whose
+-// clock is an extern the test would have to link - so the Timer is stubbed here: two atomics and
+-// a clock read on scope exit cannot change what the queue does.
+-namespace Eden::Performance {
+-struct Totals { std::atomic<unsigned long long> calls{}, nanoseconds{}, requested_bytes{}; };
+-inline Totals gpu_queue_full;
+-class Timer {
+-public:
+-    explicit Timer(Totals&, unsigned long long = 0) {}
+-};
+-} // namespace Eden::Performance
+-'''+signal_body+'\n'+body+r'''
++''' + signal_body + '\n' + body + r'''
++Item Pop(ThreadManager& manager) {
++ Item item;
++ const auto deadline = std::chrono::steady_clock::now() + std::chrono::seconds(2);
++ while (!manager.state.queue.TryPop(item)) {
++   assert(std::chrono::steady_clock::now() < deadline);
++   std::this_thread::yield();
++ }
++ return item;
++}
+ int main() {
+  ThreadManager manager;
+- // Publication must exceed the old ring capacity without waiting for a consumer
+- // which may itself be waiting for a producer-held registry lock.
+- constexpr int count=16384;
+- for(int i=0;i<count;++i) assert(manager.PushCommand(int{i},false,true)==u64(i+1));
++ // Exceed the former bounded queue capacity without a consumer.
++ constexpr int count = 16384;
++ for (int i = 0; i < count; ++i)
++   assert(manager.PushCommand(int{i}, false, true) == u64(i + 1));
+  Item item;
+- for(int i=0;i<count;++i) {
++ for (int i = 0; i < count; ++i) {
+    assert(manager.state.queue.TryPop(item));
+-   assert(std::get<int>(item.command)==i && item.fence==u64(i+1));
++   assert(std::get<int>(item.command) == i && item.fence == u64(i + 1));
++   assert(!item.block);
+  }
+  assert(!manager.state.queue.TryPop(item));
+  manager.stop_source.request_stop();
+- assert(manager.PushCommand(4,false,true)==0);
++ assert(manager.PushCommand(4, false, true) == 0);
+  assert(!manager.state.queue.TryPop(item));
++
++ // Synchronous mode forces block=true; cancellation must release its fence wait.
+  ThreadManager synchronous;
+- auto fence_wait=std::async(std::launch::async,[&]{return synchronous.PushCommand(5,true,false);});
+- assert(fence_wait.wait_for(std::chrono::milliseconds(10))==std::future_status::timeout);
++ auto fence_wait = std::async(std::launch::async, [&] {
++   return synchronous.PushCommand(5, false, false);
++ });
++ const Item synchronous_item = Pop(synchronous);
++ assert(synchronous_item.fence == 1 && synchronous_item.block);
++ assert(fence_wait.wait_for(std::chrono::milliseconds(10)) == std::future_status::timeout);
+  synchronous.stop_source.request_stop();
+- assert(fence_wait.wait_for(std::chrono::seconds(1))==std::future_status::ready);
+- fence_wait.get();
+- // Completion before parking and completion while parked must both publish read results.
+- ThreadManager completed;
+- auto completing = std::async(std::launch::async,[&]{return completed.PushCommand(6,true,true);});
+- Item completion_item;
+- while(!completed.state.queue.TryPop(completion_item)) std::this_thread::yield();
+- completed.state.signaled_fence.store(100); // An unrelated watermark is not this request's completion.
+- assert(completing.wait_for(std::chrono::milliseconds(10))==std::future_status::timeout);
+- SignalCommand(completed.state,completion_item.fence,completion_item.completion);
+- assert(completing.get()==1);
+- ThreadManager ordered;
+- std::array<std::future<u64>,8> waits;
+- for(auto& wait:waits) wait=std::async(std::launch::async,[&]{return ordered.PushCommand(7,true,true);});
+- std::array<Item,8> items;
+- for(auto& pending:items) {
+-   const auto deadline=std::chrono::steady_clock::now()+std::chrono::seconds(1);
+-   while(!ordered.state.queue.TryPop(pending)) {
+-     assert(std::chrono::steady_clock::now()<deadline);
++ assert(fence_wait.wait_for(std::chrono::seconds(1)) == std::future_status::ready);
++ assert(fence_wait.get() == 1);
++ assert(synchronous.state.signaled_fence.load() == 0);
++ assert(!synchronous.state.queue.TryPop(item));
++
++ // The pinned worker publishes its cumulative fence before taking write_lock.
++ // A nonblocking command signals without taking write_lock at all.
++ ThreadManager published;
++ {
++   std::unique_lock held(published.state.write_lock);
++   SignalCommand(published.state, 0, false);
++   auto signal = std::async(std::launch::async, [&] { SignalCommand(published.state, 1, true); });
++   const auto deadline = std::chrono::steady_clock::now() + std::chrono::seconds(1);
++   while (published.state.signaled_fence.load() != 1) {
++     assert(std::chrono::steady_clock::now() < deadline);
+      std::this_thread::yield();
+    }
++   assert(signal.wait_for(std::chrono::milliseconds(10)) == std::future_status::timeout);
++   held.unlock();
++   assert(signal.wait_for(std::chrono::seconds(1)) == std::future_status::ready);
++   signal.get();
++ }
++ // A completion already published before the wait must satisfy the predicate immediately.
++ assert(published.PushCommand(6, true, true) == 1);
++ item = Pop(published);
++ assert(item.fence == 1 && item.block && std::get<int>(item.command) == 6);
++
++ // Completion after parking wakes the caller and returns its own fence.
++ ThreadManager completed;
++ auto completing = std::async(std::launch::async, [&] {
++   return completed.PushCommand(6, true, true);
++ });
++ const Item completion_item = Pop(completed);
++ assert(completion_item.fence == 1 && completion_item.block);
++ assert(completing.wait_for(std::chrono::milliseconds(10)) == std::future_status::timeout);
++ SignalCommand(completed.state, completion_item.fence, completion_item.block);
++ assert(completing.wait_for(std::chrono::seconds(1)) == std::future_status::ready);
++ assert(completing.get() == 1);
++
++ // The current completion protocol is an ordered cumulative watermark, not a
++ // per-request completion object. Each FIFO signal releases only its prefix.
++ ThreadManager ordered;
++ std::array<std::future<u64>, 8> waits;
++ for (int i = 0; i < int(waits.size()); ++i)
++   waits[i] = std::async(std::launch::async, [&, i] { return ordered.PushCommand(int{i}, true, true); });
++ std::array<Item, 8> items;
++ for (int i = 0; i < int(items.size()); ++i) {
++   items[i] = Pop(ordered);
++   assert(items[i].fence == u64(i + 1) && items[i].block);
++ }
++ SignalCommand(ordered.state, 0, true);
++ for (auto& wait : waits)
++   assert(wait.wait_for(std::chrono::milliseconds(1)) == std::future_status::timeout);
++ for (int i = 0; i < int(items.size()); ++i) {
++   const Item& pending = items[i];
++   const int producer = std::get<int>(pending.command);
++   SignalCommand(ordered.state, pending.fence, pending.block);
++   assert(ordered.state.signaled_fence.load() == pending.fence);
++   assert(waits[producer].wait_for(std::chrono::seconds(1)) == std::future_status::ready);
++   assert(waits[producer].get() == pending.fence);
++   for (int later = i + 1; later < int(items.size()); ++later)
++     assert(waits[std::get<int>(items[later].command)].wait_for(std::chrono::milliseconds(1)) ==
++            std::future_status::timeout);
+  }
+- for(const auto& pending:items) SignalCommand(ordered.state,pending.fence,pending.completion);
+- for(auto& wait:waits) assert(wait.wait_for(std::chrono::seconds(1))==std::future_status::ready);
+- for(auto& wait:waits) assert(wait.get()<=8);
+- // Cancellation must also work if already requested before the wait registers its callback.
++ assert(!ordered.state.queue.TryPop(item));
++
++ // Stop requested before callback registration must also prevent publication.
+  ThreadManager cancelled;
+  cancelled.stop_source.request_stop();
+- assert(cancelled.PushCommand(8,true,true)==0);
++ assert(cancelled.PushCommand(8, true, true) == 0);
++ assert(!cancelled.state.queue.TryPop(item));
+ }
+ '''
+ with tempfile.TemporaryDirectory() as tmp:
+- p=Path(tmp)/'check.cpp';p.write_text(code);exe=Path(tmp)/'check'
+- subprocess.run(['c++','-std=c++20','-pthread','-fsanitize=address,undefined','-I'+str(cache/'source/src'),str(p),'-o',str(exe)],check=True)
+- subprocess.run([str(exe)],check=True,timeout=10)
+-print('GPU producer: PASS 16384 publications without consumer, FIFO contents/fences, stopped enqueue/fence wait, completion before parking and eight ordered concurrent waiters')
+\ No newline at end of file
++    source = Path(tmp) / 'check.cpp'
++    source.write_text(code)
++    executable = Path(tmp) / 'check'
++    subprocess.run(['c++', '-std=c++20', '-pthread', '-fsanitize=address,undefined',
++                    '-fno-omit-frame-pointer', '-I' + str(cache / 'source/src'),
++                    str(source), '-o', str(executable)], check=True)
++    subprocess.run([str(executable)], check=True, timeout=10)
++print('GPU producer: PASS 16384 FIFO publications, exact pinned fence/block ordering, stopped enqueue and synchronous wait, completion before/after parking, eight ordered concurrent waiters')
+\ No newline at end of file
+diff --git a/tools/check-gpu-sync-stop.py b/tools/check-gpu-sync-stop.py
+index a48e5fa..a875959 100644
+--- a/tools/check-gpu-sync-stop.py
++++ b/tools/check-gpu-sync-stop.py
+@@ -15,6 +15,8 @@ code=r'''
+ #include <semaphore>
+ #include <thread>
+ using u64=unsigned long long;
++using u32=unsigned;
++#define LOG_WARNING(...) ((void)0)
+ struct Worker {std::thread t;std::atomic_bool stopping{};void Stop(){stopping=true;if(t.joinable())t.join();}void TickGPU(bool){}void InvalidateReadbackCache(){}};
+ struct GPU {
+  std::mutex sync_request_mutex,sync_mutex;
+@@ -68,6 +70,7 @@ code=r'''
+ #include <mutex>
+ #include <thread>
+ using u32=unsigned;
++#define LOG_WARNING(...) ((void)0)
+ void DrainBack(){} // the GPU thread split's wait for its back thread (engines/puller.cpp)
+ struct System{std::atomic_bool stop{};bool IsShuttingDown(){return stop;}};
+ struct DMA {System system;std::mutex sync_mutex;std::condition_variable sync_cv;bool synced{};
+@@ -77,6 +80,8 @@ bool Wait(){
+ };
+ struct Memory {std::atomic<u32> value{};template<class T>T Read(unsigned){return value.load();}};
+ struct Raster {std::atomic_uint calls{};void ReleaseFences(){++calls;}};
++void ReleaseFencesOnBack(Raster* raster) { raster->ReleaseFences(); } // Stand-in for the split back thread.
++
+ struct DmaPusher {System system;Memory memory_manager;Raster raster;Raster*rasterizer=&raster;};
+ struct Puller {struct Regs {struct Address{unsigned SemaphoreAddress(){return 0;}}semaphore_address;u32 semaphore_acquire=4,acquire_value{};bool acquire_active{},acquire_mode{},acquire_source{};}regs;
+ void ProcessSemaphoreAcquire(DmaPusher&dma_pusher){
+diff --git a/tools/patch-radv-series.py b/tools/patch-radv-series.py
+index 91dee3e..1619dda 100755
+--- a/tools/patch-radv-series.py
++++ b/tools/patch-radv-series.py
+@@ -18,7 +18,7 @@ import subprocess
+ import sys
+ 
+ root = Path(__file__).resolve().parents[1]
+-series = sorted((root/'tools/patch-radv-series').glob('*.patch'))
++series = (sorted((root/'tools/patch-radv-series').glob('*.patch')) + sorted((root/'tools/radv-patches').glob('*.patch')))
+ pristine = root.parent/'mihawk-mesa-review'
+ overlay = root.parent/'mihawk-vulkan-review/.deps/work/radv-series'
+ export = root.parent/'mihawk-vulkan-review/.deps/work/radv-src'
+diff --git a/tools/patch-radv-wsi.py b/tools/patch-radv-wsi.py
+index 61a95c8..20fd54a 100644
+--- a/tools/patch-radv-wsi.py
++++ b/tools/patch-radv-wsi.py
+@@ -313,14 +313,15 @@ radv_ps5_memory_grant_gpu(void *address, uint64_t bytes)
+     # EglantinePS5: the emulated task memory (69 MiB) and the publish ring (16 MiB) are made with the
+     # device whether or not a mesh draw ever comes, and with EDEN_NX2_NO_MESH none does: every use is
+     # in a mesh or task draw (radv_task_emu_begin refuses cleanly without the first). With
+-    # EDEN_RADV_NO_MESH_BUFFERS=1 and EDEN_NX2_NO_MESH set (the core's test: set at all), and no
++    # EDEN_RADV_NO_MESH_BUFFERS=1 and EDEN_NX2_NO_MESH set and not 0, and no
+     # EDEN_NX2_NO_MESH_FILE, which can turn mesh draws back on, they are not made.
+     'src/amd/vulkan/radv_device.c': [
+         ('   /* Zeroed, as every draw packet leaves it; its address goes in a record\'s\n    * 32 bits. */\n'
+          '   if (device->vk.enabled_features.meshShader && radv_mesh_draw_records_enabled(pdev) &&\n',
+          '   const char *const eden_no_mesh_buffers = getenv("EDEN_RADV_NO_MESH_BUFFERS");\n'
++         '   const char *const eden_no_mesh = getenv("EDEN_NX2_NO_MESH");\n'
+          '   const bool eden_mesh_buffers = !(eden_no_mesh_buffers && eden_no_mesh_buffers[0] == \'1\' &&\n'
+-         '                                    getenv("EDEN_NX2_NO_MESH") && !getenv("EDEN_NX2_NO_MESH_FILE"));\n'
++         '                                    eden_no_mesh && eden_no_mesh[0] != \'0\' && !getenv("EDEN_NX2_NO_MESH_FILE"));\n'
+          '   if (!eden_mesh_buffers)\n'
+          '      fprintf(stderr, "radv/ps5: no mesh draws in this run: task memory and publish ring not made\\n");\n\n'
+          '   /* Zeroed, as every draw packet leaves it; its address goes in a record\'s\n    * 32 bits. */\n'
+@@ -366,7 +367,7 @@ radv_ps5_memory_grant_gpu(void *address, uint64_t bytes)
+ # The driver is rebuilt when the WSI text's hash changes (--check, tools/prepare-build.sh): the
+ # driver adaptations' digest goes into that text as a comment, so a change to them rebuilds it too.
+ # The driver series (tools/patch-radv-series.py) counts the same way.
+-series = [patch.read_bytes() for patch in sorted((root/'tools/patch-radv-series').glob('*.patch'))]
++series = [patch.read_bytes() for patch in (sorted((root/'tools/patch-radv-series').glob('*.patch')) + sorted((root/'tools/radv-patches').glob('*.patch')))]
+ text += '\n/* EglantinePS5 driver adaptations: ' + hashlib.sha256(repr((sorted(DRIVER_ADAPTATIONS.items()), series)).encode()).hexdigest() + ' */\n'
+ if sys.argv[1:2] == ['--check']:
+     # Is the driver that was built (its recorded display source, EDEN_WSI_SHA256) this adaptation?

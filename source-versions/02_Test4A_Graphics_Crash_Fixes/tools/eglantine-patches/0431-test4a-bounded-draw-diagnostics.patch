@@ -1,0 +1,16 @@
+diff --git a/src/video_core/renderer_vulkan/vk_rasterizer.cpp b/src/video_core/renderer_vulkan/vk_rasterizer.cpp
+--- a/src/video_core/renderer_vulkan/vk_rasterizer.cpp
++++ b/src/video_core/renderer_vulkan/vk_rasterizer.cpp
+@@ -647,7 +647,11 @@
+         auto& native = maxwell3d->GetNativeMacroEngine();
+         if (native.native_turing && !submitted) {
+             native.native_execution_failed = true;
+-            LOG_DEBUG(HW_GPU, "Native graphics draw failed; refusing submission completion");
++            static std::atomic<u64> failures{};
++            const u64 count = failures.fetch_add(1, std::memory_order_relaxed) + 1;
++            if (count <= 8 || (count & 1023) == 0) {
++                LOG_WARNING(HW_GPU, "Native graphics draw was not submitted: failures={}; inspect preceding pipeline/shader diagnostics", count);
++            }
+         }
+     };
+     namespace Profile = VideoCommon::Nx2Profile;

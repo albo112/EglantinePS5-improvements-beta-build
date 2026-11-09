@@ -1,0 +1,133 @@
+diff --git a/src/compiler/nir/nir_opt_copy_prop_vars.c b/src/compiler/nir/nir_opt_copy_prop_vars.c
+--- a/src/compiler/nir/nir_opt_copy_prop_vars.c
++++ b/src/compiler/nir/nir_opt_copy_prop_vars.c
+@@ -27,8 +27,18 @@
+ 
+ #include "util/bitscan.h"
+ #include "util/u_dynarray.h"
++#include "util/u_atomic.h"
+ 
+ static const bool debug = false;
++
++static void
++report_copy_prop_oom(void)
++{
++   static int reports;
++   if (p_atomic_read(&reports) < 8 && p_atomic_inc_return(&reports) <= 8)
++      fprintf(stderr, "EglantinePS5 Test4-A: NIR copy propagation stopped on allocation failure; retaining valid shader IR\n");
++}
++
+ 
+ /**
+  * Variable-based copy propagation
+@@ -123,6 +133,7 @@
+    bool has_non_ssa_src_entries;
+ 
+    bool progress;
++   bool out_of_memory;
+ };
+ 
+ static nir_component_mask_t
+@@ -416,8 +427,13 @@
+    struct copy_entry new_entry = {
+       .dst = *deref,
+    };
+-   util_dynarray_append(copies_array, new_entry);
+-   return util_dynarray_top_ptr(copies_array, struct copy_entry);
++   struct copy_entry *entry = util_dynarray_grow(copies_array, struct copy_entry, 1);
++   if (!entry) {
++      state->out_of_memory = true;
++      return NULL;
++   }
++   *entry = new_entry;
++   return entry;
+ }
+ 
+ /* Remove copy entry by swapping it with the last element and reducing the
+@@ -1219,6 +1235,8 @@
+ 
+          if (!entry)
+             entry = copy_entry_create(state, copies, &vec_src);
++         if (!entry)
++            return;
+ 
+          /* Update the entry with the value of the load.  This way
+           * we can potentially remove subsequent loads.
+@@ -1314,6 +1332,8 @@
+             unsigned wrmask = nir_intrinsic_write_mask(intrin);
+             struct copy_entry *entry =
+                get_entry_and_kill_aliases(state, copies, &vec_dst, wrmask);
++            if (!entry)
++               return;
+             value_set_from_value(&entry->src, &value, vec_index, wrmask);
+          }
+ 
+@@ -1396,6 +1416,8 @@
+ 
+          struct copy_entry *dst_entry =
+             get_entry_and_kill_aliases(state, copies, &dst, full_mask);
++         if (!dst_entry)
++            return;
+          value_set_from_value(&dst_entry->src, &value, 0, full_mask);
+          break;
+       }
+@@ -1503,6 +1525,9 @@
+ copy_prop_vars_cf_node(struct copy_prop_var_state *state,
+                        struct copies *copies, nir_cf_node *cf_node)
+ {
++   if (state->out_of_memory)
++      return;
++
+    switch (cf_node->type) {
+    case nir_cf_node_function: {
+       nir_function_impl *impl = nir_cf_node_as_function(cf_node);
+@@ -1544,6 +1569,8 @@
+             copy_prop_vars_cf_node(state, then_copies, cf_node);
+ 
+          clear_copies_structure(state, then_copies);
++         if (state->out_of_memory)
++            return;
+       }
+ 
+       if (!exec_list_is_empty(&if_stmt->else_list)) {
+@@ -1554,6 +1581,8 @@
+             copy_prop_vars_cf_node(state, else_copies, cf_node);
+ 
+          clear_copies_structure(state, else_copies);
++         if (state->out_of_memory)
++            return;
+       }
+ 
+       /* Both branches copies can be ignored, since the effect of running both
+@@ -1595,6 +1624,10 @@
+ nir_copy_prop_vars_impl(nir_function_impl *impl)
+ {
+    void *mem_ctx = ralloc_context(NULL);
++   if (!mem_ctx) {
++      report_copy_prop_oom();
++      return false;
++   }
+ 
+    if (debug) {
+       nir_metadata_require(impl, nir_metadata_block_index);
+@@ -1607,6 +1640,11 @@
+       .lin_ctx = linear_context(mem_ctx),
+       .has_non_ssa_src_entries = false,
+    };
++   if (!state.lin_ctx) {
++      ralloc_free(mem_ctx);
++      report_copy_prop_oom();
++      return false;
++   }
+    _mesa_pointer_hash_table_init(&state.vars_written_map, mem_ctx);
+    list_inithead(&state.unused_copy_structs_list);
+ 
+@@ -1618,6 +1656,8 @@
+    nir_progress(impl_progress, impl, nir_metadata_control_flow);
+ 
+    ralloc_free(mem_ctx);
++   if (state.out_of_memory)
++      report_copy_prop_oom();
+    return state.progress;
+ }
+ 
