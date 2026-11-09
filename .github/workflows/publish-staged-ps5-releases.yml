@@ -1,0 +1,31 @@
+name: Publish staged EglantinePS5 release binaries
+
+on:
+  push:
+    branches: [release-staging]
+    paths:
+      - 'release-uploads/**'
+      - '.github/workflows/publish-staged-ps5-releases.yml'
+      - '.github/scripts/publish_staged_release_assets.py'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: staged-eglantine-releases
+  cancel-in-progress: false
+
+jobs:
+  publish-original-bundles:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - name: Checkout staging branch with original PS5 binaries and source modifications
+        uses: actions/checkout@v4
+      - name: Check GitHub CLI credentials and publish verified original release packages
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          python3 .github/scripts/publish_staged_release_assets.py
